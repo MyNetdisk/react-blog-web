@@ -23,6 +23,9 @@ COPY package.json /var/www/blog/package.json
 # 如果使用的境外服务器，无需使用淘宝的镜像源，即改为`RUN npm i`。
 RUN npm install --production --registry=https://registry.npm.taobao.org
 
+# 打包成线上部署文件
+RUN npm run build
+
 # 拷贝所有源码到工作目录
 COPY . /var/www/blog
 
