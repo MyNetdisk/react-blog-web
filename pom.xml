@@ -25,36 +25,16 @@
   
   <description>The Dockerfile is manually specified by the user</description>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-
-
   <build>
     <plugins>
        <plugin>
             <groupId>com.spotify</groupId>
             <artifactId>dockerfile-maven-plugin</artifactId>
             <version>1.3.6</version>
-            <!-- <configuration>
-                <imageName>mavendemo</imageName>
-                <dockerfile>docker/Dockerfile</dockerfile>
-                <contextDirectory>${project.basedir}</contextDirectory> 
+            <configuration>
                 <repository>${project.artifactId}</repository>
-            </configuration> -->
-            <executions>
-                <execution>
-                    <id>default</id>
-                    <goals>
-                        <goal>build</goal>
-                    </goals>
-                    <configuration>
-                        <!-- <repository>test/build-with-custom-dockerfile</repository> -->
-                        <contextDirectory>${project.artifactId}/docker</contextDirectory>
-                        <dockerfile>${project.artifactId}/docker/Dockerfile</dockerfile>
-                    </configuration>
-                </execution>
-            </executions>
+                <contextDirectory>${project.basedir}</contextDirectory> 
+            </configuration>
        </plugin>
     </plugins>
   </build>
