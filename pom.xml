@@ -42,8 +42,8 @@
                     </goals>
                     <configuration>
                         <!-- <repository>test/build-with-custom-dockerfile</repository> -->
-                        <contextDirectory>${project.basedir}</contextDirectory>
-                        <dockerfile>./docker/Dockerfile</dockerfile>
+                        <contextDirectory>blog</contextDirectory>
+                        <dockerfile>blog/docker/Dockerfile</dockerfile>
                     </configuration>
                 </execution>
             </executions>
