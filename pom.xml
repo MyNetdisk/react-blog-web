@@ -22,6 +22,14 @@
     用途：例如：0.0.1-SNAPSHOT，在M2_REPO目录下，将是：otowa/user/dao/user-dao/0.0.1-SNAPSHOT目录
   -->
   <version>1.0.0-SNAPSHOT</version>
+  
+  <description>The Dockerfile is manually specified by the user</description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+
   <build>
     <plugins>
        <plugin>
@@ -42,8 +50,8 @@
                     </goals>
                     <configuration>
                         <!-- <repository>test/build-with-custom-dockerfile</repository> -->
-                        <contextDirectory>blog</contextDirectory>
-                        <dockerfile>blog/docker/Dockerfile</dockerfile>
+                        <contextDirectory>${project.artifactId}/docker</contextDirectory>
+                        <dockerfile>${project.artifactId}/docker/Dockerfile</dockerfile>
                     </configuration>
                 </execution>
             </executions>
