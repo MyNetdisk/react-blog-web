@@ -30,8 +30,8 @@
             <version>1.3.6</version>
             <configuration>
                 <imageName>mavendemo</imageName>
-                <contextDirectory>${project.basedir}</contextDirectory> <!-- 指定 Dockerfile 路径-->
-                <dockerDirectory>${project.basedir}/docker</dockerDirectory>
+                <contextDirectory>${project.basedir}</contextDirectory> 
+                <dockerDirectory>${project.basedir}/docker/Dockerfile</dockerDirectory><!-- 指定 Dockerfile 路径-->
                 <!-- <repository>${project.artifactId}</repository> -->
             </configuration>
        </plugin>
