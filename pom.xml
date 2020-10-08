@@ -27,11 +27,11 @@
        <plugin>
             <groupId>com.spotify</groupId>
             <artifactId>dockerfile-maven-plugin</artifactId>
-            <version>${dockerfile-maven-version}</version>
+            <version>1.3.6</version>
             <configuration>
                 <imageName>mavendemo</imageName>
+                <dockerfile>${project.basedir}/docker/Dockerfile</dockerfile><!-- 指定 Dockerfile 路径-->
                 <contextDirectory>${project.basedir}</contextDirectory> 
-                <dockerfile>docker</dockerfile><!-- 指定 Dockerfile 路径-->
                 <!-- <repository>${project.artifactId}</repository> -->
             </configuration>
        </plugin>
