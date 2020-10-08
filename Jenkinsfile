@@ -9,7 +9,7 @@ def aliyun_url = "registry.cn-qingdao.aliyuncs.com/mynetdisk"
 //镜像库项目名称
 def aliyun_project = "blogs"
 //阿里云登录凭证id
-def aliyun_auth = 33374deb-5ae1-4278-97a5-8a8a93d5f269
+def aliyun_auth = "33374deb-5ae1-4278-97a5-8a8a93d5f269"
 
 node {
     try{
