@@ -43,7 +43,7 @@
                     <configuration>
                         <!-- <repository>test/build-with-custom-dockerfile</repository> -->
                         <contextDirectory>${project.basedir}</contextDirectory>
-                        <dockerfile>${project.basedir}/docker/Dockerfile</dockerfile>
+                        <dockerfile>./docker/Dockerfile</dockerfile>
                     </configuration>
                 </execution>
             </executions>
