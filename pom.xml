@@ -30,7 +30,7 @@
             <version>1.3.6</version>
             <configuration>
                 <imageName>mavendemo</imageName>
-                <dockerDirectory>${project.basedir}/docker</dockerDirectory> <!-- 指定 Dockerfile 路径-->
+                <dockerDirectory>${project.basedir}/blog/docker</dockerDirectory> <!-- 指定 Dockerfile 路径-->
                 <!-- <repository>${project.artifactId}</repository> -->
             </configuration>
        </plugin>
