@@ -6,14 +6,14 @@ import '../public/style/components/footer.css'
 const Footer = () => {
   return (
     <div className="footer-div">
-      <div>系统由 React+Node+Ant Desgin驱动 </div>
-      <a
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-        target="_blank"
-        rel="noopener noreferrer">
-        Powered by
-        <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
+      <div>
+        Powered by <a href="https://www.nextjs.cn/">Nextjs</a>
+      </div>
+      Copyright 2020-present&nbsp;
+      <a href="https://github.com/MyNetdisk" target="_blank" rel="noopener noreferrer">
+        MyNetdisk
       </a>
+      &nbsp;| MIT License
     </div>
   )
 }

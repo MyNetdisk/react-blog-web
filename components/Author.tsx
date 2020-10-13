@@ -1,7 +1,7 @@
 /** @format */
 import React from 'react'
 import {Avatar, Divider} from 'antd'
-import {GithubOutlined, QqOutlined, WechatOutlined} from '@ant-design/icons'
+import {GithubOutlined} from '@ant-design/icons'
 import '../public/style/components/author.css'
 
 const Author = () => {
@@ -14,11 +14,11 @@ const Author = () => {
         />
       </div>
       <div className="author-introduction">
-        大胖叨叨逼，专注前端12年。
+        Happy Coding <br /> Happy Life
         <Divider>社交账号</Divider>
-        <GithubOutlined style={{fontSize: '28px'}} className="account" />
-        <QqOutlined style={{fontSize: '28px'}} className="account" />
-        <WechatOutlined style={{fontSize: '28px'}} className="account" />
+        <a href="https://github.com/MyNetdisk">
+          <GithubOutlined style={{fontSize: '28px'}} className="account" />
+        </a>
       </div>
     </div>
   )
