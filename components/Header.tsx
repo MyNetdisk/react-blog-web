@@ -4,10 +4,11 @@ import React, {useState, useEffect} from 'react'
 import Router from 'next/router'
 import axios from 'axios'
 import '../public/style/components/header.css'
-import {Row, Col, Menu} from 'antd'
+import {Row, Col, Menu, Affix} from 'antd'
 import servicePath from '../config/apiUrl'
 
 const Header = () => {
+  const [top] = useState(0)
   const [navArray, setnavArray] = useState([])
   useEffect(() => {
     const fetchData = async () => {
@@ -29,21 +30,30 @@ const Header = () => {
   }
 
   return (
-    <div className="header">
-      <Row justify="center">
-        <Col xs={24} sm={24} md={10} lg={15} xl={12}>
-          <span className="header-logo">MyNetdisk</span>
-        </Col>
-        <Col xs={0} sm={0} md={14} lg={8} xl={6}>
-          <Menu mode="horizontal" onClick={handleClick}>
-            <Menu.Item key="0">网站首页</Menu.Item>
-            {navArray.map(item => {
-              return <Menu.Item key={item.Id}>{item.typeName}</Menu.Item>
-            })}
-          </Menu>
-        </Col>
-      </Row>
-    </div>
+    <header className="header">
+      <Affix offsetTop={top} className="header-affix">
+        <Row justify="center">
+          <Col xs={24} sm={24} md={10} lg={15} xl={12}>
+            <span className="header-logo">MyNetdisk</span>
+          </Col>
+          <Col xs={0} sm={0} md={14} lg={8} xl={6}>
+            <Menu mode="horizontal" onClick={handleClick}>
+              <Menu.Item key="0">网站首页</Menu.Item>
+              {navArray.map(item => {
+                return <Menu.Item key={item.Id}>{item.typeName}</Menu.Item>
+              })}
+            </Menu>
+          </Col>
+        </Row>
+      </Affix>
+      <div className="banner">
+        <div className="banner-container">
+          <div className="banner-center">
+            <h1>欢迎来到我的首页</h1>
+          </div>
+        </div>
+      </div>
+    </header>
   )
 }
 

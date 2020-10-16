@@ -1,15 +1,19 @@
 /** @format */
+
 .header {
-  background-color: #fff;
-  padding: 0.4rem;
+  background-image: url('/static/img/bg-wall.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   overflow: hidden;
-  height: 3.2rem;
+  box-sizing: border-box;
   border-bottom: 1px solid #ccc;
 }
 
 .header-logo {
   color: #1e90ff;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   text-align: left;
 }
 
@@ -19,17 +23,31 @@
   display: inline-block;
   padding-left: 0.3rem;
 }
-
+.header-affix {
+  height: 3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
 .ant-menu {
-  line-height: 2.8rem;
+  /* line-height: 3.6rem; */
+  background: none;
 }
 
 .ant-menu-item {
-  font-size: 0.7rem !important;
+  color: #2c3e50;
+  font-size: 1.2rem !important;
+  font-weight: 600;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
 .ant-menu-horizontal {
   border-bottom: none;
+}
+
+.banner {
+  border: 1px solid red;
+  height: 11rem;
+  line-height: 11rem;
+  text-align: center;
 }
