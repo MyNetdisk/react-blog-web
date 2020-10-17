@@ -9,6 +9,7 @@ import servicePath from '../config/apiUrl'
 
 const Header = () => {
   const [top] = useState(0)
+  const [navBg, setNavBg] = useState(true)
   const [navArray, setnavArray] = useState([])
   useEffect(() => {
     const fetchData = async () => {
@@ -29,10 +30,18 @@ const Header = () => {
     }
   }
 
+  const changeNavBg = e => {
+    if (e) {
+      setNavBg(true)
+    } else {
+      setNavBg(false)
+    }
+  }
+
   return (
     <header className="header">
-      <Affix offsetTop={top} className="header-affix">
-        <Row justify="center">
+      <Affix offsetTop={top} className="header-affix" onChange={changeNavBg}>
+        <Row justify="center" className={navBg ? 'header-nav-affix' : ''}>
           <Col xs={24} sm={24} md={10} lg={15} xl={12}>
             <span className="header-logo">MyNetdisk</span>
           </Col>
