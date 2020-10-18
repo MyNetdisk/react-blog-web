@@ -11,6 +11,8 @@
 }
 
 .header-logo {
+  display: inline-block;
+  line-height: 3rem;
   color: #1e90ff;
   font-size: 1.2rem;
   font-weight: 600;
@@ -29,16 +31,19 @@
   font-weight: 600;
 }
 .header-nav-affix {
-  background: #fff;
+  background-color: hsla(0, 0%, 100%, 0.8);
+  transition: all 0.6s linear;
+}
+.header-nav-affix.active {
+  background-color: #fff;
 }
 .ant-menu {
-  /* line-height: 3.6rem; */
   background: none;
 }
 
 .ant-menu-item {
   color: #2c3e50;
-  font-size: 1.2rem !important;
+  font-size: 1rem;
   font-weight: 600;
   padding-left: 1rem;
   padding-right: 1rem;
