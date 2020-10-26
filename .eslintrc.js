@@ -18,5 +18,7 @@ module.exports = {
   },
   rules: {
     'linebreak-style': ['off', 'windows'],
+    'jsx-a11y/label-has-associated-control': 'off',
+    'jsx-a11y/label-has-for': 'off',
   },
 }

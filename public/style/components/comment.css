@@ -1,0 +1,24 @@
+/** @format */
+
+#repond {
+  max-width: 100%;
+}
+
+.repond_title {
+  margin-top: 10px;
+  font-size: 2em;
+}
+
+#commentform {
+  margin: 5px 0 0 0;
+}
+
+#commentform p {
+  margin: 5px 0;
+}
+
+#conmentform input {
+  width: 250px;
+  margin: 0 5px 5px 0;
+  padding: 8px;
+}
