@@ -22,3 +22,17 @@
   margin: 0 5px 5px 0;
   padding: 8px;
 }
+
+.comment-count {
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.comment-loading {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.comment-list {
+  padding-top: 20px;
+}
