@@ -9,11 +9,15 @@ const Footer = () => {
       <div>
         Powered by <a href="https://www.nextjs.cn/">Nextjs</a>
       </div>
-      Copyright 2020-present&nbsp;
+      Copyright 2018-present&nbsp;
       <a href="https://github.com/MyNetdisk" target="_blank" rel="noopener noreferrer">
         MyNetdisk
       </a>
-      &nbsp;| MIT License
+      &nbsp;| <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC 4.0 BY-SA</a>
+      <br />
+      <a href="https://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">
+        湘ICP备2020019391号
+      </a>
     </div>
   )
 }

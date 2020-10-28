@@ -1,8 +1,9 @@
 /** @format */
 
 .footer-div {
-  padding: 1rem;
+  padding: 20px 0 40px 0;
   width: 100%;
-  color: #888;
+  color: #ababab;
   text-align: center;
+  background-color: #3c585c;
 }
