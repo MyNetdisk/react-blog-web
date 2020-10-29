@@ -81,7 +81,7 @@ export default function Detail(props: any) {
         <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
           <Author />
           <Advertise />
-          <Affix offsetTop={5}>
+          <Affix offsetTop={55}>
             <div className="detail-nav comm-box">
               <div className="nav-title">文章目录</div>
               {tocify && tocify.render()}
