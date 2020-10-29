@@ -2,10 +2,10 @@
 
 import Head from 'next/head'
 // import Link from 'next/link'
-import React from 'react'
+import React, {useState} from 'react'
 import {Row, Col, Breadcrumb, Affix} from 'antd'
 import axios from 'axios'
-import {CalendarOutlined, FolderOpenOutlined, FireOutlined} from '@ant-design/icons'
+import {CalendarOutlined, FolderOpenOutlined, FireOutlined, BookOutlined} from '@ant-design/icons'
 import marked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
@@ -19,6 +19,7 @@ import Tocify from '../components/tocify'
 import servicePath from '../config/apiUrl'
 
 export default function Detail(props: any) {
+  const [data] = useState(props)
   const tocify = new Tocify()
   const renderer = new marked.Renderer()
   renderer.heading = (text, level) => {
@@ -38,11 +39,11 @@ export default function Detail(props: any) {
     },
   })
   // eslint-disable-next-line react/destructuring-assignment
-  const html = marked(props.article_content)
+  const html = marked(data.article_content)
   return (
     <div className="container">
       <Head>
-        <title>Detail</title>
+        <title>{data.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
@@ -58,19 +59,19 @@ export default function Detail(props: any) {
             </Breadcrumb>
           </div>
           <div>
-            <div className="detail-title">阿里巴巴阿里巴巴</div>
+            <div className="detail-title">{data.title}</div>
             <div className="list-icon center">
               <span>
                 <CalendarOutlined />
-                2020-7-22
+                {data.addTime}
               </span>
               <span>
                 <FolderOpenOutlined />
-                视频教程
+                {data.typeName}
               </span>
               <span>
                 <FireOutlined />
-                2000人
+                {data.view_count}
               </span>
             </div>
             {/* eslint-disable-next-line react/no-danger */}
@@ -83,7 +84,10 @@ export default function Detail(props: any) {
           <Advertise />
           <Affix offsetTop={55}>
             <div className="detail-nav comm-box">
-              <div className="nav-title">文章目录</div>
+              <div className="nav-title">
+                <BookOutlined style={{marginRight: '5px'}} />
+                文章目录
+              </div>
               {tocify && tocify.render()}
             </div>
           </Affix>

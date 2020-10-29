@@ -61,10 +61,13 @@ code {
 .active {
   color: rgb(30, 144, 255) !important;
 }
+.detail-nav {
+  padding: 1rem;
+}
 .nav-title {
-  text-align: center;
+  font-size: 16px;
+  text-align: left;
   color: #888;
-  border-bottom: 1px solid rgb(30, 144, 255);
 }
 .article-menu {
   font-size: 12px;
@@ -77,11 +80,11 @@ iframe {
   border: 1px solid #f3f3f3;
 }
 .title-level3 {
-  display: none !important;
+  display: none;
 }
 .ant-anchor-link-title {
-  font-size: 12px !important;
+  font-size: 14px;
 }
 .ant-anchor-wrapper {
-  padding: 5px !important;
+  padding: 5px;
 }
