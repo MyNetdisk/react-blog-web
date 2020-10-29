@@ -5,7 +5,7 @@
   border-bottom: 1px solid #eee;
   background-color: #e1f0ff;
 }
-.detailed-title {
+.detail-title {
   font-size: 1.8rem;
   text-align: center;
   padding: 1rem;
@@ -13,7 +13,7 @@
 .center {
   text-align: center;
 }
-.detailed-content {
+.detail-content {
   padding: 1.3rem;
   font-size: 1rem;
 }
@@ -72,7 +72,7 @@ code {
 iframe {
   height: 34rem;
 }
-.detailed-content img {
+.detail-content img {
   width: 100%;
   border: 1px solid #f3f3f3;
 }
