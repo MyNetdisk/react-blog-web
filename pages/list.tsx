@@ -2,7 +2,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import React, {useState, useEffect} from 'react'
-import {Row, Col, List, Breadcrumb, BackTop} from 'antd'
+import {Row, Col, List, Breadcrumb, BackTop, Pagination, Divider} from 'antd'
 import {CalendarOutlined, FolderOpenOutlined, FireOutlined} from '@ant-design/icons'
 import marked from 'marked'
 import hljs from 'highlight.js'
@@ -79,6 +79,8 @@ export default function MyList(list) {
               </List.Item>
             )}
           />
+          <Divider />
+          <Pagination defaultCurrent={1} total={50} />
         </Col>
         <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
           <Author />

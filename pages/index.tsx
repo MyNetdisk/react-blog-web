@@ -2,7 +2,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import React, {useState} from 'react'
-import {Row, Col, List, BackTop} from 'antd'
+import {Row, Col, List, BackTop, Pagination, Divider} from 'antd'
 import axios from 'axios'
 import {CalendarOutlined, FolderOpenOutlined, FireOutlined} from '@ant-design/icons'
 import marked from 'marked'
@@ -37,7 +37,7 @@ export default function Home(list) {
         <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
         <meta name="keywords" content="next.js,react.js" />
         <meta content="next 简介 next.js作为一款轻量级的应用框架，主要用于构建静态网站和后端渲染网站。 next 特点 默认情况下由服务器呈现 自动代码拆分可加快页面加载速度 简单的客户端路由（基于页面） 基于" />
-        <title>Index</title>
+        <title>欢迎来到我的首页</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
@@ -73,6 +73,8 @@ export default function Home(list) {
               </List.Item>
             )}
           />
+          <Divider />
+          <Pagination defaultCurrent={1} total={50} />
         </Col>
         <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
           <Author />
