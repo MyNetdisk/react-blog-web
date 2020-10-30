@@ -2,7 +2,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import React, {useState} from 'react'
-import {Row, Col, List} from 'antd'
+import {Row, Col, List, BackTop} from 'antd'
 import axios from 'axios'
 import {CalendarOutlined, FolderOpenOutlined, FireOutlined} from '@ant-design/icons'
 import marked from 'marked'
@@ -80,6 +80,7 @@ export default function Home(list) {
         </Col>
       </Row>
       <Footer />
+      <BackTop />
     </div>
   )
 }

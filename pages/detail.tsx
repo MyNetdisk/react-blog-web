@@ -3,7 +3,7 @@
 import Head from 'next/head'
 // import Link from 'next/link'
 import React, {useState} from 'react'
-import {Row, Col, Breadcrumb, Affix} from 'antd'
+import {Row, Col, Breadcrumb, Affix, BackTop} from 'antd'
 import axios from 'axios'
 import {CalendarOutlined, FolderOpenOutlined, FireOutlined, BookOutlined} from '@ant-design/icons'
 import marked from 'marked'
@@ -94,6 +94,7 @@ export default function Detail(props: any) {
         </Col>
       </Row>
       <Footer />
+      <BackTop />
     </div>
   )
 }

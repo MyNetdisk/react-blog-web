@@ -2,7 +2,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import React, {useState, useEffect} from 'react'
-import {Row, Col, List, Breadcrumb} from 'antd'
+import {Row, Col, List, Breadcrumb, BackTop} from 'antd'
 import {CalendarOutlined, FolderOpenOutlined, FireOutlined} from '@ant-design/icons'
 import marked from 'marked'
 import hljs from 'highlight.js'
@@ -86,6 +86,7 @@ export default function MyList(list) {
         </Col>
       </Row>
       <Footer />
+      <BackTop />
 
       {/* <style jsx global>{`
         html,
