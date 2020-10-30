@@ -1,10 +1,26 @@
+/**
+ * /* eslint-disable jsx-a11y/anchor-is-valid
+ *
+ * @format
+ */
+
 /** @format */
 
 import React, {useState, useEffect} from 'react'
 import Router from 'next/router'
 import axios from 'axios'
+// import Link from 'next/link'
 import '../public/style/components/header.css'
-import {Row, Col, Menu, Affix} from 'antd'
+import {Row, Col, Menu, Affix, Dropdown, message} from 'antd'
+import {
+  DownOutlined,
+  HomeOutlined,
+  AppstoreOutlined,
+  FieldTimeOutlined,
+  UserOutlined,
+  GithubOutlined,
+  ExportOutlined,
+} from '@ant-design/icons'
 import servicePath from '../config/apiUrl'
 
 const Header = () => {
@@ -38,6 +54,18 @@ const Header = () => {
     }
   }
 
+  const onClick = ({key}) => {
+    message.info(`Click on item ${key}`)
+  }
+
+  const menu = (
+    <Menu onClick={onClick}>
+      <Menu.Item key="1">1st menu item</Menu.Item>
+      <Menu.Item key="2">2nd memu item</Menu.Item>
+      <Menu.Item key="3">3rd menu item</Menu.Item>
+    </Menu>
+  )
+
   return (
     <header className="header">
       <Affix offsetTop={top} className="header-affix" onChange={changeNavBg}>
@@ -47,10 +75,31 @@ const Header = () => {
           </Col>
           <Col xs={0} sm={0} md={14} lg={8} xl={6}>
             <Menu mode="horizontal" onClick={handleClick}>
-              <Menu.Item key="0">网站首页</Menu.Item>
+              <Menu.Item key="0">
+                <HomeOutlined />
+                主页
+              </Menu.Item>
               {navArray.map(item => {
                 return <Menu.Item key={item.Id}>{item.typeName}</Menu.Item>
               })}
+              <Dropdown overlay={menu}>
+                <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                  <AppstoreOutlined /> 博客 <DownOutlined />
+                </a>
+              </Dropdown>
+              <Menu.Item key="0">
+                <FieldTimeOutlined />
+                时间轴
+              </Menu.Item>
+              <Menu.Item key="0">
+                <UserOutlined />
+                关于
+              </Menu.Item>
+              <Menu.Item key="0">
+                <GithubOutlined />
+                GitHub
+                <ExportOutlined />
+              </Menu.Item>
             </Menu>
           </Col>
         </Row>
