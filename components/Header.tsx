@@ -26,7 +26,7 @@ const Header = () => {
     if (e.key == 0) {
       Router.push('/index')
     } else {
-      Router.push(`/list?id=${e.key}`)
+      Router.push(`/categories?id=${e.key}`)
     }
   }
 
