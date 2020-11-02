@@ -41,7 +41,7 @@ export default function Detail(props: any) {
   // eslint-disable-next-line react/destructuring-assignment
   const html = marked(data.article_content)
   return (
-    <div className="container">
+    <div className="detail-container">
       <Head>
         <title>{data.title}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -100,6 +100,7 @@ export default function Detail(props: any) {
 }
 Detail.getInitialProps = async context => {
   const {id} = context.query
+  // console.log(id)
   const promise = new Promise(resolve => {
     axios(servicePath.getArticleById + id).then(res => {
       resolve(res.data.data[0])

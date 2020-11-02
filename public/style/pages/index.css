@@ -1,4 +1,8 @@
 /** @format */
+.index-container .banner{
+  height: 100vh;
+  line-height: 100vh;
+}
 pre {
   display: block;
   background-color: #283646 !important;

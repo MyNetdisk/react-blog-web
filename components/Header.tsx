@@ -12,21 +12,17 @@ import axios from 'axios'
 // import Link from 'next/link'
 import '../public/style/components/header.css'
 import {Row, Col, Menu, Affix} from 'antd'
-import {
-  DownOutlined,
-  HomeOutlined,
-  AppstoreOutlined,
-  FieldTimeOutlined,
-  UserOutlined,
-  GithubOutlined,
-} from '@ant-design/icons'
+import {createFromIconfontCN, CaretDownFilled, HomeFilled, AppstoreFilled} from '@ant-design/icons'
 import servicePath from '../config/apiUrl'
 
 const {SubMenu} = Menu
 
+const IconFont = createFromIconfontCN({
+  scriptUrl: '//at.alicdn.com/t/font_2174183_bvpyt35a0co.js',
+})
+
 const Header = () => {
   const [top] = useState(0)
-  const [navBg, setNavBg] = useState(false)
   const [navArray, setnavArray] = useState([])
   useEffect(() => {
     const fetchData = async () => {
@@ -45,41 +41,33 @@ const Header = () => {
       Router.push('/timeline')
     } else if (e.key === 'about') {
       Router.push('/about')
-    } else if (e.key === 'github') {
-      window.location.href = 'https://github.com/MyNetdisk'
     } else {
       Router.push(`/categories?id=${e.key}`)
     }
   }
 
-  const changeNavBg = e => {
-    if (e) {
-      setNavBg(true)
-    } else {
-      setNavBg(false)
-    }
-  }
-
   return (
     <header className="header">
-      <Affix offsetTop={top} className="header-affix" onChange={changeNavBg}>
-        <Row justify="center" className={`header-nav-affix ${navBg ? 'active' : ''}`}>
-          <Col xs={24} sm={24} md={6} lg={6} xl={6}>
-            <span className="header-logo">MyNetdisk</span>
+      <Affix offsetTop={top} className="header-affix">
+        <Row justify="center" className="header-nav-affix">
+          <Col xs={24} sm={24} md={6} lg={6} xl={6} className="header-logo">
+            <span>MyNetdisk</span>
           </Col>
-          <Col xs={0} sm={0} md={18} lg={18} xl={18}>
+          <Col xs={0} sm={0} md={18} lg={18} xl={18} className="header-menu">
             <Menu mode="horizontal" onClick={menuClick}>
               <Menu.Item key="index">
-                <HomeOutlined />
+                <HomeFilled />
                 主页
               </Menu.Item>
               <SubMenu
                 key="categories"
+                popupClassName="categories-item--afadfasf"
+                popupOffset={[100, 100]}
                 title={
                   <span>
-                    <AppstoreOutlined />
+                    <AppstoreFilled />
                     <span>博客</span>
-                    <DownOutlined />
+                    <CaretDownFilled />
                   </span>
                 }>
                 {navArray.map(item => {
@@ -87,16 +75,12 @@ const Header = () => {
                 })}
               </SubMenu>
               <Menu.Item key="timeline">
-                <FieldTimeOutlined />
+                <IconFont type="icon-time" />
                 时间轴
               </Menu.Item>
               <Menu.Item key="about">
-                <UserOutlined />
+                <IconFont type="icon-account" />
                 关于
-              </Menu.Item>
-              <Menu.Item key="github">
-                <GithubOutlined />
-                GitHub
               </Menu.Item>
             </Menu>
           </Col>

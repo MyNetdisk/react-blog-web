@@ -31,7 +31,7 @@ export default function Home(list) {
     },
   })
   return (
-    <div className="container">
+    <div className="index-container">
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
