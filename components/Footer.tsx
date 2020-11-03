@@ -5,7 +5,7 @@ import '../public/style/components/footer.css'
 
 const Footer = () => {
   return (
-    <div className="footer-div">
+    <footer className="footer-div">
       <div>
         Powered by <a href="https://www.nextjs.cn/">Nextjs</a>
       </div>
@@ -18,7 +18,7 @@ const Footer = () => {
       <a href="https://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">
         湘ICP备2020019391号
       </a>
-    </div>
+    </footer>
   )
 }
 export default Footer

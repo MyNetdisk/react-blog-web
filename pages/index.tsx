@@ -9,6 +9,7 @@ import marked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
 import Header from '../components/Header'
+import Wall from '../components/Wall'
 import Author from '../components/Author'
 import Advertise from '../components/Advertise'
 import Footer from '../components/Footer'
@@ -40,48 +41,53 @@ export default function Home(list) {
         <title>欢迎来到我的首页</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
-      <Row className="comm-main" justify="center">
-        <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}>
-          <List
-            header={<div>最新日志</div>}
-            itemLayout="vertical"
-            dataSource={mylist}
-            renderItem={item => (
-              <List.Item>
-                <div className="list-title">
-                  <Link href={{pathname: '/detail', query: {id: item.id}}}>
-                    <a href="javascript;">{item.title}</a>
-                  </Link>
-                </div>
-                <div className="list-icon">
-                  <span>
-                    <CalendarOutlined />
-                    {item.addTime}
-                  </span>
-                  <span>
-                    <FolderOpenOutlined />
-                    {item.typeName}
-                  </span>
-                  <span>
-                    <FireOutlined />
-                    {item.view_count}人
-                  </span>
-                </div>
-                {/* eslint-disable-next-line react/no-danger */}
-                <div className="list-context" dangerouslySetInnerHTML={{__html: marked(item.introduce)}} />
-              </List.Item>
-            )}
-          />
-          <Divider />
-          <Pagination defaultCurrent={1} total={50} />
-        </Col>
-        <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
-          <Author />
-          <Advertise />
-        </Col>
-      </Row>
-      <Footer />
+      <div className="body-wrap">
+        <Wall />
+        <Header />
+        <main id="anchor">
+          <Row className="comm-main" justify="center">
+            <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}>
+              <List
+                header={<div>最新日志</div>}
+                itemLayout="vertical"
+                dataSource={mylist}
+                renderItem={item => (
+                  <List.Item>
+                    <div className="list-title">
+                      <Link href={{pathname: '/detail', query: {id: item.id}}}>
+                        <a href="javascript;">{item.title}</a>
+                      </Link>
+                    </div>
+                    <div className="list-icon">
+                      <span>
+                        <CalendarOutlined />
+                        {item.addTime}
+                      </span>
+                      <span>
+                        <FolderOpenOutlined />
+                        {item.typeName}
+                      </span>
+                      <span>
+                        <FireOutlined />
+                        {item.view_count}人
+                      </span>
+                    </div>
+                    {/* eslint-disable-next-line react/no-danger */}
+                    <div className="list-context" dangerouslySetInnerHTML={{__html: marked(item.introduce)}} />
+                  </List.Item>
+                )}
+              />
+              <Divider />
+              <Pagination defaultCurrent={1} total={50} />
+            </Col>
+            <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
+              <Author />
+              <Advertise />
+            </Col>
+          </Row>
+          <Footer />
+        </main>
+      </div>
       <BackTop />
     </div>
   )

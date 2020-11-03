@@ -1,13 +1,11 @@
 /** @format */
 
 .header {
-  background-image: url('/static/img/bg-wall1.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
   box-sizing: border-box;
-  border-bottom: 1px solid #ccc;
 }
 
 .header-logo {
@@ -60,13 +58,13 @@
   padding-right: 1rem;
 }
 
-.ant-menu-submenu{
+.ant-menu-submenu {
   color: #fff;
   font-size: 1rem;
   font-weight: 600;
 }
 
-.ant-menu-submenu-title:hover{
+.ant-menu-submenu-title:hover {
   background-color: #fff;
   color: #3eaf7c;
 }
@@ -92,8 +90,114 @@
   border-bottom: none;
 }
 
-.banner {
-  height: 11rem;
-  line-height: 11rem;
+.site-info {
+  position: absolute;
+  top: 41%;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.site-title,
+.site-subtitle {
+  color: #eee;
   text-align: center;
+  line-height: 1.5;
+  text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
+}
+
+.site-title {
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
+.site-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.site-social-icons {
+  width: 15rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.social-icon {
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+  color: #eee;
+  text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.social-icon .anticon-github {
+  color: #333;
+}
+
+.social-icon .anticon-wechat {
+  color: #73c051;
+}
+
+.social-icon .anticon-alipay {
+  color: #4890f7;
+}
+
+.scroll-down {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+}
+
+.scroll-down .anticon-down {
+  font-size: 30px;
+  font-weight: bold;
+  color: #eee;
+  text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15);
+  line-height: 1.5;
+}
+
+.scroll-down-effects {
+  position: relative;
+  width: 100%;
+  animation: scroll-down-effect 1.5s infinite;
+}
+
+@keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 0.4;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=40)';
+    filter: alpha(opacity=40);
+  }
+  50% {
+    top: -16px;
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  100% {
+    top: 0;
+    opacity: 0.4;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=40)';
+    filter: alpha(opacity=40);
+  }
+}
+
+.ant-anchor-wrapper {
+  overflow: visible;
+  background: none;
+}
+
+.ant-anchor-ink::before {
+  display: none;
+}
+
+.ant-anchor-link-title {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
 }
