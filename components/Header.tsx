@@ -8,6 +8,7 @@
 
 import React, {useState, useEffect} from 'react'
 import Router from 'next/router'
+import cn from 'classnames'
 import axios from 'axios'
 // import Link from 'next/link'
 import '../public/style/components/header.css'
@@ -31,7 +32,11 @@ const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_2174183_v1r5ciws2tj.js',
 })
 
-const Header = () => {
+type Props = {
+  indexBG: boolean
+}
+
+const Header = ({indexBG}: Props) => {
   const [top] = useState(0)
   const [navArray, setnavArray] = useState([])
   useEffect(() => {
@@ -57,7 +62,7 @@ const Header = () => {
   }
 
   return (
-    <header className="header" id="header">
+    <header className={cn('header', {'full-page': indexBG, 'not-index-bg': !indexBG})} id="header">
       <nav id="nav">
         <Affix offsetTop={top} className="header-affix">
           <Row justify="center" className="header-nav-affix">

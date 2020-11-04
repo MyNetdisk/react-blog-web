@@ -43,7 +43,7 @@ export default function Home(list) {
       </Head>
       <div className="body-wrap">
         <Wall />
-        <Header />
+        <Header indexBG />
         <main id="anchor">
           <Row className="comm-main" justify="center">
             <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}>
