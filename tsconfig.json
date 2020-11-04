@@ -7,7 +7,7 @@
         "module": "esnext",
         "moduleResolution": "node",
         "noEmit": true,
-        "noUnusedLocals": true,
+        "noUnusedLocals": false,
         "noUnusedParameters": true,
         "preserveConstEnums": true,
         "removeComments": false,
@@ -21,5 +21,5 @@
         "isolatedModules": true
     },
     "exclude": ["node_modules"],
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/Typed.js"]
 }

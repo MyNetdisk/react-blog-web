@@ -21,6 +21,7 @@ import {
   WechatFilled,
   AlipayOutlined,
 } from '@ant-design/icons'
+import Typed from 'react-typed'
 import servicePath from '../config/apiUrl'
 
 const {SubMenu} = Menu
@@ -101,10 +102,24 @@ const Header = () => {
         <h1 id="site-title" className="site-title">
           MyNetdisk说你想说
         </h1>
-        <p id="site-subtitle" className="site-subtitle">
-          <span className="subtitle">从来没有真正的绝境</span>
-          <span className="typed-cursor">|</span>
-        </p>
+        <div id="site-subtitle" className="site-subtitle">
+          <Typed
+            className="subtitle"
+            strings={[
+              '欢迎来到MyNetdisk说你想说',
+              'Welcome to MyNetdisk say what you want to say!',
+              '从来没有真正的绝境',
+              '只有心灵的迷途',
+              'Never really desperate',
+              'only the soul of the lost road',
+              '没有伞的孩子只有努力奔跑！',
+              'Children without umbrellas only run hard!',
+            ]}
+            typeSpeed={60}
+            backSpeed={60}
+            loop
+          />
+        </div>
         <div id="site-social-icons" className="site-social-icons">
           <a className="social-icon" href="https://github.com/MyNetdisk">
             <GithubFilled />

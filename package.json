@@ -30,7 +30,8 @@
     "marked": "^1.1.1",
     "next": "9.4.4",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-typed": "^1.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
