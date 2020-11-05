@@ -53,21 +53,17 @@ const Header = ({indexBG}: Props) => {
   const menuClick = e => {
     if (e.key === 'index') {
       Router.push('/index')
+    } else if (e.keyPath[1] === 'categories') {
+      Router.push(`/categories?id=${e.key}`)
+    } else if (e.keyPath[1] === 'hobbies') {
+      Router.push('/hobbies')
+    } else if (e.key === 'messages') {
+      Router.push('/messages')
     } else if (e.key === 'timeline') {
       Router.push('/timeline')
     } else if (e.key === 'about') {
       Router.push('/about')
-    } else {
-      // Router.push(`/categories?id=${e.key}`)
     }
-  }
-
-  const menuonSelect = e => {
-    console.log(`hello1${e.key}`)
-  }
-
-  const subMenuClick = () => {
-    console.log('hello')
   }
 
   return (
@@ -83,7 +79,7 @@ const Header = ({indexBG}: Props) => {
                 <SearchOutlined />
                 搜索
               </div>
-              <Menu mode="horizontal" onClick={menuClick} triggerSubMenuAction="hover" onSelect={menuonSelect}>
+              <Menu mode="horizontal" onClick={menuClick} triggerSubMenuAction="hover">
                 <Menu.Item key="index">
                   <HomeFilled />
                   主页
@@ -91,7 +87,7 @@ const Header = ({indexBG}: Props) => {
                 <SubMenu
                   key="categories"
                   popupClassName="popup-item"
-                  onTitleClick={subMenuClick}
+                  // onTitleClick={subMenuClick}
                   popupOffset={[0, 0]}
                   icon={<AppstoreFilled />}
                   title="博客">
@@ -105,9 +101,9 @@ const Header = ({indexBG}: Props) => {
                   popupOffset={[0, 0]}
                   icon={<IconFont type="icon-motuoche" />}
                   title="爱好">
-                  <Menu.Item>音乐</Menu.Item>
-                  <Menu.Item>电影</Menu.Item>
-                  <Menu.Item>书单</Menu.Item>
+                  <Menu.Item key="music">音乐</Menu.Item>
+                  <Menu.Item key="movie">电影</Menu.Item>
+                  <Menu.Item key="book">书单</Menu.Item>
                 </SubMenu>
                 <SubMenu
                   key="links"
@@ -115,8 +111,8 @@ const Header = ({indexBG}: Props) => {
                   popupOffset={[0, 0]}
                   icon={<IconFont type="icon-link" />}
                   title="链接">
-                  <Menu.Item>友链</Menu.Item>
-                  <Menu.Item>老版技博</Menu.Item>
+                  <Menu.Item key="friend">友链</Menu.Item>
+                  <Menu.Item key="oldblog">老版技博</Menu.Item>
                 </SubMenu>
                 <Menu.Item key="messages">
                   <IconFont type="icon-msg" />
