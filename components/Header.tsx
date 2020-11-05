@@ -21,6 +21,7 @@ import {
   GithubFilled,
   WechatFilled,
   AlipayOutlined,
+  SearchOutlined,
 } from '@ant-design/icons'
 import Typed from 'react-typed'
 import servicePath from '../config/apiUrl'
@@ -29,7 +30,7 @@ const {SubMenu} = Menu
 const {Link} = Anchor
 
 const IconFont = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_2174183_v1r5ciws2tj.js',
+  scriptUrl: '//at.alicdn.com/t/font_2174183_i4qvalcywwp.js',
 })
 
 type Props = {
@@ -57,8 +58,16 @@ const Header = ({indexBG}: Props) => {
     } else if (e.key === 'about') {
       Router.push('/about')
     } else {
-      Router.push(`/categories?id=${e.key}`)
+      // Router.push(`/categories?id=${e.key}`)
     }
+  }
+
+  const menuonSelect = e => {
+    console.log(`hello1${e.key}`)
+  }
+
+  const subMenuClick = () => {
+    console.log('hello')
   }
 
   return (
@@ -70,33 +79,56 @@ const Header = ({indexBG}: Props) => {
               <span>MyNetdisk</span>
             </Col>
             <Col xs={0} sm={0} md={18} lg={18} xl={18} className="header-menu">
-              <Menu mode="horizontal" onClick={menuClick}>
+              <div>
+                <SearchOutlined />
+                搜索
+              </div>
+              <Menu mode="horizontal" onClick={menuClick} triggerSubMenuAction="hover" onSelect={menuonSelect}>
                 <Menu.Item key="index">
                   <HomeFilled />
                   主页
                 </Menu.Item>
                 <SubMenu
                   key="categories"
-                  popupClassName="categories-item--afadfasf"
-                  popupOffset={[100, 100]}
-                  title={
-                    <span>
-                      <AppstoreFilled />
-                      <span>博客</span>
-                      <CaretDownFilled />
-                    </span>
-                  }>
+                  popupClassName="popup-item"
+                  onTitleClick={subMenuClick}
+                  popupOffset={[0, 0]}
+                  icon={<AppstoreFilled />}
+                  title="博客">
                   {navArray.map(item => {
                     return <Menu.Item key={item.Id}>{item.typeName}</Menu.Item>
                   })}
                 </SubMenu>
+                <SubMenu
+                  key="hobbies"
+                  popupClassName="popup-item"
+                  popupOffset={[0, 0]}
+                  icon={<IconFont type="icon-motuoche" />}
+                  title="爱好">
+                  <Menu.Item>音乐</Menu.Item>
+                  <Menu.Item>电影</Menu.Item>
+                  <Menu.Item>书单</Menu.Item>
+                </SubMenu>
+                <SubMenu
+                  key="links"
+                  popupClassName="popup-item"
+                  popupOffset={[0, 0]}
+                  icon={<IconFont type="icon-link" />}
+                  title="链接">
+                  <Menu.Item>友链</Menu.Item>
+                  <Menu.Item>老版技博</Menu.Item>
+                </SubMenu>
+                <Menu.Item key="messages">
+                  <IconFont type="icon-msg" />
+                  留言板
+                </Menu.Item>
                 <Menu.Item key="timeline">
                   <IconFont type="icon-time" />
                   时间轴
                 </Menu.Item>
                 <Menu.Item key="about">
                   <IconFont type="icon-account" />
-                  关于
+                  关于我
                 </Menu.Item>
               </Menu>
             </Col>
@@ -112,13 +144,11 @@ const Header = ({indexBG}: Props) => {
             className="subtitle"
             strings={[
               '欢迎来到MyNetdisk说你想说',
-              'Welcome to MyNetdisk say what you want to say!',
+              'Welcome to MyNetdisk',
               '从来没有真正的绝境',
               '只有心灵的迷途',
               'Never really desperate',
-              'only the soul of the lost road',
-              '没有伞的孩子只有努力奔跑！',
-              'Children without umbrellas only run hard!',
+              'only the lost of the soul',
             ]}
             typeSpeed={60}
             backSpeed={60}

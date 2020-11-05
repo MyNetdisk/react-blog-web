@@ -9,7 +9,6 @@ import marked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
 import Header from '../components/Header'
-import Wall from '../components/Wall'
 import Author from '../components/Author'
 import Advertise from '../components/Advertise'
 import Footer from '../components/Footer'
@@ -42,7 +41,6 @@ export default function Home(list) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="body-wrap">
-        <Wall />
         <Header indexBG />
         <main id="anchor">
           <Row className="comm-main" justify="center">

@@ -3,12 +3,31 @@
 .header {
   position: relative;
   width: 100%;
-  height: 100vh;
   overflow: hidden;
   box-sizing: border-box;
 }
 
-.header-logo {
+.header.full-page {
+  height: 100vh;
+  background: url('/static/img/bg-wall2.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.header.not-index-bg {
+  height: 28rem;
+  background: url('/static/img/bg-wall1.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.header.not-index-bg .scroll-down,
+.header.not-index-bg .site-info {
+  display: none;
+}
+.header .header-logo {
   display: inline-block;
   line-height: 3rem;
   color: #fff;
@@ -88,6 +107,18 @@
 
 .ant-menu-horizontal {
   border-bottom: none;
+}
+
+.ant-menu-submenu > .ant-menu {
+  background: none;
+}
+
+.ant-menu-submenu > .ant-menu-submenu-active {
+  color: #3eaf7c;
+}
+
+.popup-item {
+  background: red;
 }
 
 .site-info {
