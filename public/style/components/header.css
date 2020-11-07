@@ -70,10 +70,24 @@
   font-size: 1.2rem;
   font-weight: 600;
   text-align: left;
+  cursor: pointer;
 }
 
 .header .nav-menu {
   float: right;
+}
+
+.search-button {
+  display: inline;
+  vertical-align: middle;
+  color: #eee;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ant-menu-horizontal {
+  display: inline-block;
 }
 
 .ant-menu {
@@ -88,7 +102,8 @@
 }
 
 .ant-menu-item,
-.ant-menu-submenu-title {
+.ant-menu-submenu-title,
+.search-button {
   padding: 0 6px;
 }
 
@@ -203,15 +218,6 @@
   padding: 0 8px;
   height: 25px;
   line-height: 25px;
-}
-
-.categories-popup-item .ant-menu {
-}
-
-.hobbies-popup-item .ant-menu {
-}
-
-.links-popup-item .ant-menu {
 }
 
 .site-info {

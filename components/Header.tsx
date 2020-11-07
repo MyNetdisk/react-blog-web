@@ -37,7 +37,7 @@ type Props = {
 }
 
 const Header = ({indexBG}: Props) => {
-  const [top] = useState(0)
+  const [current, setcurrent] = useState('index')
   const [navArray, setnavArray] = useState([])
   useEffect(() => {
     const fetchData = async () => {
@@ -50,6 +50,8 @@ const Header = ({indexBG}: Props) => {
   }, [])
 
   const menuClick = e => {
+    setcurrent(e.key)
+    console.log(current)
     if (e.key === 'index') {
       Router.push('/index')
     } else if (e.keyPath[1] === 'categories') {
@@ -73,11 +75,16 @@ const Header = ({indexBG}: Props) => {
             <span>MyNetdisk</span>
           </div>
           <div className="nav-menu">
-            <Menu mode="horizontal" onClick={menuClick} triggerSubMenuAction="hover">
-              <Menu.Item>
-                <SearchOutlined />
-                搜索
-              </Menu.Item>
+            <div className="search-button">
+              <SearchOutlined />
+              搜索
+            </div>
+            <Menu
+              mode="horizontal"
+              onClick={menuClick}
+              triggerSubMenuAction="hover"
+              defaultSelectedKeys={[current]}
+              selectedKeys={[current]}>
               <Menu.Item key="index">
                 <HomeFilled />
                 主页
