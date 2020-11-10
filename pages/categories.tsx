@@ -9,7 +9,6 @@ import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
 import axios from 'axios'
 import Layout from '../components/Layout'
-import Header from '../components/Header'
 import Author from '../components/Author'
 import Advertise from '../components/Advertise'
 import Footer from '../components/Footer'
@@ -38,9 +37,7 @@ export default function MyList(list) {
       <div className="container">
         <Head>
           <title>LIST</title>
-          <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Header indexBG={false} />
         <Row className="comm-main" justify="center">
           <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}>
             <div className="bread-div">

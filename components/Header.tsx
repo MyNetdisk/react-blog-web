@@ -7,7 +7,7 @@
 /** @format */
 
 import React, {useState, useEffect} from 'react'
-import Router from 'next/router'
+import Router, {withRouter} from 'next/router'
 import cn from 'classnames'
 import axios from 'axios'
 // import Link from 'next/link'
@@ -34,9 +34,10 @@ const IconFont = createFromIconfontCN({
 
 type Props = {
   indexBG: boolean
+  router
 }
 
-const Header = ({indexBG}: Props) => {
+const Header = ({indexBG, router}: Props) => {
   const [current, setcurrent] = useState('index')
   const [navArray, setnavArray] = useState([])
   useEffect(() => {
@@ -45,13 +46,28 @@ const Header = ({indexBG}: Props) => {
         return res.data.data
       })
       setnavArray(result)
+      if (router.pathname === '/' || router.pathname === '/index') {
+        setcurrent('index')
+      } else if (router.pathname === '/categories') {
+        setcurrent(router.query.id)
+      } else if (router.pathname === '/hobbies') {
+        setcurrent('music')
+      } else if (router.pathname === '/links') {
+        setcurrent('links')
+      } else if (router.pathname === '/messages') {
+        setcurrent('messages')
+      } else if (router.pathname === '/timeline') {
+        setcurrent('timeline')
+      } else if (router.pathname === '/about') {
+        setcurrent('about')
+      } else {
+        setcurrent('')
+      }
     }
     fetchData()
   }, [])
 
   const menuClick = e => {
-    setcurrent(e.key)
-    console.log(current)
     if (e.key === 'index') {
       Router.push('/index')
     } else if (e.keyPath[1] === 'categories') {
@@ -189,4 +205,4 @@ const Header = ({indexBG}: Props) => {
   )
 }
 
-export default Header
+export default withRouter(Header)
