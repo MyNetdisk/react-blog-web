@@ -9,7 +9,7 @@ import {CalendarOutlined, FolderOpenOutlined, FireOutlined, BookOutlined} from '
 import marked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
-import Header from '../components/Header'
+import Layout from '../components/Layout'
 import Author from '../components/Author'
 import Advertise from '../components/Advertise'
 import Comment from '../components/Comment'
@@ -41,61 +41,61 @@ export default function Detail(props: any) {
   // eslint-disable-next-line react/destructuring-assignment
   const html = marked(data.article_content)
   return (
-    <div className="detail-container">
+    <Layout indexBG={false}>
       <Head>
         <title>{data.title}</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header indexBG={false} />
-      <Row className="comm-main" justify="center">
-        <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}>
-          <div className="bread-div">
-            <Breadcrumb>
-              <Breadcrumb.Item>
-                <a href="/">首页</a>
-              </Breadcrumb.Item>
-              <Breadcrumb.Item>视频教程</Breadcrumb.Item>
-              <Breadcrumb.Item>文章名</Breadcrumb.Item>
-            </Breadcrumb>
-          </div>
-          <div>
-            <div className="detail-title">{data.title}</div>
-            <div className="list-icon center">
-              <span>
-                <CalendarOutlined />
-                {data.addTime}
-              </span>
-              <span>
-                <FolderOpenOutlined />
-                {data.typeName}
-              </span>
-              <span>
-                <FireOutlined />
-                {data.view_count}
-              </span>
+      <div className="detail-container">
+        <Row className="comm-main" justify="center">
+          <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}>
+            <div className="bread-div">
+              <Breadcrumb>
+                <Breadcrumb.Item>
+                  <a href="/">首页</a>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>视频教程</Breadcrumb.Item>
+                <Breadcrumb.Item>文章名</Breadcrumb.Item>
+              </Breadcrumb>
             </div>
-            {/* eslint-disable-next-line react/no-danger */}
-            <div className="detail-content" dangerouslySetInnerHTML={{__html: html}} />
-          </div>
-          <Comment />
-        </Col>
-        <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
-          <Author />
-          <Advertise />
-          <Affix offsetTop={55}>
-            <div className="detail-nav comm-box">
-              <div className="nav-title">
-                <BookOutlined style={{marginRight: '5px'}} />
-                文章目录
+            <div>
+              <div className="detail-title">{data.title}</div>
+              <div className="list-icon center">
+                <span>
+                  <CalendarOutlined />
+                  {data.addTime}
+                </span>
+                <span>
+                  <FolderOpenOutlined />
+                  {data.typeName}
+                </span>
+                <span>
+                  <FireOutlined />
+                  {data.view_count}
+                </span>
               </div>
-              {tocify && tocify.render()}
+              {/* eslint-disable-next-line react/no-danger */}
+              <div className="detail-content" dangerouslySetInnerHTML={{__html: html}} />
             </div>
-          </Affix>
-        </Col>
-      </Row>
-      <Footer />
-      <BackTop />
-    </div>
+            <Comment />
+          </Col>
+          <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
+            <Author />
+            <Advertise />
+            <Affix offsetTop={55}>
+              <div className="detail-nav comm-box">
+                <div className="nav-title">
+                  <BookOutlined style={{marginRight: '5px'}} />
+                  文章目录
+                </div>
+                {tocify && tocify.render()}
+              </div>
+            </Affix>
+          </Col>
+        </Row>
+        <Footer />
+        <BackTop />
+      </div>
+    </Layout>
   )
 }
 Detail.getInitialProps = async context => {
