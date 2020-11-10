@@ -8,6 +8,7 @@ import marked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
 import axios from 'axios'
+import Layout from '../components/Layout'
 import Header from '../components/Header'
 import Author from '../components/Author'
 import Advertise from '../components/Advertise'
@@ -33,64 +34,65 @@ export default function MyList(list) {
     },
   })
   return (
-    <div className="container">
-      <Head>
-        <title>LIST</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Header indexBG={false} />
-      <Row className="comm-main" justify="center">
-        <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}>
-          <div className="bread-div">
-            <Breadcrumb>
-              <Breadcrumb.Item>
-                <a href="/">首页</a>
-              </Breadcrumb.Item>
-              <Breadcrumb.Item>视频教程</Breadcrumb.Item>
-            </Breadcrumb>
-          </div>
-          <List
-            header={<div>最新日志</div>}
-            itemLayout="vertical"
-            dataSource={mylist}
-            renderItem={item => (
-              <List.Item>
-                <div className="list-title">
-                  <Link href={{pathname: '/detail', query: {id: item.id}}}>
-                    <a href="javascript;">{item.title}</a>
-                  </Link>
-                </div>
-                <div className="list-icon">
-                  <span>
-                    <CalendarOutlined />
-                    {item.addTime}
-                  </span>
-                  <span>
-                    <FolderOpenOutlined />
-                    {item.typeName}
-                  </span>
-                  <span>
-                    <FireOutlined />
-                    {item.view_count}人
-                  </span>
-                </div>
-                {/* eslint-disable-next-line react/no-danger */}
-                <div className="list-context" dangerouslySetInnerHTML={{__html: marked(item.introduce)}} />
-              </List.Item>
-            )}
-          />
-          <Divider />
-          <Pagination defaultCurrent={1} total={50} />
-        </Col>
-        <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
-          <Author />
-          <Advertise />
-        </Col>
-      </Row>
-      <Footer />
-      <BackTop />
+    <Layout indexBG={false}>
+      <div className="container">
+        <Head>
+          <title>LIST</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Header indexBG={false} />
+        <Row className="comm-main" justify="center">
+          <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}>
+            <div className="bread-div">
+              <Breadcrumb>
+                <Breadcrumb.Item>
+                  <a href="/">首页</a>
+                </Breadcrumb.Item>
+                <Breadcrumb.Item>视频教程</Breadcrumb.Item>
+              </Breadcrumb>
+            </div>
+            <List
+              header={<div>最新日志</div>}
+              itemLayout="vertical"
+              dataSource={mylist}
+              renderItem={item => (
+                <List.Item>
+                  <div className="list-title">
+                    <Link href={{pathname: '/detail', query: {id: item.id}}}>
+                      <a href="javascript;">{item.title}</a>
+                    </Link>
+                  </div>
+                  <div className="list-icon">
+                    <span>
+                      <CalendarOutlined />
+                      {item.addTime}
+                    </span>
+                    <span>
+                      <FolderOpenOutlined />
+                      {item.typeName}
+                    </span>
+                    <span>
+                      <FireOutlined />
+                      {item.view_count}人
+                    </span>
+                  </div>
+                  {/* eslint-disable-next-line react/no-danger */}
+                  <div className="list-context" dangerouslySetInnerHTML={{__html: marked(item.introduce)}} />
+                </List.Item>
+              )}
+            />
+            <Divider />
+            <Pagination defaultCurrent={1} total={50} />
+          </Col>
+          <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
+            <Author />
+            <Advertise />
+          </Col>
+        </Row>
+        <Footer />
+        <BackTop />
 
-      {/* <style jsx global>{`
+        {/* <style jsx global>{`
         html,
         body {
           padding: 0;
@@ -104,7 +106,8 @@ export default function MyList(list) {
           box-sizing: border-box;
         }
       `}</style> */}
-    </div>
+      </div>
+    </Layout>
   )
 }
 MyList.getInitialProps = async context => {

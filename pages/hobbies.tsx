@@ -1,7 +1,12 @@
 /** @format */
 
 import React from 'react'
+import Layout from '../components/Layout'
 
 export default function Timeline() {
-  return <div>爱好</div>
+  return (
+    <Layout indexBG={false}>
+      <div>爱好</div>
+    </Layout>
+  )
 }
