@@ -112,60 +112,19 @@
   margin-right: 3px;
 }
 
+/* .ant-menu-submenu-arrow::after {
+  display: inline-block;
+  content: '▼';
+  width: 4px;
+  height: 4px;
+} */
+.submenu-arrow {
+  margin-left: 2px;
+}
+
 .ant-menu-submenu .ant-menu-item {
   color: #4c4948;
   font-size: 0.9rem;
-}
-
-.ant-menu-submenu-arrow {
-  position: absolute;
-  top: 50%;
-  right: 0px;
-  width: 0px;
-  -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-    -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transform: translateY(-2px);
-}
-
-.ant-menu-submenu-arrow::before {
-  position: absolute;
-  width: 6px;
-  height: 1.5px;
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.85)), to(rgba(0, 0, 0, 0.85)));
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85));
-  border-radius: 2px;
-  -webkit-transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-    top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-    -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-    top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-    top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  content: '';
-  transform: rotate(45deg) translateX(2px);
-}
-
-.ant-menu-submenu-arrow::after {
-  position: absolute;
-  width: 6px;
-  height: 1.5px;
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.85)), to(rgba(0, 0, 0, 0.85)));
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85));
-  border-radius: 2px;
-  -webkit-transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-    top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-    -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-    top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-    top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  content: '';
-  transform: rotate(-45deg) translateX(-2px);
 }
 
 .ant-menu-submenu .ant-menu-item-active {

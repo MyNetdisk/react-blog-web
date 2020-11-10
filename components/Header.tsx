@@ -110,8 +110,14 @@ const Header = ({indexBG, router}: Props) => {
                 popupClassName="categories-popup-item popup-item"
                 // onTitleClick={subMenuClick}
                 popupOffset={[0, 0]}
-                icon={<AppstoreFilled />}
-                title="博客">
+                // icon={<AppstoreFilled />}
+                title={
+                  <>
+                    <AppstoreFilled />
+                    <span>博客</span>
+                    <IconFont type="downarrow" className="submenu-arrow" />
+                  </>
+                }>
                 {navArray.map(item => {
                   return <Menu.Item key={item.Id}>{item.typeName}</Menu.Item>
                 })}
@@ -120,8 +126,14 @@ const Header = ({indexBG, router}: Props) => {
                 key="hobbies"
                 popupClassName="hobbies-popup-item popup-item"
                 popupOffset={[0, 0]}
-                icon={<IconFont type="aihao" />}
-                title="爱好">
+                // icon={<IconFont type="aihao" />}
+                title={
+                  <>
+                    <IconFont type="aihao" />
+                    <span>爱好</span>
+                    <IconFont type="downarrow" className="submenu-arrow" />
+                  </>
+                }>
                 <Menu.Item key="music" icon={<IconFont type="music" />}>
                   音乐
                 </Menu.Item>
@@ -136,8 +148,14 @@ const Header = ({indexBG, router}: Props) => {
                 key="links"
                 popupClassName="links-popup-item popup-item"
                 popupOffset={[0, 0]}
-                icon={<IconFont type="link" />}
-                title="链接">
+                // icon={<IconFont type="link" />}
+                title={
+                  <>
+                    <IconFont type="link" />
+                    <span>链接</span>
+                    <IconFont type="downarrow" className="submenu-arrow" />
+                  </>
+                }>
                 <Menu.Item key="friend" icon={<IconFont type="friend" />}>
                   友链
                 </Menu.Item>
