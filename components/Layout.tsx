@@ -3,7 +3,7 @@
 import React from 'react'
 import Meta from './Meta'
 import Header from './Header'
-// import '../public/style/components/nav.css'
+import Footer from './Footer'
 
 type Props = {
   indexBG: boolean
@@ -16,6 +16,7 @@ const Layout = ({indexBG, children}: Props) => {
       <Meta />
       <Header indexBG={indexBG} />
       {children}
+      <Footer />
     </div>
   )
 }

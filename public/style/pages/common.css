@@ -4,7 +4,14 @@ body {
   background-color: #f6f6f6;
 }
 
-.comm-left {
+.container {
+  padding: 2rem 15px;
+}
+
+/* .comm-left {
+} */
+
+.comm-right {
   background-color: #fff;
   padding: 0.3rem;
   border-radius: 0.3rem;
@@ -12,7 +19,7 @@ body {
 }
 .comm-box {
   background-color: #fff;
-  margin-left: 0.5rem;
+  margin-right: 0.5rem;
   padding: 0.3rem;
   border-radius: 0.3rem;
   border: 1px solid #eee;
@@ -21,20 +28,20 @@ body {
   margin-top: 0.5rem;
 }
 
-.list-title{
-  font-size:1.3rem;
+.list-title {
+  font-size: 1.3rem;
   color: #1e90ff;
   padding: 0 0.5rem;
 }
-.list-context{
-  color:#777;
-  padding:.5rem;
+.list-context {
+  color: #777;
+  padding: 0.5rem;
 }
-.list-icon{
-  padding:.5rem 0;
-  color:#AAA;
+.list-icon {
+  padding: 0.5rem 0;
+  color: #aaa;
 }
-.list-icon span{
+.list-icon span {
   display: inline-block;
   padding: 0 10px;
 }

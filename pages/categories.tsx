@@ -11,7 +11,6 @@ import axios from 'axios'
 import Layout from '../components/Layout'
 import Author from '../components/Author'
 import Advertise from '../components/Advertise'
-import Footer from '../components/Footer'
 import servicePath from '../config/apiUrl'
 
 export default function MyList(list) {
@@ -39,7 +38,11 @@ export default function MyList(list) {
           <title>LIST</title>
         </Head>
         <Row className="comm-main" justify="center">
-          <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}>
+          <Col className="comm-left" xs={0} sm={0} md={7} lg={6} xl={5}>
+            <Author />
+            <Advertise />
+          </Col>
+          <Col className="comm-right" xs={24} sm={24} md={17} lg={18} xl={16}>
             <div className="bread-div">
               <Breadcrumb>
                 <Breadcrumb.Item>
@@ -81,12 +84,7 @@ export default function MyList(list) {
             <Divider />
             <Pagination defaultCurrent={1} total={50} />
           </Col>
-          <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
-            <Author />
-            <Advertise />
-          </Col>
         </Row>
-        <Footer />
         <BackTop />
 
         {/* <style jsx global>{`

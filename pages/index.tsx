@@ -11,7 +11,6 @@ import 'highlight.js/styles/monokai-sublime.css'
 import Layout from '../components/Layout'
 import Author from '../components/Author'
 import Advertise from '../components/Advertise'
-import Footer from '../components/Footer'
 import '../public/style/pages/index.css'
 import servicePath from '../config/apiUrl'
 
@@ -35,11 +34,15 @@ export default function Home(list) {
       <Head>
         <title>欢迎来到我的首页</title>
       </Head>
-      <div className="index-container">
+      <div className="container">
         <div className="body-wrap">
           <main id="anchor">
             <Row className="comm-main" justify="center">
-              <Col className="comm-left" xs={24} sm={24} md={16} lg={18} xl={14}>
+              <Col className="comm-left" xs={0} sm={0} md={7} lg={6} xl={5}>
+                <Author />
+                <Advertise />
+              </Col>
+              <Col className="comm-right" xs={24} sm={24} md={17} lg={18} xl={16}>
                 <List
                   header={<div>最新日志</div>}
                   itemLayout="vertical"
@@ -73,12 +76,7 @@ export default function Home(list) {
                 <Divider />
                 <Pagination defaultCurrent={1} total={50} />
               </Col>
-              <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4}>
-                <Author />
-                <Advertise />
-              </Col>
             </Row>
-            <Footer />
           </main>
         </div>
         <BackTop />
