@@ -4,7 +4,7 @@ import '../public/style/components/advertise.css'
 
 const Advertise = () => {
   return (
-    <div className="ad-div comm-box">
+    <div className="ad-div comm-box box-shadow">
       <div>
         <img
           src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1601872162022&di=6f287b7b18ace3bc60952572fade02a4&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F30%2F29%2F01300000201438121627296084016.jpg"

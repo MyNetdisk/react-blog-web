@@ -243,7 +243,7 @@
 }
 
 .site-social-icons {
-  display: none;
+  display: block;
   width: 15rem;
   text-align: center;
   margin: 0 auto;
@@ -263,7 +263,7 @@
 }
 
 .social-icon .anticon-github {
-  color: #333;
+  color: #000;
 }
 
 .social-icon .anticon-wechat {

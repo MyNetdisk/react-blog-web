@@ -42,7 +42,7 @@ export default function MyList(list) {
             <Author />
             <Advertise />
           </Col>
-          <Col className="comm-right" xs={24} sm={24} md={17} lg={18} xl={16}>
+          <Col className="comm-right box-shadow" xs={24} sm={24} md={17} lg={18} xl={16}>
             <div className="bread-div">
               <Breadcrumb>
                 <Breadcrumb.Item>

@@ -42,7 +42,7 @@ export default function Home(list) {
                 <Author />
                 <Advertise />
               </Col>
-              <Col className="comm-right" xs={24} sm={24} md={17} lg={18} xl={16}>
+              <Col className="comm-right box-shadow" xs={24} sm={24} md={17} lg={18} xl={16}>
                 <List
                   header={<div>最新日志</div>}
                   itemLayout="vertical"

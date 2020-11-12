@@ -18,8 +18,8 @@ import {
   HomeFilled,
   AppstoreFilled,
   GithubFilled,
-  WechatFilled,
-  AlipayOutlined,
+  // WechatFilled,
+  // AlipayOutlined,
   SearchOutlined,
 } from '@ant-design/icons'
 import Typed from 'react-typed'
@@ -29,7 +29,7 @@ const {SubMenu} = Menu
 const {Link} = Anchor
 
 const IconFont = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_2174183_loketm9o2m.js',
+  scriptUrl: '//at.alicdn.com/t/font_2174183_0pdxs7xy4tp.js',
 })
 
 type Props = {
@@ -201,14 +201,26 @@ const Header = ({indexBG, router}: Props) => {
         </div>
         <div id="site-social-icons" className="site-social-icons">
           <a className="social-icon" href="https://github.com/MyNetdisk">
+            <IconFont type="gitee" />
+          </a>
+          <a className="social-icon" href="https://github.com/MyNetdisk">
             <GithubFilled />
           </a>
-          <a className="social-icon" href="/#">
+          <a className="social-icon" href="https://github.com/MyNetdisk">
+            <IconFont type="csdn" />
+          </a>
+          <a className="social-icon" href="https://github.com/MyNetdisk">
+            <IconFont type="juejin" />
+          </a>
+          <a className="social-icon" href="https://github.com/MyNetdisk">
+            <IconFont type="zhihu" />
+          </a>
+          {/* <a className="social-icon" href="/#">
             <WechatFilled />
           </a>
           <a className="social-icon" href="/#">
             <AlipayOutlined />
-          </a>
+          </a> */}
         </div>
       </div>
 
