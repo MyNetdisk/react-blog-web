@@ -30,7 +30,7 @@ const {SubMenu} = Menu
 const {Link} = Anchor
 
 const IconFont = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_2174183_0pdxs7xy4tp.js',
+  scriptUrl: '//at.alicdn.com/t/font_2174183_j52zhhdz5a.js',
 })
 
 type Props = {

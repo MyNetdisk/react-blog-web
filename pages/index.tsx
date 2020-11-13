@@ -10,7 +10,10 @@ import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
 import Layout from '../components/Layout'
 import Author from '../components/Author'
-import Advertise from '../components/Advertise'
+import Category from '../components/Category'
+import Tag from '../components/Tag'
+import Weather from '../components/Weather'
+// import Advertise from '../components/Advertise'
 import '../public/style/pages/index.css'
 import servicePath from '../config/apiUrl'
 
@@ -34,13 +37,16 @@ export default function Home(list) {
       <Head>
         <title>欢迎来到我的首页</title>
       </Head>
-      <div className="container">
+      <div className="container" id="anchor">
         <div className="body-wrap">
-          <main id="anchor">
+          <main>
             <Row className="comm-main" justify="center">
               <Col className="comm-left" xs={0} sm={0} md={7} lg={6} xl={5}>
                 <Author />
-                <Advertise />
+                <Category />
+                <Tag />
+                <Weather />
+                {/* <Advertise /> */}
               </Col>
               <Col className="comm-right box-shadow" xs={24} sm={24} md={17} lg={18} xl={16}>
                 <List
