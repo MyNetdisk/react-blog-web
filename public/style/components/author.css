@@ -5,13 +5,17 @@
   padding: 1rem;
 }
 
-.author-div > div {
+.author-div .author-div > div {
   margin-bottom: 1rem;
 }
 
 .author-introduction {
   font-size: 0.8rem;
   color: #999;
+}
+
+.author-introduction .social-icon .anticon-github {
+  color: #000;
 }
 
 .author-name {

@@ -20,7 +20,7 @@
 
 .header.full-page {
   height: 100vh;
-  background: url('/static/img/bg-wall2.jpg');
+  background: url('/static/img/bg-wall3.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -244,7 +244,7 @@
 
 .site-social-icons {
   display: block;
-  width: 15rem;
+  width: 100%;
   text-align: center;
   margin: 0 auto;
 }
@@ -263,7 +263,7 @@
 }
 
 .social-icon .anticon-github {
-  color: #000;
+  color: #fff;
 }
 
 .social-icon .anticon-wechat {
