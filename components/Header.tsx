@@ -17,6 +17,7 @@ import {
   createFromIconfontCN,
   HomeFilled,
   AppstoreFilled,
+  TagFilled,
   GithubFilled,
   // WechatFilled,
   // AlipayOutlined,
@@ -72,6 +73,8 @@ const Header = ({indexBG, router}: Props) => {
       Router.push('/index')
     } else if (e.keyPath[1] === 'categories') {
       Router.push(`/categories?id=${e.key}`)
+    } else if (e.key === 'tags') {
+      Router.push('/tags')
     } else if (e.keyPath[1] === 'hobbies') {
       Router.push('/hobbies')
     } else if (e.key === 'messages') {
@@ -122,6 +125,10 @@ const Header = ({indexBG, router}: Props) => {
                   return <Menu.Item key={item.Id}>{item.typeName}</Menu.Item>
                 })}
               </SubMenu>
+              <Menu.Item key="tags">
+                <TagFilled />
+                标签
+              </Menu.Item>
               <SubMenu
                 key="hobbies"
                 popupClassName="hobbies-popup-item popup-item"
@@ -144,7 +151,7 @@ const Header = ({indexBG, router}: Props) => {
                   书单
                 </Menu.Item>
               </SubMenu>
-              <SubMenu
+              {/* <SubMenu
                 key="links"
                 popupClassName="links-popup-item popup-item"
                 popupOffset={[0, 0]}
@@ -162,7 +169,7 @@ const Header = ({indexBG, router}: Props) => {
                 <Menu.Item key="oldblog" icon={<IconFont type="pen" />}>
                   老版技博
                 </Menu.Item>
-              </SubMenu>
+              </SubMenu> */}
               <Menu.Item key="messages">
                 <IconFont type="liuyan" />
                 留言板
