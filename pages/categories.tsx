@@ -10,7 +10,10 @@ import 'highlight.js/styles/monokai-sublime.css'
 import axios from 'axios'
 import Layout from '../components/Layout'
 import Author from '../components/Author'
-import Advertise from '../components/Advertise'
+import Category from '../components/Category'
+import Tag from '../components/Tag'
+import Weather from '../components/Weather'
+// import Advertise from '../components/Advertise'
 import servicePath from '../config/apiUrl'
 
 export default function MyList(list) {
@@ -40,7 +43,10 @@ export default function MyList(list) {
         <Row className="comm-main" justify="center">
           <Col className="comm-left" xs={0} sm={0} md={7} lg={6} xl={5}>
             <Author />
-            <Advertise />
+            <Category />
+            <Tag />
+            <Weather />
+            {/* <Advertise /> */}
           </Col>
           <Col className="comm-right box-shadow" xs={24} sm={24} md={17} lg={18} xl={16}>
             <div className="bread-div">

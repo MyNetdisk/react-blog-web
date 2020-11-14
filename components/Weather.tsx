@@ -15,6 +15,7 @@ const Weather = () => {
         title="天气"
         subTitle=""
       />
+      <div id="weather-v2-plugin-standard" />
     </div>
   )
 }
