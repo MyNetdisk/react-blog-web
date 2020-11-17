@@ -318,16 +318,16 @@
   }
 }
 
-.ant-anchor-wrapper {
+.header .ant-anchor-wrapper {
   overflow: visible;
   background: none;
 }
 
-.ant-anchor-ink::before {
+.header .ant-anchor-ink::before {
   display: none;
 }
 
-.ant-anchor-link-title {
+.header .ant-anchor-link-title {
   position: absolute;
   left: 0;
   height: 100%;
