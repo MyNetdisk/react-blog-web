@@ -8,14 +8,19 @@ import {CalendarOutlined, FolderOpenOutlined, FireOutlined} from '@ant-design/ic
 import marked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
+import dynamic from 'next/dynamic'
 import Layout from '../components/Layout'
 import Author from '../components/Author'
 import Category from '../components/Category'
 import Tag from '../components/Tag'
-import Weather from '../components/Weather'
+// import Weather from '../components/Weather'
 // import Advertise from '../components/Advertise'
 import '../public/style/pages/index.css'
 import servicePath from '../config/apiUrl'
+
+const DynamicComponentWithNoSSR = dynamic(import('../components/Weather'), {
+  ssr: false,
+})
 
 export default function Home(list) {
   const [mylist] = useState<Array<any>>(list.data)
@@ -45,7 +50,7 @@ export default function Home(list) {
                 <Author />
                 <Category />
                 <Tag />
-                <Weather />
+                <DynamicComponentWithNoSSR />
                 {/* <Advertise /> */}
               </Col>
               <Col className="comm-right box-shadow" xs={24} sm={24} md={17} lg={18} xl={16}>

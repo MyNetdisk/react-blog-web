@@ -7,3 +7,7 @@
 .weather-page-header {
   padding: 0 24px;
 }
+
+.weather #weather-v2-plugin-standard {
+  margin: 0 auto;
+}
