@@ -5,7 +5,7 @@ body {
 }
 
 .box-shadow {
-  box-shadow: 0 1px 8px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -16,10 +16,7 @@ body {
 } */
 
 .comm-right {
-  background-color: #fff;
   padding: 0.3rem;
-  border-radius: 0.3rem;
-  border: 1px solid #eee;
 }
 .comm-box {
   background-color: #fff;
@@ -30,6 +27,15 @@ body {
 }
 .comm-main {
   margin-top: 0.5rem;
+}
+
+.ant-list-vertical .ant-list-item {
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+.ant-list-pagination .ant-pagination {
+  text-align: center;
 }
 
 .list-title {

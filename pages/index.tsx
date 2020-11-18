@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import React, {useState} from 'react'
 import Head from 'next/head'
-import {Row, Col, List, BackTop, Pagination, Divider} from 'antd'
+import {Row, Col, List, BackTop} from 'antd'
 import axios from 'axios'
 import {CalendarOutlined, FolderOpenOutlined, FireOutlined} from '@ant-design/icons'
 import marked from 'marked'
@@ -53,13 +53,27 @@ export default function Home(list) {
                 <DynamicComponentWithNoSSR />
                 {/* <Advertise /> */}
               </Col>
-              <Col className="comm-right box-shadow" xs={24} sm={24} md={17} lg={18} xl={16}>
+              <Col className="comm-right" xs={24} sm={24} md={17} lg={18} xl={16}>
                 <List
-                  header={<div>最新日志</div>}
                   itemLayout="vertical"
+                  pagination={{
+                    onChange: page => {
+                      // eslint-disable-next-line no-console
+                      console.log(page)
+                    },
+                    pageSize: 5,
+                    position: 'bottom',
+                  }}
                   dataSource={mylist}
                   renderItem={item => (
-                    <List.Item>
+                    <List.Item
+                      extra={
+                        <img
+                          width={272}
+                          alt="logo"
+                          src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+                        />
+                      }>
                       <div className="list-title">
                         <Link href={{pathname: '/detail', query: {id: item.id}}}>
                           <a href="javascript;">{item.title}</a>
@@ -84,8 +98,8 @@ export default function Home(list) {
                     </List.Item>
                   )}
                 />
-                <Divider />
-                <Pagination defaultCurrent={1} total={50} />
+                {/* <Divider />
+                <Pagination defaultCurrent={1} total={50} /> */}
               </Col>
             </Row>
           </main>
