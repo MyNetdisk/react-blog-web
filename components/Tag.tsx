@@ -11,7 +11,7 @@ const IconFont = createFromIconfontCN({
 
 const Tags = () => {
   return (
-    <div className="tag comm-box">
+    <div className="tag comm-box box-shadow">
       <PageHeader className="tag-page-header" backIcon={<TagsFilled />} onBack={() => null} title="标签" subTitle="" />
       <div className="tag-container">
         <Tag icon={<IconFont type="github" />} color="#f50">

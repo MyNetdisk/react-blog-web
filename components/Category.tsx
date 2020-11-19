@@ -20,7 +20,7 @@ const Category = () => {
     }
   }
   return (
-    <div className="category comm-box">
+    <div className="category comm-box box-shadow">
       <PageHeader
         className="category-page-header"
         backIcon={<FolderOpenFilled />}

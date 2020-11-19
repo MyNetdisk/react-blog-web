@@ -4,7 +4,7 @@ import React, {useState} from 'react'
 import Head from 'next/head'
 import {Row, Col, List, BackTop} from 'antd'
 import axios from 'axios'
-import {CalendarOutlined, FolderOpenOutlined, FireOutlined} from '@ant-design/icons'
+import {CalendarOutlined, FieldTimeOutlined, FolderOpenOutlined, TagOutlined, EyeOutlined} from '@ant-design/icons'
 import marked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
@@ -46,14 +46,7 @@ export default function Home(list) {
         <div className="body-wrap">
           <main>
             <Row className="comm-main" justify="center">
-              <Col className="comm-left" xs={0} sm={0} md={7} lg={6} xl={5}>
-                <Author />
-                <Category />
-                <Tag />
-                <DynamicComponentWithNoSSR />
-                {/* <Advertise /> */}
-              </Col>
-              <Col className="comm-right" xs={24} sm={24} md={17} lg={18} xl={16}>
+              <Col className="comm-left" xs={24} sm={24} md={17} lg={18} xl={16}>
                 <List
                   itemLayout="vertical"
                   pagination={{
@@ -66,40 +59,61 @@ export default function Home(list) {
                   }}
                   dataSource={mylist}
                   renderItem={item => (
-                    <List.Item
-                      extra={
-                        <img
-                          width={272}
-                          alt="logo"
-                          src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-                        />
-                      }>
-                      <div className="list-title">
-                        <Link href={{pathname: '/detail', query: {id: item.id}}}>
-                          <a href="javascript;">{item.title}</a>
-                        </Link>
-                      </div>
-                      <div className="list-icon">
-                        <span>
-                          <CalendarOutlined />
-                          {item.addTime}
-                        </span>
-                        <span>
-                          <FolderOpenOutlined />
-                          {item.typeName}
-                        </span>
-                        <span>
-                          <FireOutlined />
-                          {item.view_count}人
-                        </span>
-                      </div>
-                      {/* eslint-disable-next-line react/no-danger */}
-                      <div className="list-context" dangerouslySetInnerHTML={{__html: marked(item.introduce)}} />
+                    <List.Item className="box-shadow">
+                      <Row justify="center">
+                        <Col xs={24} sm={24} md={10} lg={10} xl={10}>
+                          <div
+                            className="list-item-pic"
+                            style={{
+                              backgroundImage:
+                                'url(https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png)',
+                            }}
+                          />
+                        </Col>
+                        <Col xs={24} sm={24} md={14} lg={14} xl={14} className="list-item-content">
+                          <div className="list-title">
+                            <Link href={{pathname: '/detail', query: {id: item.id}}}>
+                              <a href="javascript;">{item.title}</a>
+                            </Link>
+                          </div>
+                          <div className="list-icon">
+                            <span>
+                              <CalendarOutlined />
+                              {item.addTime}
+                            </span>
+                            <span>
+                              <FieldTimeOutlined />
+                              修改时间
+                            </span>
+                            <span>
+                              <FolderOpenOutlined />
+                              {item.typeName}
+                            </span>
+                            <span>
+                              <TagOutlined />
+                              标签
+                            </span>
+                            <span>
+                              <EyeOutlined />
+                              {item.view_count}人
+                            </span>
+                          </div>
+                          {/* eslint-disable-next-line react/no-danger */}
+                          <div className="list-context" dangerouslySetInnerHTML={{__html: marked(item.introduce)}} />
+                        </Col>
+                      </Row>
                     </List.Item>
                   )}
                 />
                 {/* <Divider />
                 <Pagination defaultCurrent={1} total={50} /> */}
+              </Col>
+              <Col className="comm-right" xs={0} sm={0} md={7} lg={6} xl={5}>
+                <Author />
+                <Category />
+                <Tag />
+                <DynamicComponentWithNoSSR />
+                {/* <Advertise /> */}
               </Col>
             </Row>
           </main>

@@ -8,7 +8,7 @@ import '../public/style/components/weather.css'
 
 const Weather = () => {
   return (
-    <div className="weather comm-box">
+    <div className="weather comm-box box-shadow">
       <Head>
         <script
           // eslint-disable-next-line react/no-danger

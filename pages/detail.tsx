@@ -9,16 +9,21 @@ import {CalendarOutlined, FolderOpenOutlined, FireOutlined, BookOutlined} from '
 import marked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
+import dynamic from 'next/dynamic'
 import Layout from '../components/Layout'
 import Author from '../components/Author'
 import Category from '../components/Category'
 import Tag from '../components/Tag'
-import Weather from '../components/Weather'
+// import Weather from '../components/Weather'
 // import Advertise from '../components/Advertise'
 import Comment from '../components/Comment'
 import '../public/style/pages/detail.css'
 import Tocify from '../components/tocify'
 import servicePath from '../config/apiUrl'
+
+const DynamicComponentWithNoSSR = dynamic(import('../components/Weather'), {
+  ssr: false,
+})
 
 export default function Detail(props: any) {
   const [data] = useState(props)
@@ -49,23 +54,7 @@ export default function Detail(props: any) {
       </Head>
       <div className="container">
         <Row className="comm-main" justify="center">
-          <Col className="comm-left" xs={0} sm={0} md={7} lg={6} xl={5}>
-            <Author />
-            <Category />
-            <Tag />
-            <Weather />
-            {/* <Advertise /> */}
-            <Affix offsetTop={0}>
-              <div className="detail-nav comm-box">
-                <div className="nav-title">
-                  <BookOutlined style={{marginRight: '5px'}} />
-                  文章目录
-                </div>
-                {tocify && tocify.render()}
-              </div>
-            </Affix>
-          </Col>
-          <Col className="comm-right" xs={24} sm={24} md={17} lg={18} xl={16}>
+          <Col className="comm-left box-shadow" xs={24} sm={24} md={17} lg={18} xl={16}>
             <div className="bread-div">
               <Breadcrumb>
                 <Breadcrumb.Item>
@@ -95,6 +84,22 @@ export default function Detail(props: any) {
               <div className="detail-content" dangerouslySetInnerHTML={{__html: html}} />
             </div>
             <Comment />
+          </Col>
+          <Col className="comm-right" xs={0} sm={0} md={7} lg={6} xl={5}>
+            <Author />
+            <Category />
+            <Tag />
+            <DynamicComponentWithNoSSR />
+            {/* <Advertise /> */}
+            <Affix offsetTop={0}>
+              <div className="detail-nav comm-box box-shadow">
+                <div className="nav-title">
+                  <BookOutlined style={{marginRight: '5px'}} />
+                  文章目录
+                </div>
+                {tocify && tocify.render()}
+              </div>
+            </Affix>
           </Col>
         </Row>
         <BackTop />

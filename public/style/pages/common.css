@@ -1,7 +1,7 @@
 /** @format */
 
 body {
-  background-color: #f6f6f6;
+  background-color: #fff;
 }
 
 .box-shadow {
@@ -16,11 +16,11 @@ body {
 } */
 
 .comm-right {
-  padding: 0.3rem;
+  padding: 0;
 }
 .comm-box {
   background-color: #fff;
-  margin-right: 0.5rem;
+  margin-left: 0.5rem;
   padding: 0.3rem;
   border-radius: 0.3rem;
   border: 1px solid #eee;
@@ -30,12 +30,29 @@ body {
 }
 
 .ant-list-vertical .ant-list-item {
+  padding: 0;
   margin-bottom: 10px;
   background-color: #fff;
+  border-radius: 0.3rem;
 }
 
 .ant-list-pagination .ant-pagination {
   text-align: center;
+}
+
+.list-item-pic {
+  width: 100%;
+  height: 280px;
+  background-position: center center;
+  background-size: cover;
+}
+
+.list-item-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 280px;
+  overflow: hidden;
 }
 
 .list-title {
@@ -43,10 +60,20 @@ body {
   color: #1e90ff;
   padding: 0 0.5rem;
 }
+
 .list-context {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   color: #777;
-  padding: 0.5rem;
+  padding: 0 0.5rem;
 }
+
+.list-context p {
+  margin: 0;
+}
+
 .list-icon {
   padding: 0.5rem 0;
   color: #aaa;
