@@ -41,6 +41,9 @@ type Props = {
 const Header = ({indexBG, router}: Props) => {
   const [current, setcurrent] = useState('index')
   const [navArray, setnavArray] = useState([])
+  const [beforeScrollTop, setbeforeScrollTop] = useState(0)
+  const [downward, setdownward] = useState(false)
+  const [upward, setupward] = useState(false)
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(servicePath.getTypeInfo).then(res => {
@@ -86,9 +89,33 @@ const Header = ({indexBG, router}: Props) => {
     }
   }
 
+  const handleScroll = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+    const scroll = scrollTop - beforeScrollTop
+    setbeforeScrollTop(scrollTop)
+    if (scroll > 0) {
+      setdownward(true)
+      setupward(false)
+    } else if (scroll < 0) {
+      setdownward(true)
+      setupward(true)
+    }
+    if (scrollTop === 0) {
+      setupward(false)
+      setdownward(false)
+    }
+  }
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  })
+
   return (
     <header className={cn('header', {'full-page': indexBG, 'not-index-bg': !indexBG})} id="header">
-      <nav id="nav" className="nav">
+      <nav
+        id="nav"
+        className={cn('nav', {fixed: downward, visible: upward})}
+        style={{opacity: '1', animation: '1s ease 0s 1 normal none running headerNoOpacity'}}>
         <div className="nav-inner clearfix">
           <div className="nav-logo">
             <span>MyNetdisk</span>
