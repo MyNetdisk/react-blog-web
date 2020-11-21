@@ -22,6 +22,7 @@ import {
   // WechatFilled,
   // AlipayOutlined,
   SearchOutlined,
+  MenuOutlined,
 } from '@ant-design/icons'
 import Typed from 'react-typed'
 import servicePath from '../config/apiUrl'
@@ -121,7 +122,7 @@ const Header = ({indexBG, router}: Props) => {
             <span>MyNetdisk</span>
           </div>
           <div className="nav-menu">
-            <div className="search-button">
+            <div className="nav-button">
               <SearchOutlined />
               搜索
             </div>
@@ -210,6 +211,9 @@ const Header = ({indexBG, router}: Props) => {
                 关于我
               </Menu.Item>
             </Menu>
+            <div className="nav-button santiao">
+              <MenuOutlined />
+            </div>
           </div>
         </div>
       </nav>
