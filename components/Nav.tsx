@@ -104,7 +104,7 @@ const Nav = router => {
             key="categories"
             popupClassName="categories-popup-item popup-item"
             // onTitleClick={subMenuClick}
-            popupOffset={[0, 0]}
+            // popupOffset={[0, 0]}
             // icon={<AppstoreFilled />}
             title={
               <>
@@ -124,7 +124,7 @@ const Nav = router => {
           <SubMenu
             key="hobbies"
             popupClassName="hobbies-popup-item popup-item"
-            popupOffset={[0, 0]}
+            // popupOffset={[0, 0]}
             // icon={<IconFont type="aihao" />}
             title={
               <>
