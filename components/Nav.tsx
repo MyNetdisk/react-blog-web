@@ -11,7 +11,7 @@ import '../public/style/components/nav.css'
 const {SubMenu} = Menu
 
 const IconFont = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_2174183_j52zhhdz5a.js',
+  scriptUrl: '//at.alicdn.com/t/font_2174183_dn83jy6h7ah.js',
 })
 
 const Nav = router => {
