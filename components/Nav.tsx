@@ -67,7 +67,7 @@ const Nav = router => {
       <div className="menu-mask" />
       <div className="mobile-sidebar-menus">
         <div className="mobile-author-icon">
-          <Avatar size={100} src="/static/img/avatar.jpg" />
+          <Avatar size={90} src="/static/img/avatar.jpg" />
         </div>
         <div className="mobile-post-data">
           <div className="mobile-data-item">
@@ -91,9 +91,9 @@ const Nav = router => {
         </div>
         <hr />
         <Menu
-          mode="vertical"
+          mode="inline"
           onClick={menuClick}
-          triggerSubMenuAction="hover"
+          triggerSubMenuAction="click"
           defaultSelectedKeys={[current]}
           selectedKeys={[current]}>
           <Menu.Item key="index">
@@ -110,7 +110,6 @@ const Nav = router => {
               <>
                 <AppstoreFilled />
                 <span>博客</span>
-                <IconFont type="downarrow" className="submenu-arrow" />
               </>
             }>
             {navArray.map(item => {
@@ -130,7 +129,6 @@ const Nav = router => {
               <>
                 <IconFont type="aihao" />
                 <span>爱好</span>
-                <IconFont type="downarrow" className="submenu-arrow" />
               </>
             }>
             <Menu.Item key="music" icon={<IconFont type="music" />}>
