@@ -19,7 +19,7 @@
   height: 100%;
   background: #f6f8fa;
   transition: all 0.5s;
-  transform: translate3d(-100%, 0px, 0px);
+  /* transform: translate3d(-100%, 0px, 0px); */
 }
 
 .mobile-author-icon {

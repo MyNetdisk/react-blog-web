@@ -130,7 +130,7 @@
   .header .santiao {
     display: inline-block;
   }
-  .header .ant-menu{
+  .header .ant-menu {
     display: none;
   }
 }
@@ -191,7 +191,7 @@
 .header .nav.fixed .ant-menu-horizontal > .ant-menu-item-selected,
 .header .nav.fixed .ant-menu-horizontal > .ant-menu-submenu-selected {
   border-bottom: none;
-  color: hsl(153, 48%, 46%);
+  color: #1890ff;
 }
 
 .ant-menu-horizontal > .ant-menu-item:hover,
@@ -203,12 +203,11 @@
 .ant-menu-horizontal > .ant-menu-item-selected,
 .ant-menu-horizontal > .ant-menu-submenu-selected {
   border-bottom: none;
-  color: #3eaf7c;
 }
 
-.ant-menu-submenu-title:hover {
+/* .ant-menu-submenu-title:hover {
   color: #3eaf7c;
-}
+} */
 
 .ant-menu-horizontal {
   border-bottom: none;

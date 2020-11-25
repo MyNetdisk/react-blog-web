@@ -64,7 +64,7 @@ const Nav = router => {
 
   return (
     <div id="mobile-sidebar">
-      <div className="menu-mask" />
+      <div className="menu-mask" style={{display: 'none'}} />
       <div className="mobile-sidebar-menus">
         <div className="mobile-author-icon">
           <Avatar size={90} src="/static/img/avatar.jpg" />
