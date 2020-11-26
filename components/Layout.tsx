@@ -1,6 +1,6 @@
 /** @format */
 
-import React from 'react'
+import React, {ReactEventHandler} from 'react'
 import Meta from './Meta'
 import Header from './Header'
 import Footer from './Footer'
@@ -12,11 +12,14 @@ type Props = {
 }
 
 const Layout = ({indexBG, children}: Props) => {
+  const getChildrenMsg = (result, msg) => {
+    console.log(msg)
+  }
   return (
     <div id="layout" className="layout">
       <Meta />
       <Nav />
-      <Header indexBG={indexBG} />
+      <Header indexBG={indexBG} getChildValue={getChildrenMsg} />
       {children}
       <Footer />
     </div>

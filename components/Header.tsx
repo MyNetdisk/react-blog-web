@@ -37,9 +37,11 @@ const IconFont = createFromIconfontCN({
 type Props = {
   indexBG: boolean
   router
+  getChildValue
 }
 
-const Header = ({indexBG, router}: Props) => {
+const Header = ({indexBG, router, getChildValue}: Props) => {
+  console.log(getChildValue)
   const [current, setcurrent] = useState('index')
   const [navArray, setnavArray] = useState([])
   const [beforeScrollTop, setbeforeScrollTop] = useState(0)
