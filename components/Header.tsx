@@ -41,7 +41,6 @@ type Props = {
 }
 
 const Header = ({indexBG, router, getChildValue}: Props) => {
-  console.log(getChildValue)
   const [current, setcurrent] = useState('index')
   const [navArray, setnavArray] = useState([])
   const [beforeScrollTop, setbeforeScrollTop] = useState(0)
@@ -213,7 +212,7 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
                 关于我
               </Menu.Item>
             </Menu>
-            <div className="nav-button santiao">
+            <div className="nav-button santiao" onClick={() => getChildValue('hello')}>
               <MenuOutlined />
             </div>
           </div>

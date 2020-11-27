@@ -12,7 +12,7 @@ type Props = {
 }
 
 const Layout = ({indexBG, children}: Props) => {
-  const getChildrenMsg = (result, msg) => {
+  const getChildrenMsg = msg => {
     console.log(msg)
   }
   return (
