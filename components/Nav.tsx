@@ -14,7 +14,13 @@ const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_2174183_dn83jy6h7ah.js',
 })
 
-const Nav = router => {
+type Props = {
+  router
+  navShow
+  getChildValue
+}
+
+const Nav = ({router, navShow, getChildValue}: Props) => {
   const [current, setcurrent] = useState('index')
   const [navArray, setnavArray] = useState([])
   useEffect(() => {
@@ -64,8 +70,8 @@ const Nav = router => {
 
   return (
     <div id="mobile-sidebar">
-      <div className="menu-mask" style={{display: 'none'}} />
-      <div className="mobile-sidebar-menus">
+      <div className="menu-mask" style={{display: navShow ? '' : 'none'}} onClick={() => getChildValue(!navShow)} />
+      <div className="mobile-sidebar-menus" style={{transform: navShow ? 'translate3d(-100%, 0px, 0px)' : ''}}>
         <div className="mobile-author-icon">
           <Avatar size={90} src="/static/img/avatar.jpg" />
         </div>

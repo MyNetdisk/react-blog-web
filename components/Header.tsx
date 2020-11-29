@@ -212,7 +212,7 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
                 关于我
               </Menu.Item>
             </Menu>
-            <div className="nav-button santiao" onClick={() => getChildValue('hello')}>
+            <div className="nav-button santiao" onClick={() => getChildValue(true)}>
               <MenuOutlined />
             </div>
           </div>
