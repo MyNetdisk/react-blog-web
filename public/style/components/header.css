@@ -154,7 +154,7 @@
 .ant-menu-item,
 .ant-menu-submenu-title,
 .nav-button {
-  padding: 0 6px;
+  padding: 0 3px;
 }
 
 .ant-menu-item .anticon,
@@ -208,6 +208,14 @@
 /* .ant-menu-submenu-title:hover {
   color: #3eaf7c;
 } */
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item,
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu {
+  margin: 0 5px;
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected {
+  border-bottom: none;
+}
 
 .ant-menu-horizontal {
   border-bottom: none;
