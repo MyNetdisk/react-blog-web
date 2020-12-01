@@ -7,7 +7,7 @@ import Footer from './Footer'
 import Nav from './Nav'
 
 type Props = {
-  indexBG: boolean
+  indexBG?: boolean
   children: React.ReactNode
 }
 
@@ -15,6 +15,11 @@ const Layout = ({indexBG, children}: Props) => {
   const [navShow, setnavShow] = useState(false)
   const getChildrenMsg = msg => {
     setnavShow(msg)
+    if (msg) {
+      document.querySelector('body').style.overflow = 'hidden'
+    } else {
+      document.querySelector('body').style.overflow = ''
+    }
   }
   return (
     <div id="layout" className="layout">
