@@ -12,8 +12,9 @@ body {
   padding: 2rem 15px;
 }
 
-/* .comm-left {
-} */
+.comm-left {
+  border-radius: 0.3rem;
+}
 
 .comm-right {
   padding: 0;
