@@ -3,9 +3,9 @@
 import Head from 'next/head'
 // import Link from 'next/link'
 import React, {useState} from 'react'
-import {Row, Col, Breadcrumb, Affix, BackTop} from 'antd'
+import {PageHeader, Row, Col, Breadcrumb, Affix, BackTop} from 'antd'
 import axios from 'axios'
-import {CalendarOutlined, FolderOpenOutlined, FireOutlined, BookOutlined} from '@ant-design/icons'
+import {CalendarOutlined, FolderOpenOutlined, FireOutlined, BookOutlined, TagsFilled} from '@ant-design/icons'
 import marked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
@@ -21,9 +21,9 @@ import '../public/style/pages/detail.css'
 import Tocify from '../components/tocify'
 import servicePath from '../config/apiUrl'
 
-const DynamicComponentWithNoSSR = dynamic(import('../components/Weather'), {
-  ssr: false,
-})
+// const DynamicComponentWithNoSSR = dynamic(import('../components/Weather'), {
+//   ssr: false,
+// })
 
 export default function Detail(props: any) {
   const [data] = useState(props)
@@ -88,8 +88,17 @@ export default function Detail(props: any) {
           <Col className="comm-right" xs={0} sm={0} md={7} lg={6} xl={5}>
             <Author />
             <Category />
-            <Tag />
-            <DynamicComponentWithNoSSR />
+            <div className="tag comm-box box-shadow">
+              <PageHeader
+                className="tag-page-header"
+                backIcon={<TagsFilled />}
+                onBack={() => null}
+                title="标签"
+                subTitle=""
+              />
+              <Tag />
+            </div>
+            {/* <DynamicComponentWithNoSSR /> */}
             {/* <Advertise /> */}
             <Affix offsetTop={0}>
               <div className="detail-nav comm-box box-shadow">

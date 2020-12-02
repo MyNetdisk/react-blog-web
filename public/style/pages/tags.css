@@ -1,0 +1,10 @@
+/** @format */
+
+.tags-wrap {
+  padding: 10px 5px;
+  margin-bottom: 10px;
+}
+.tags-wrap .tag-container {
+  padding: 0;
+  margin: 10px auto;
+}

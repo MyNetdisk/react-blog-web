@@ -2,9 +2,16 @@
 import Link from 'next/link'
 import React, {useState} from 'react'
 import Head from 'next/head'
-import {Row, Col, List, BackTop} from 'antd'
+import {PageHeader, Row, Col, List, BackTop} from 'antd'
 import axios from 'axios'
-import {CalendarOutlined, FieldTimeOutlined, FolderOpenOutlined, TagOutlined, EyeOutlined} from '@ant-design/icons'
+import {
+  CalendarOutlined,
+  FieldTimeOutlined,
+  FolderOpenOutlined,
+  TagOutlined,
+  EyeOutlined,
+  TagsFilled,
+} from '@ant-design/icons'
 import marked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
@@ -18,9 +25,9 @@ import Tag from '../components/Tag'
 import '../public/style/pages/index.css'
 import servicePath from '../config/apiUrl'
 
-const DynamicComponentWithNoSSR = dynamic(import('../components/Weather'), {
-  ssr: false,
-})
+// const DynamicComponentWithNoSSR = dynamic(import('../components/Weather'), {
+//   ssr: false,
+// })
 
 export default function Home(list) {
   const [mylist] = useState<Array<any>>(list.data)
@@ -111,8 +118,17 @@ export default function Home(list) {
               <Col className="comm-right" xs={0} sm={0} md={7} lg={6} xl={5}>
                 <Author />
                 <Category />
-                <Tag />
-                <DynamicComponentWithNoSSR />
+                <div className="tag comm-box box-shadow">
+                  <PageHeader
+                    className="tag-page-header"
+                    backIcon={<TagsFilled />}
+                    onBack={() => null}
+                    title="标签"
+                    subTitle=""
+                  />
+                  <Tag />
+                </div>
+                {/* <DynamicComponentWithNoSSR /> */}
                 {/* <Advertise /> */}
               </Col>
             </Row>

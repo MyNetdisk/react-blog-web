@@ -82,3 +82,18 @@ body {
   display: inline-block;
   padding: 0 10px;
 }
+
+/*标签样式start*/
+.tag {
+  margin-top: 0.5rem;
+}
+
+.tag-page-header {
+  padding: 0 24px;
+}
+
+.ant-page-header-back {
+  margin-right: 8px;
+  font-size: 24px;
+}
+/*标签样式end*/
