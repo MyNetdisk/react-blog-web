@@ -3,3 +3,11 @@
 .about-left {
   padding: 50px 40px;
 }
+
+.about-left .social-icon .anticon-github {
+  color: #000;
+}
+
+.about-left .site-social-icons {
+  text-align: left;
+}

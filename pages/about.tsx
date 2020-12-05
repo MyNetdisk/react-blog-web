@@ -9,6 +9,7 @@ import Category from '../components/Category'
 import Tag from '../components/Tag'
 import Layout from '../components/Layout'
 import '../public/style/pages/about.css'
+import Contact from '../components/Contact'
 
 const {Title, Paragraph, Text, Link} = Typography
 
@@ -44,6 +45,9 @@ export default function About() {
                   <br />
                 </Paragraph>
                 <Title level={3}>在哪里能找到我？</Title>
+                <Paragraph>
+                  <Contact />
+                </Paragraph>
               </Col>
               <Col className="comm-right" xs={0} sm={0} md={7} lg={6} xl={5}>
                 <Author />
