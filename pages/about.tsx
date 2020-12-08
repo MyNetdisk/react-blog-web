@@ -9,7 +9,6 @@ import Category from '../components/Category'
 import Tag from '../components/Tag'
 import Layout from '../components/Layout'
 import Contact from '../components/Contact'
-import '../public/style/pages/about.css'
 
 const {Title, Paragraph, Text, Link} = Typography
 
@@ -70,6 +69,24 @@ export default function About() {
         </div>
         <BackTop />
       </div>
+      <style jsx global>{`
+        .about-left {
+          padding: 50px 40px;
+        }
+
+        .about-left .social-icon .anticon-github {
+          color: #000;
+        }
+
+        .about-left .site-social-icons {
+          text-align: left;
+        }
+
+        .about-left div.ant-typography {
+          font-size: 16px;
+          color: #2c3e50;
+        }
+      `}</style>
     </Layout>
   )
 }

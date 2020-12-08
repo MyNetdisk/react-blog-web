@@ -16,7 +16,6 @@ import Tag from '../components/Tag'
 // import Weather from '../components/Weather'
 // import Advertise from '../components/Advertise'
 import servicePath from '../config/apiUrl'
-import '../public/style/pages/categories.css'
 
 // const DynamicComponentWithNoSSR = dynamic(import('../components/Weather'), {
 //   ssr: false,
@@ -126,22 +125,13 @@ export default function MyList(list) {
           </Col>
         </Row>
         <BackTop />
-
-        {/* <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style> */}
       </div>
+      <style jsx global>{`
+        .categories-div {
+          padding: 10px 5px;
+          margin-bottom: 10px;
+        }
+      `}</style>
     </Layout>
   )
 }

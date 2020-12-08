@@ -9,7 +9,6 @@ import Category from '../components/Category'
 import Tag from '../components/Tag'
 import Comment from '../components/Comment'
 import Layout from '../components/Layout'
-import '../public/style/pages/messages.css'
 
 const {Title, Paragraph} = Typography
 
@@ -73,6 +72,11 @@ export default function Timeline() {
         </div>
         <BackTop />
       </div>
+      <style jsx global>{`
+        .messages-left {
+          padding: 50px 40px;
+        }
+      `}</style>
     </Layout>
   )
 }

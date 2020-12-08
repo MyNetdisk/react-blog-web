@@ -8,7 +8,6 @@ import Author from '../components/Author'
 import Category from '../components/Category'
 import Tag from '../components/Tag'
 import Layout from '../components/Layout'
-import '../public/style/pages/timeline.css'
 
 export default function Timelines() {
   return (
@@ -67,6 +66,11 @@ export default function Timelines() {
         </div>
         <BackTop />
       </div>
+      <style jsx global>{`
+        .timeline-left {
+          padding: 50px 40px;
+        }
+      `}</style>
     </Layout>
   )
 }

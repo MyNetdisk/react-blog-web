@@ -19,7 +19,6 @@ import Author from '../components/Author'
 import Category from '../components/Category'
 import Tag from '../components/Tag'
 import servicePath from '../config/apiUrl'
-import '../public/style/pages/tags.css'
 
 // const DynamicComponentWithNoSSR = dynamic(import('../components/Weather'), {
 //   ssr: false,
@@ -135,6 +134,16 @@ export default function Tags(list) {
         </div>
         <BackTop />
       </div>
+      <style jsx global>{`
+        .tags-wrap {
+          padding: 10px 5px;
+          margin-bottom: 10px;
+        }
+        .tags-wrap .tag-container {
+          padding: 0;
+          margin: 10px auto;
+        }
+      `}</style>
     </Layout>
   )
 }
