@@ -2,7 +2,6 @@
 
 import React from 'react'
 import {LoadingOutlined} from '@ant-design/icons'
-import '../public/style/components/comment.css'
 
 const Comment = () => {
   return (
@@ -144,6 +143,157 @@ const Comment = () => {
           </div>
         </div>
       </div>
+      <style jsx global>{`
+        #repond {
+          max-width: 100%;
+          padding: 1rem;
+        }
+
+        .comment-box {
+          padding: 10px;
+          margin-bottom: 10px;
+          background-color: rgba(27, 31, 35, 0.05);
+          border-radius: 3px;
+        }
+
+        .repond_title {
+          margin-top: 10px;
+          font-size: 1.8em;
+        }
+
+        #commentform {
+          margin: 5px 0 0 0;
+        }
+
+        #conmmentform p {
+          margin: 0;
+        }
+
+        #conmmentform .commentator input {
+          font-size: 12px;
+          color: #555;
+          box-sizing: border-box;
+          width: 33%;
+          border-bottom: 1px dashed #eaecef;
+        }
+
+        #conmmentform .commentator input:focus {
+          border-bottom: 1px dashed #3eaf7c;
+        }
+
+        @media screen and (max-width: 520px) {
+          #conmmentform .commentator input {
+            width: 100%;
+          }
+        }
+
+        #conmmentform input,
+        #conmmentform textarea {
+          padding: 8px;
+          border: none;
+          outline: none;
+          background: transparent;
+        }
+
+        #conmmentform input {
+          margin-bottom: 5px;
+        }
+
+        #conmmentform textarea {
+          width: 100%;
+          height: 140px;
+          overflow: auto;
+        }
+
+        #conmmentform #submit {
+          width: 100px;
+          height: 36px;
+          overflow: visible;
+          background-color: #f0f3f9;
+          box-shadow: 1px 1px #afc4ea, 2px 2px #afc4ea, 3px 3px #afc4ea;
+        }
+
+        .comment-count {
+          font-size: 1.25em;
+          font-weight: 600;
+        }
+
+        .comment-loading {
+          margin: 10px 0;
+          text-align: center;
+        }
+
+        .comment-item {
+          display: flex;
+          justify-content: flex-start;
+          margin-top: 20px;
+          width: 100%;
+        }
+
+        .coment-avatar {
+          width: 44px;
+          height: 44px;
+          border-radius: 3px;
+        }
+
+        .comment-info {
+          padding-left: 10px;
+          flex: 1;
+        }
+
+        .comment-name .nick {
+          display: inline-block;
+          margin-right: 15px;
+          cursor: pointer;
+          font-size: 0.975em;
+          font-weight: 500;
+        }
+
+        .comment-name .sys {
+          padding: 3px 5px;
+          margin-right: 10px;
+          border-radius: 5px;
+          color: #242424;
+          background-color: rgba(27, 31, 35, 0.05);
+        }
+
+        .comment-date {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 10px;
+        }
+
+        .comment-date .time {
+          font-size: 12px;
+          color: #b3b3b3;
+        }
+
+        .replay-btn {
+          font-size: 14px;
+          padding: 2px 6px;
+          border-radius: 3px;
+          color: #242424;
+          background-color: rgba(27, 31, 35, 0.05);
+        }
+
+        .comment-content {
+          margin: 0 3px;
+          padding: 0 10px;
+          box-sizing: border-box;
+          background-color: rgba(27, 31, 35, 0.05);
+          border-radius: 3px;
+          font-size: 14px;
+          color: #555;
+          line-height: 2;
+          word-break: break-all;
+        }
+
+        .comment-content p {
+          margin-bottom: 0;
+          padding: 1em 0;
+        }
+      `}</style>
     </div>
   )
 }

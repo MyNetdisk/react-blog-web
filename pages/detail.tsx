@@ -17,9 +17,9 @@ import Tag from '../components/Tag'
 // import Weather from '../components/Weather'
 // import Advertise from '../components/Advertise'
 import Comment from '../components/Comment'
-import '../public/style/pages/detail.css'
 import Tocify from '../components/tocify'
 import servicePath from '../config/apiUrl'
+import '../public/style/pages/detail.css'
 
 // const DynamicComponentWithNoSSR = dynamic(import('../components/Weather'), {
 //   ssr: false,

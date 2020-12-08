@@ -8,8 +8,8 @@ import Author from '../components/Author'
 import Category from '../components/Category'
 import Tag from '../components/Tag'
 import Layout from '../components/Layout'
-import '../public/style/pages/about.css'
 import Contact from '../components/Contact'
+import '../public/style/pages/about.css'
 
 const {Title, Paragraph, Text, Link} = Typography
 

@@ -2,7 +2,6 @@
 
 import React from 'react'
 import {createFromIconfontCN, GithubFilled} from '@ant-design/icons'
-import '../public/style/components/footer.css'
 import Contact from './Contact'
 
 const IconFont = createFromIconfontCN({
@@ -26,6 +25,32 @@ const Footer = () => {
       <a href="https://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">
         湘ICP备2020019391号
       </a>
+      <style jsx>{`
+        .footer-div {
+          margin-top: 15px;
+          padding: 20px 0 40px 0;
+          width: 100%;
+          color: #fff;
+          font-size: 16px;
+          text-align: center;
+          background-color: #00b894;
+        }
+
+        .footer-divider {
+          max-width: 100%;
+          margin-right: 20px;
+          margin-left: 20px;
+          height: 0;
+          max-height: 0;
+          border: solid;
+          border-width: thin 0 0;
+          border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-div a {
+          color: #fff;
+        }
+      `}</style>
     </footer>
   )
 }

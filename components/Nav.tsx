@@ -6,7 +6,6 @@ import {Avatar, Menu} from 'antd'
 import {createFromIconfontCN, HomeFilled, AppstoreFilled, TagFilled} from '@ant-design/icons'
 import axios from 'axios'
 import servicePath from '../config/apiUrl'
-import '../public/style/components/nav.css'
 
 const {SubMenu} = Menu
 
@@ -180,6 +179,74 @@ const Nav = ({router, navShow, getChildValue}: Props) => {
           </Menu.Item>
         </Menu>
       </div>
+      <style jsx global>{`
+        .menu-mask {
+          position: fixed;
+          z-index: 2;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.8);
+        }
+
+        .mobile-sidebar-menus {
+          position: fixed;
+          top: 0;
+          right: -250px;
+          z-index: 3;
+          overflow-x: hidden;
+          overflow-y: auto;
+          width: 250px;
+          height: 100%;
+          background: #f6f8fa;
+          transition: all 0.5s;
+          /* transform: translate3d(-100%, 0px, 0px); */
+        }
+
+        .mobile-author-icon {
+          padding: 1.3rem 1.5rem 0;
+          text-align: center;
+        }
+
+        .mobile-post-data {
+          display: table;
+          table-layout: fixed;
+          padding: 1rem 0.5rem 0;
+          width: 100%;
+        }
+
+        .mobile-data-item {
+          display: table-cell;
+          text-align: center;
+        }
+
+        .mobile-data-item .headline,
+        .mobile-data-item .length-num {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .mobile-data-item .headline {
+          color: #4c4948;
+          font-size: 1rem;
+        }
+
+        .mobile-data-item .length-num {
+          color: #000;
+          font-size: 1.2rem;
+        }
+
+        hr {
+          position: relative;
+          margin: 1.5rem auto;
+          border: 2px dashed #d2ebfd;
+        }
+
+        .ant-menu-inline .ant-menu-item,
+        .ant-menu-inline .ant-menu-submenu {
+          color: #4c4948;
+        }
+      `}</style>
     </div>
   )
 }

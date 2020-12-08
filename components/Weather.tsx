@@ -4,7 +4,6 @@ import React from 'react'
 import Head from 'next/head'
 import {PageHeader} from 'antd'
 import {ThunderboltFilled} from '@ant-design/icons'
-import '../public/style/components/weather.css'
 
 const Weather = () => {
   return (
@@ -39,6 +38,19 @@ const Weather = () => {
         subTitle=""
       />
       <div id="weather-v2-plugin-standard" />
+      <style jsx>{`
+        .weather {
+          margin-top: 0.5rem;
+        }
+
+        .weather-page-header {
+          padding: 0 24px;
+        }
+
+        .weather #weather-v2-plugin-standard {
+          margin: 0 auto;
+        }
+      `}</style>
     </div>
   )
 }

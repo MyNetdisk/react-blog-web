@@ -22,8 +22,8 @@ import Category from '../components/Category'
 import Tag from '../components/Tag'
 // import Weather from '../components/Weather'
 // import Advertise from '../components/Advertise'
-import '../public/style/pages/index.css'
 import servicePath from '../config/apiUrl'
+import '../public/style/pages/index.css'
 
 // const DynamicComponentWithNoSSR = dynamic(import('../components/Weather'), {
 //   ssr: false,

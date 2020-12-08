@@ -3,7 +3,6 @@
 import React, {useState, useEffect} from 'react'
 import {Menu, PageHeader} from 'antd'
 import {AppstoreOutlined, MailOutlined, FolderOpenFilled} from '@ant-design/icons'
-import '../public/style/components/category.css'
 
 const {SubMenu} = Menu
 
@@ -40,6 +39,20 @@ const Category = () => {
           <Menu.Item key="6">Option 6</Menu.Item>
         </SubMenu>
       </Menu>
+      <style jsx global>{`
+        .category {
+          margin-top: 0.5rem;
+        }
+
+        .category-page-header {
+          padding: 0 24px;
+        }
+
+        .ant-page-header-back {
+          margin-right: 8px;
+          font-size: 24px;
+        }
+      `}</style>
     </div>
   )
 }

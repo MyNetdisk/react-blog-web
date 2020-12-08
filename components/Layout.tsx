@@ -3,8 +3,8 @@
 import React, {useState, useEffect} from 'react'
 import Meta from './Meta'
 import Header from './Header'
-import Footer from './Footer'
 import Nav from './Nav'
+import Footer from './Footer'
 
 type Props = {
   indexBG?: boolean

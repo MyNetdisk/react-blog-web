@@ -3,7 +3,6 @@
 import React from 'react'
 import {Tag} from 'antd'
 import {createFromIconfontCN, TagsFilled} from '@ant-design/icons'
-import '../public/style/components/tag.css'
 
 const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_2174183_dn83jy6h7ah.js',
@@ -48,6 +47,22 @@ const Tags = () => {
       <Tag icon={<IconFont type="html5" />} color="#108ee9">
         html5
       </Tag>
+      <style jsx global>{`
+        .tag-container {
+          padding: 0 24px 10px;
+        }
+
+        .tag-container .ant-tag {
+          margin-bottom: 5px;
+          cursor: pointer;
+          border-radius: 20px;
+          line-height: 22px;
+        }
+
+        .tag-container .ant-tag .anticon {
+          font-size: 18px;
+        }
+      `}</style>
     </div>
   )
 }
