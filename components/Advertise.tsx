@@ -1,6 +1,5 @@
 /** @format */
 import React from 'react'
-import '../public/style/components/advertise.css'
 
 const Advertise = () => {
   return (
@@ -27,6 +26,16 @@ const Advertise = () => {
           width="100%"
         />
       </div>
+      <style jsx global>{`
+        .ad-div {
+          margin-top: 0.5rem;
+        }
+        .ad-div div {
+          border-radius: 0.3rem;
+          margin-bottom: 0.2rem;
+          overflow: hidden;
+        }
+      `}</style>
     </div>
   )
 }
