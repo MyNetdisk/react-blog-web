@@ -26,6 +26,7 @@ import {
 import Typed from 'react-typed'
 import servicePath from '../config/apiUrl'
 import Contact from './Contact'
+import Search from './Search'
 
 const {SubMenu} = Menu
 const {Link} = Anchor
@@ -46,6 +47,7 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
   const [beforeScrollTop, setbeforeScrollTop] = useState(0)
   const [downward, setdownward] = useState(false)
   const [upward, setupward] = useState(false)
+  const [isModalVisible, setIsModalVisible] = useState(true)
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(servicePath.getTypeInfo).then(res => {
@@ -218,6 +220,7 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
           </div>
         </div>
       </nav>
+      <Search />
       <div className="site-info">
         <h1 id="site-title" className="site-title">
           MyNetdisk说你想说
