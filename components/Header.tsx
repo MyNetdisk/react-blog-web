@@ -47,7 +47,7 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
   const [beforeScrollTop, setbeforeScrollTop] = useState(0)
   const [downward, setdownward] = useState(false)
   const [upward, setupward] = useState(false)
-  const [isModalVisible, setIsModalVisible] = useState(true)
+  const [isSearchVisible, setIsSearchVisible] = useState(false)
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(servicePath.getTypeInfo).then(res => {
@@ -125,7 +125,11 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
             <span>MyNetdisk</span>
           </div>
           <div className="nav-menu">
-            <div className="nav-button">
+            <div
+              className="nav-button"
+              onClick={() => {
+                setIsSearchVisible(true)
+              }}>
               <SearchOutlined />
               搜索
             </div>
@@ -220,7 +224,7 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
           </div>
         </div>
       </nav>
-      <Search />
+      <Search isSearchVisible={isSearchVisible} />
       <div className="site-info">
         <h1 id="site-title" className="site-title">
           MyNetdisk说你想说

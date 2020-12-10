@@ -16,9 +16,9 @@ const Layout = ({indexBG, children}: Props) => {
   const getChildrenMsg = msg => {
     setnavShow(msg)
     if (msg) {
-      document.querySelector('body').style.overflow = 'hidden'
+      document.querySelector('body').style.cssText = 'position: relative; width: calc(100% - 17px);overflow:hidden;'
     } else {
-      document.querySelector('body').style.overflow = ''
+      document.querySelector('body').style.cssText = ''
     }
   }
   return (
