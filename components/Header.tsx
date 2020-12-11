@@ -6,7 +6,7 @@
 
 /** @format */
 
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import Router, {withRouter} from 'next/router'
 import cn from 'classnames'
 import axios from 'axios'
@@ -47,7 +47,7 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
   const [beforeScrollTop, setbeforeScrollTop] = useState(0)
   const [downward, setdownward] = useState(false)
   const [upward, setupward] = useState(false)
-  const [isSearchVisible, setIsSearchVisible] = useState(false)
+  const searchRef = useRef(null)
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(servicePath.getTypeInfo).then(res => {
@@ -128,7 +128,7 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
             <div
               className="nav-button"
               onClick={() => {
-                setIsSearchVisible(true)
+                searchRef.current.showModal()
               }}>
               <SearchOutlined />
               搜索
@@ -224,7 +224,7 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
           </div>
         </div>
       </nav>
-      <Search isSearchVisible={isSearchVisible} />
+      <Search ref={searchRef} />
       <div className="site-info">
         <h1 id="site-title" className="site-title">
           MyNetdisk说你想说

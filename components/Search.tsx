@@ -1,22 +1,14 @@
 /** @format */
-import React, {useState, useEffect} from 'react'
-import {Input, Modal, Button} from 'antd'
+import React, {useState, useEffect, useImperativeHandle, forwardRef} from 'react'
+import {Input, Modal} from 'antd'
 import {createFromIconfontCN} from '@ant-design/icons'
 
 const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_2174183_dn83jy6h7ah.js',
 })
 
-type Props = {
-  isSearchVisible: boolean
-}
-
-const Search = ({isSearchVisible}: Props) => {
+const Search = (_props, ref) => {
   const [isModalVisible, setIsModalVisible] = useState(false)
-
-  useEffect(() => {
-    setIsModalVisible(isSearchVisible)
-  })
 
   const showModal = () => {
     setIsModalVisible(true)
@@ -30,11 +22,12 @@ const Search = ({isSearchVisible}: Props) => {
     setIsModalVisible(false)
   }
 
+  useImperativeHandle(ref, () => ({
+    showModal,
+  }))
+
   return (
     <div className="search">
-      <Button type="primary" onClick={showModal}>
-        Open Modal
-      </Button>
       <Modal title="本地搜索" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} footer={null}>
         <Input />
       </Modal>
@@ -47,4 +40,4 @@ const Search = ({isSearchVisible}: Props) => {
   )
 }
 
-export default Search
+export default forwardRef(Search)
