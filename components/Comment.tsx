@@ -91,57 +91,6 @@ const Comment = () => {
             </div>
           </div>
         </div>
-        <div className="comment-item">
-          <img
-            src="https://gravatar.loli.net/avatar/415ae4eeb931482bc1a0676729519e44?d=retro&v=1.4.14"
-            alt=""
-            className="coment-avatar"
-          />
-          <div className="comment-info">
-            <div className="comment-name">
-              <a href="/#" className="nick">
-                ChongQin
-              </a>
-              <span className="sys">Chrome 86.0.4240.111</span>
-              <span className="sys">Windows 10.0</span>
-            </div>
-            <div className="comment-date">
-              <span className="time">2020-10-18</span>
-              <span className="replay-btn">回复</span>
-            </div>
-            <div className="comment-content">
-              <p>可以，学习下 </p>
-            </div>
-            <div className="replay-wrapper">回复框占位</div>
-            <div className="quote">
-              <div className="comment-item">
-                <img
-                  src="https://gravatar.loli.net/avatar/415ae4eeb931482bc1a0676729519e44?d=retro&v=1.4.14"
-                  alt=""
-                  className="coment-avatar"
-                />
-                <div className="comment-info">
-                  <div className="comment-name">
-                    <a href="/#" className="nick">
-                      ChongQin
-                    </a>
-                    <span className="sys">Chrome 86.0.4240.111</span>
-                    <span className="sys">Windows 10.0</span>
-                  </div>
-                  <div className="comment-date">
-                    <span className="time">2020-10-18</span>
-                    <span className="replay-btn">回复</span>
-                  </div>
-                  <div className="comment-content">
-                    <p>可以，学习下 </p>
-                  </div>
-                  <div className="replay-wrapper">回复框占位</div>
-                  <div className="quote">回复嵌套占位</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       <style jsx global>{`
         #repond {
