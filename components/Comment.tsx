@@ -1,14 +1,12 @@
 /** @format */
 
-import React from 'react'
+import React, {useState} from 'react'
 import {LoadingOutlined} from '@ant-design/icons'
 
 const Comment = () => {
-  return (
-    <div id="repond">
-      <h3 id="comments" className="repond_title">
-        发表评论
-      </h3>
+  const [showPanel, setshowPanel] = useState(true)
+  const renderPanel = () => {
+    return (
       <div className="comment-box">
         <div id="cancel-comment-reply">
           <small>
@@ -32,6 +30,14 @@ const Comment = () => {
           </p>
         </form>
       </div>
+    )
+  }
+  return (
+    <div id="repond">
+      <h3 id="comments" className="repond_title">
+        发表评论
+      </h3>
+      {showPanel ? renderPanel() : ''}
       <div className="comment-count">
         <span>88</span>条评论
       </div>
@@ -67,7 +73,7 @@ const Comment = () => {
                 <img
                   src="https://gravatar.loli.net/avatar/415ae4eeb931482bc1a0676729519e44?d=retro&v=1.4.14"
                   alt=""
-                  className="coment-avatar"
+                  className="coment-avatar sub"
                 />
                 <div className="comment-info">
                   <div className="comment-name">
@@ -82,10 +88,14 @@ const Comment = () => {
                     <span className="replay-btn">回复</span>
                   </div>
                   <div className="comment-content">
-                    <p>可以，学习下 </p>
+                    <p>
+                      <a href="/#" className="nick">
+                        @ChongQin
+                      </a>
+                      , 可以，学习下
+                    </p>
                   </div>
                   <div className="replay-wrapper">回复框占位</div>
-                  <div className="quote">回复嵌套占位</div>
                 </div>
               </div>
             </div>
@@ -182,7 +192,12 @@ const Comment = () => {
         .coment-avatar {
           width: 44px;
           height: 44px;
-          border-radius: 3px;
+          border-radius: 50%;
+        }
+
+        .coment-avatar.sub {
+          width: 40px;
+          height: 40px;
         }
 
         .comment-info {
