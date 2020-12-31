@@ -6,11 +6,15 @@ import Replay from './Reply'
 import axios from 'axios'
 import servicePath from '../config/apiUrl'
 
-const Comment = () => {
+type Props = {
+  pageId: String
+}
+
+const Comment = ({pageId}: Props) => {
   const [showPanel, setshowPanel] = useState(true)
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(servicePath.getCommentById + "1145991328820584449").then(res => {
+      const result = await axios(servicePath.getCommentById + pageId).then(res => {
         return res.data.data
       })
       console.log(result)

@@ -49,7 +49,7 @@ export default function Timeline() {
                   </Paragraph>
                 </Typography>
                 <Divider />
-                <Comment />
+                <Comment pageId="1145991328820584449" />
               </Col>
               <Col className="comm-right" xs={0} sm={0} md={7} lg={6} xl={5}>
                 <Author />
