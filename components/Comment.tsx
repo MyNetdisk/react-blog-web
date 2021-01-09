@@ -12,12 +12,13 @@ type Props = {
 
 const Comment = ({pageId}: Props) => {
   const [showPanel, setshowPanel] = useState(true)
+  const [commentData, setcommentData] = useState([])
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(servicePath.getCommentById + pageId).then(res => {
         return res.data.data
       })
-      console.log(result)
+      setcommentData(result)
     }
     fetchData()
   })
@@ -35,61 +36,65 @@ const Comment = ({pageId}: Props) => {
       </div>
       <div className="comment-list">
         {/* <div className="no-comment">暂无评论</div> */}
-        <div className="comment-item">
-          <img
-            src="https://gravatar.loli.net/avatar/415ae4eeb931482bc1a0676729519e44?d=retro&v=1.4.14"
-            alt=""
-            className="coment-avatar"
-          />
-          <div className="comment-info">
-            <div className="comment-name">
-              <a href="/#" className="nick">
-                ChongQin
-              </a>
-              <span className="sys">Chrome 86.0.4240.111</span>
-              <span className="sys">Windows 10.0</span>
-            </div>
-            <div className="comment-date">
-              <span className="time">2020-10-18</span>
-              <span className="replay-btn">回复</span>
-            </div>
-            <div className="comment-content">
-              <p>可以，学习下 </p>
-            </div>
-            <div className="replay-wrapper">回复框占位</div>
-            <div className="quote">
-              <div className="comment-item">
-                <img
-                  src="https://gravatar.loli.net/avatar/415ae4eeb931482bc1a0676729519e44?d=retro&v=1.4.14"
-                  alt=""
-                  className="coment-avatar sub"
-                />
-                <div className="comment-info">
-                  <div className="comment-name">
-                    <a href="/#" className="nick">
-                      ChongQin
-                    </a>
-                    <span className="sys">Chrome 86.0.4240.111</span>
-                    <span className="sys">Windows 10.0</span>
-                  </div>
-                  <div className="comment-date">
-                    <span className="time">2020-10-18</span>
-                    <span className="replay-btn">回复</span>
-                  </div>
-                  <div className="comment-content">
-                    <p>
-                      <a href="/#" className="nick">
-                        @ChongQin
-                      </a>
-                      , 可以，学习下
-                    </p>
-                  </div>
-                  <div className="replay-wrapper">回复框占位</div>
+        {commentData.map(item => {
+          return (
+            <div className="comment-item" key={item.id}>
+              <img src={item.comment_avatar} alt="" className="coment-avatar" />
+              <div className="comment-info">
+                <div className="comment-name">
+                  <a href="/#" className="nick">
+                    {item.from_name}
+                  </a>
+                  <span className="sys">Chrome 86.0.4240.111</span>
+                  <span className="sys">Windows 10.0</span>
+                </div>
+                <div className="comment-date">
+                  <span className="time">{item.comment_date}</span>
+                  <span className="replay-btn">回复</span>
+                </div>
+                <div className="comment-content">
+                  <p>{item.content}</p>
+                </div>
+                <div className="replay-wrapper">回复框占位</div>
+                <div className="quote">
+                  {item.subCom.map(item => {
+                    return (
+                      <div className="comment-item" key={item.id}>
+                        <img
+                          src={item.comment_avatar}
+                          alt=""
+                          className="coment-avatar sub"
+                        />
+                        <div className="comment-info">
+                          <div className="comment-name">
+                            <a href="/#" className="nick">
+                            {item.from_name}
+                            </a>
+                            <span className="sys">Chrome 86.0.4240.111</span>
+                            <span className="sys">Windows 10.0</span>
+                          </div>
+                          <div className="comment-date">
+                            <span className="time">{item.comment_date}</span>
+                            <span className="replay-btn">回复</span>
+                          </div>
+                          <div className="comment-content">
+                            <p>
+                              <a href="/#" className="nick">
+                                @{item.from_name}
+                              </a>
+                              , {item.content}
+                            </p>
+                          </div>
+                          <div className="replay-wrapper">回复框占位</div>
+                        </div>
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          )
+        })}
       </div>
       <style jsx global>{`
         #repond {
