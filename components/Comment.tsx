@@ -79,10 +79,10 @@ const Comment = ({pageId}: Props) => {
                           </div>
                           <div className="comment-content">
                             <p>
-                              <a href="/#" className="nick">
+                              {/* <a href="/#" className="nick">
                                 @{item.from_name}
-                              </a>
-                              , {item.content}
+                              </a> */}
+                              {item.content}
                             </p>
                           </div>
                           <div className="replay-wrapper">回复框占位</div>
