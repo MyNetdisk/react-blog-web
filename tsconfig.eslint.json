@@ -8,6 +8,6 @@
     "components/",
     "pages/",
     "commitlint.config.js",
-    "config/apiUrl.tsx"
+    "config/apiUrl.tsx",
   ]
 }
