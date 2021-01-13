@@ -9,5 +9,6 @@
     "pages/",
     "commitlint.config.js",
     "config/apiUrl.tsx",
+    "util/*.js",
   ]
 }

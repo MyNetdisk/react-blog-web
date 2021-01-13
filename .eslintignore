@@ -6,5 +6,5 @@ dist
 coverage
 # don't lint commitlint
 commitlint.config.js
-util/constans.js
+
 util/index.js

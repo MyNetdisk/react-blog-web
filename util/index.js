@@ -1,4 +1,6 @@
-import { emojis } from '@/util/constans'
+/** @format */
+
+import {emojis} from './constans'
 // export function camel (str) {
 //   const camel = (str || '').replace(/-([^-])/g, g => g[1].toUpperCase());
 
@@ -47,7 +49,7 @@ const randomElement = (arr = []) => {
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
-const kebab = (str) => {
+const kebab = str => {
   return (str || '').replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
 }
 
@@ -56,22 +58,11 @@ const toggleFullScreen = () => {
   const docEl = doc.documentElement
 
   const requestFullScreen =
-    docEl.requestFullscreen ||
-    docEl.mozRequestFullScreen ||
-    docEl.webkitRequestFullScreen ||
-    docEl.msRequestFullscreen
+    docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen
   const cancelFullScreen =
-    doc.exitFullscreen ||
-    doc.mozCancelFullScreen ||
-    doc.webkitExitFullscreen ||
-    doc.msExitFullscreen
+    doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen
 
-  if (
-    !doc.fullscreenElement &&
-    !doc.mozFullScreenElement &&
-    !doc.webkitFullscreenElement &&
-    !doc.msFullscreenElement
-  ) {
+  if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
     requestFullScreen.call(docEl)
   } else {
     cancelFullScreen.call(doc)
@@ -83,23 +74,18 @@ const toggleFullScreen = () => {
  * @author  zhanglei
  * @date 2020/6/18 22:07
  */
-const formateDate = (time) => {
-  const date =
-    typeof time === 'number'
-      ? new Date(time)
-      : new Date((time || '').replace(/-/g, '/'))
+const formateDate = time => {
+  const date = typeof time === 'number' ? new Date(time) : new Date((time || '').replace(/-/g, '/'))
   const diff = (new Date().getTime() - date.getTime()) / 1000
   const dayDiff = Math.floor(diff / 86400)
 
-  const isValidDate =
-    Object.prototype.toString.call(date) === '[object Date]' &&
-    !isNaN(date.getTime())
+  const isValidDate = Object.prototype.toString.call(date) === '[object Date]' && !isNaN(date.getTime())
 
   if (!isValidDate) {
     // eslint-disable-next-line no-console
     console.error('not a valid date')
   }
-  const formatDate = function(date) {
+  const formatDate = function (date) {
     const today = new Date(date)
     const year = today.getFullYear()
     const month = ('0' + (today.getMonth() + 1)).slice(-2)
@@ -130,23 +116,18 @@ const formateDate = (time) => {
  * @author  zhanglei
  * @date 2020/6/18 22:07
  */
-const formateDateTime = (time) => {
-  const date =
-    typeof time === 'number'
-      ? new Date(time)
-      : new Date((time || '').replace(/-/g, '/'))
+const formateDateTime = time => {
+  const date = typeof time === 'number' ? new Date(time) : new Date((time || '').replace(/-/g, '/'))
   const diff = (new Date().getTime() - date.getTime()) / 1000
   const dayDiff = Math.floor(diff / 86400)
 
-  const isValidDate =
-    Object.prototype.toString.call(date) === '[object Date]' &&
-    !isNaN(date.getTime())
+  const isValidDate = Object.prototype.toString.call(date) === '[object Date]' && !isNaN(date.getTime())
 
   if (!isValidDate) {
     // eslint-disable-next-line no-console
     console.error('not a valid date')
   }
-  const formatDate = function(date) {
+  const formatDate = function (date) {
     const today = new Date(date)
     const year = today.getFullYear()
     const month = ('0' + (today.getMonth() + 1)).slice(-2)
@@ -180,13 +161,13 @@ const formateDateTime = (time) => {
  * @author  zhanglei
  * @date 2020/6/18 22:08
  */
-const formateComment = (content) => {
+const formateComment = content => {
   const regex = /\[(.+?)\]/g
   const list = content.match(regex)
   if (list) {
     list.forEach((v, k) => {
       const str = v.replace(/\[|]/g, '')
-      const src = emojis.find((e) => e.title === str).url
+      const src = emojis.find(e => e.title === str).url
       content = content.replace(
         regex,
         `<img
@@ -195,7 +176,7 @@ const formateComment = (content) => {
                           src="` +
           src +
           `"
-                        ></img>`
+                        ></img>`,
       )
     })
   }
@@ -208,15 +189,15 @@ const formateComment = (content) => {
  * @author  zhanglei
  * @date 2020/6/18 22:08
  */
-const xssComment = (content) => {
-  const options = {
-    whiteList: {}, // 白名单
-    stripIgnoreTag: true // 去掉不在白名单上的标签
-  }
-  const xss = require('xss')
-  const html = xss(content, options)
-  return html
-}
+// const xssComment = content => {
+//   const options = {
+//     whiteList: {}, // 白名单
+//     stripIgnoreTag: true, // 去掉不在白名单上的标签
+//   }
+//   const xss = require('xss')
+//   const html = xss(content, options)
+//   return html
+// }
 
 /**
  * 防止页面xss攻击.
@@ -224,20 +205,20 @@ const xssComment = (content) => {
  * @author  zhanglei
  * @date 2020/6/18 22:08
  */
-const xssAboutPage = (content) => {
-  const options = {
-    stripIgnoreTagBody: ['script'],
-    onIgnoreTag(tag, html, options) {
-      if (tag.substr(0, 2) === 'v-') {
-        // 不对其属性列表进行过滤
-        return html
-      }
-    }
-  }
-  const xss = require('xss')
-  const html = xss(content, options)
-  return html
-}
+// const xssAboutPage = content => {
+//   const options = {
+//     stripIgnoreTagBody: ['script'],
+//     onIgnoreTag(tag, html, options) {
+//       if (tag.substr(0, 2) === 'v-') {
+//         // 不对其属性列表进行过滤
+//         return html
+//       }
+//     },
+//   }
+//   const xss = require('xss')
+//   const html = xss(content, options)
+//   return html
+// }
 
 /**
  * 取min到max之间随机数,如0到100则min为0，max为100
@@ -256,7 +237,7 @@ export default {
   formateDate,
   formateDateTime,
   formateComment,
-  xssComment,
-  xssAboutPage,
-  randomNum
+  // xssComment,
+  // xssAboutPage,
+  randomNum,
 }

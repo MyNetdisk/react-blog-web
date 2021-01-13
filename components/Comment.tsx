@@ -3,6 +3,8 @@
 import React, {useState, useEffect} from 'react'
 import {LoadingOutlined} from '@ant-design/icons'
 import Replay from './Reply'
+import Util from '../util'
+import { emojis } from '../util/constans'
 import axios from 'axios'
 import servicePath from '../config/apiUrl'
 
@@ -22,6 +24,13 @@ const Comment = ({pageId}: Props) => {
     }
     fetchData()
   })
+  function formateComment(content) {
+    if (content != null && content !== '') {
+      return Util.formateComment(content)
+    } else {
+      return ''
+    }
+  }
   return (
     <div id="repond">
       <h3 id="comments" className="repond_title">
@@ -53,7 +62,7 @@ const Comment = ({pageId}: Props) => {
                   <span className="replay-btn">回复</span>
                 </div>
                 <div className="comment-content">
-                  <p>{item.content}</p>
+                  <p dangerouslySetInnerHTML={{__html: formateComment(item.content)}}></p>
                 </div>
                 <div className="replay-wrapper">回复框占位</div>
                 <div className="quote">
@@ -78,11 +87,10 @@ const Comment = ({pageId}: Props) => {
                             <span className="replay-btn">回复</span>
                           </div>
                           <div className="comment-content">
-                            <p>
+                            <p dangerouslySetInnerHTML={{__html: formateComment(item.content)}}>
                               {/* <a href="/#" className="nick">
                                 @{item.from_name}
                               </a> */}
-                              {item.content}
                             </p>
                           </div>
                           <div className="replay-wrapper">回复框占位</div>
