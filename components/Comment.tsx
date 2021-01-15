@@ -64,7 +64,7 @@ const Comment = ({pageId}: Props) => {
                 <div className="comment-content">
                   <p dangerouslySetInnerHTML={{__html: formateComment(item.content)}}></p>
                 </div>
-                <div className="replay-wrapper">回复框占位</div>
+                {/* <div className="replay-wrapper">回复框占位</div> */}
                 <div className="quote">
                   {item.subCom.map(item => {
                     return (
@@ -93,7 +93,7 @@ const Comment = ({pageId}: Props) => {
                               </a> */}
                             </p>
                           </div>
-                          <div className="replay-wrapper">回复框占位</div>
+                          {/* <div className="replay-wrapper">回复框占位</div> */}
                         </div>
                       </div>
                     )
@@ -134,7 +134,7 @@ const Comment = ({pageId}: Props) => {
           font-size: 12px;
           color: #555;
           box-sizing: border-box;
-          width: 33%;
+          width: 50%;
           border-bottom: 1px dashed #eaecef;
         }
 
