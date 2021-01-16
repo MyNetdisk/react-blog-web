@@ -110,68 +110,9 @@ const Comment = ({pageId}: Props) => {
           padding: 1rem;
         }
 
-        .comment-box {
-          padding: 10px;
-          margin-bottom: 10px;
-          background-color: rgba(27, 31, 35, 0.05);
-          border-radius: 3px;
-        }
-
         .repond_title {
           margin-top: 10px;
           font-size: 1.8em;
-        }
-
-        #commentform {
-          margin: 5px 0 0 0;
-        }
-
-        #conmmentform p {
-          margin: 0;
-        }
-
-        #conmmentform .commentator input {
-          font-size: 12px;
-          color: #555;
-          box-sizing: border-box;
-          width: 50%;
-          border-bottom: 1px dashed #eaecef;
-        }
-
-        #conmmentform .commentator input:focus {
-          border-bottom: 1px dashed #3eaf7c;
-        }
-
-        @media screen and (max-width: 520px) {
-          #conmmentform .commentator input {
-            width: 100%;
-          }
-        }
-
-        #conmmentform input,
-        #conmmentform textarea {
-          padding: 8px;
-          border: none;
-          outline: none;
-          background: transparent;
-        }
-
-        #conmmentform input {
-          margin-bottom: 5px;
-        }
-
-        #conmmentform textarea {
-          width: 100%;
-          height: 140px;
-          overflow: auto;
-        }
-
-        #conmmentform #submit {
-          width: 100px;
-          height: 36px;
-          overflow: visible;
-          background-color: #f0f3f9;
-          box-shadow: 1px 1px #afc4ea, 2px 2px #afc4ea, 3px 3px #afc4ea;
         }
 
         .comment-count {
