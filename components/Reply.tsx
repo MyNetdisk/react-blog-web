@@ -22,11 +22,21 @@ const Replay = () => {
         <p>
           <textarea name="comment" id="comment" rows={8} placeholder="填写邮箱可以收到回复哦！" />
         </p>
-        <p className="clearfix">
-          <SmileFilled style={{ fontSize: '28px', color: '#08c' }} />
+        <p className="clearfix" style={{ position: 'relative'}}>
+          <SmileFilled style={{ fontSize: '28px', color: 'rgba(0,0,0,.54)', position: 'absolute', top: '50%', transform: 'translateY(-50%)' }} />
           <input name="submit" type="submit" id="submit" value="提交评论" />
-          {/* <span id="commRem" className="m120" style={{color: '#cd0000'}} /> */}
         </p>
+        <div className="well">
+          <p>
+            <a href="">
+              <div className="d-inline-flex">
+                <div></div>
+                <div style={{backgroundImage:'url()'}}></div>
+                <div></div>
+              </div>
+            </a>
+          </p>
+        </div>
       </form>
       <style jsx global>{`
         .comment-box {
