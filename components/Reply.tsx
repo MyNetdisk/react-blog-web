@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { SmileFilled } from '@ant-design/icons'
+import { emojis } from '../util/constans'
 
 const Replay = () => {
   return (
@@ -29,9 +30,9 @@ const Replay = () => {
         <div className="well">
           <p>
             <a href="">
-              <div className="d-inline-flex">
-                <div></div>
-                <div style={{backgroundImage:'url()'}}></div>
+              <div className="d-inline-flex" style={{width: '32px'}}>
+                <div style={{paddingBottom: '100%'}}></div>
+                <div style={{backgroundImage:'url(/static/img/smilies/arrow.png)'}}></div>
                 <div></div>
               </div>
             </a>
@@ -101,6 +102,17 @@ const Replay = () => {
           overflow: visible;
           background-color: #f0f3f9;
           box-shadow: 1px 1px #afc4ea, 2px 2px #afc4ea, 3px 3px #afc4ea;
+        }
+
+        #conmmentform .well{
+          min-height: 20px;
+          padding: 19px;
+          margin-bottom: 20px;
+          background-color: #f5f5f5;
+          border: 1px solid #e3e3e3;
+          border-radius: 4px;
+          -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
         }
       `}</style>
     </div>
