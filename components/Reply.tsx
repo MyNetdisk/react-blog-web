@@ -28,15 +28,15 @@ const Replay = () => {
           <input name="submit" type="submit" id="submit" value="提交评论" />
         </p>
         <div className="well">
-          <p>
-            <a href="">
-              <div className="d-inline-flex" style={{width: '32px'}}>
+          <div>
+            <a>
+              <div className="d-inline-flex" style={{width: '32px',display: 'inline-flex!important'}}>
                 <div style={{paddingBottom: '100%'}}></div>
-                <div style={{backgroundImage:'url(/static/img/smilies/arrow.png)'}}></div>
-                <div></div>
+                <div style={{backgroundImage:'url(/static/img/smilies/biggrin.png)',backgroundPosition:'center center',backgroundSize:'cover'}}></div>
+                <div style={{width: '64px',marginLeft: '-100%'}}></div>
               </div>
             </a>
-          </p>
+          </div>
         </div>
       </form>
       <style jsx global>{`
