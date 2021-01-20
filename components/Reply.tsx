@@ -30,9 +30,23 @@ const Replay = () => {
         <div className="well">
           <div>
             <a>
-              <div className="d-inline-flex" style={{width: '32px',display: 'inline-flex!important'}}>
+              <div className="d-inline-flex" style={{width: '32px',display: 'inline-flex!important',position: 'relative'}}>
                 <div style={{paddingBottom: '100%'}}></div>
-                <div style={{backgroundImage:'url(/static/img/smilies/biggrin.png)',backgroundPosition:'center center',backgroundSize:'cover'}}></div>
+                <div style={{backgroundImage:'url(/static/img/smilies/biggrin.png)',backgroundPosition:'center center',backgroundSize:'cover',position:'absolute',top:'0px',left:'0px',width:'100%',height:'100%'}}></div>
+                <div style={{width: '64px',marginLeft: '-100%'}}></div>
+              </div>
+            </a>
+            <a>
+              <div className="d-inline-flex" style={{width: '32px',display: 'inline-flex!important',position: 'relative'}}>
+                <div style={{paddingBottom: '100%'}}></div>
+                <div style={{backgroundImage:'url(/static/img/smilies/biggrin.png)',backgroundPosition:'center center',backgroundSize:'cover',position:'absolute',top:'0px',left:'0px',width:'100%',height:'100%'}}></div>
+                <div style={{width: '64px',marginLeft: '-100%'}}></div>
+              </div>
+            </a>
+            <a>
+              <div className="d-inline-flex" style={{width: '32px',display: 'inline-flex!important',position: 'relative'}}>
+                <div style={{paddingBottom: '100%'}}></div>
+                <div style={{backgroundImage:'url(/static/img/smilies/biggrin.png)',backgroundPosition:'center center',backgroundSize:'cover',position:'absolute',top:'0px',left:'0px',width:'100%',height:'100%'}}></div>
                 <div style={{width: '64px',marginLeft: '-100%'}}></div>
               </div>
             </a>
