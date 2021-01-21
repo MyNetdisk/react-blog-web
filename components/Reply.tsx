@@ -1,8 +1,9 @@
 /** @format */
 
 import React from 'react'
-import { SmileFilled } from '@ant-design/icons'
-import { emojis } from '../util/constans'
+import {Image} from 'antd'
+import {SmileFilled} from '@ant-design/icons'
+import {emojis} from '../util/constans'
 
 const Replay = () => {
   return (
@@ -23,33 +24,27 @@ const Replay = () => {
         <p>
           <textarea name="comment" id="comment" rows={8} placeholder="填写邮箱可以收到回复哦！" />
         </p>
-        <p className="clearfix" style={{ position: 'relative'}}>
-          <SmileFilled style={{ fontSize: '28px', color: 'rgba(0,0,0,.54)', position: 'absolute', top: '50%', transform: 'translateY(-50%)' }} />
+        <p className="clearfix" style={{position: 'relative'}}>
+          <SmileFilled
+            style={{
+              fontSize: '28px',
+              color: 'rgba(0,0,0,.54)',
+              position: 'absolute',
+              top: '50%',
+              transform: 'translateY(-50%)',
+            }}
+          />
           <input name="submit" type="submit" id="submit" value="提交评论" />
         </p>
         <div className="well">
           <div>
-            <a>
-              <div className="d-inline-flex" style={{width: '32px',display: 'inline-flex!important',position: 'relative'}}>
-                <div style={{paddingBottom: '100%'}}></div>
-                <div style={{backgroundImage:'url(/static/img/smilies/biggrin.png)',backgroundPosition:'center center',backgroundSize:'cover',position:'absolute',top:'0px',left:'0px',width:'100%',height:'100%'}}></div>
-                <div style={{width: '64px',marginLeft: '-100%'}}></div>
-              </div>
-            </a>
-            <a>
-              <div className="d-inline-flex" style={{width: '32px',display: 'inline-flex!important',position: 'relative'}}>
-                <div style={{paddingBottom: '100%'}}></div>
-                <div style={{backgroundImage:'url(/static/img/smilies/biggrin.png)',backgroundPosition:'center center',backgroundSize:'cover',position:'absolute',top:'0px',left:'0px',width:'100%',height:'100%'}}></div>
-                <div style={{width: '64px',marginLeft: '-100%'}}></div>
-              </div>
-            </a>
-            <a>
-              <div className="d-inline-flex" style={{width: '32px',display: 'inline-flex!important',position: 'relative'}}>
-                <div style={{paddingBottom: '100%'}}></div>
-                <div style={{backgroundImage:'url(/static/img/smilies/biggrin.png)',backgroundPosition:'center center',backgroundSize:'cover',position:'absolute',top:'0px',left:'0px',width:'100%',height:'100%'}}></div>
-                <div style={{width: '64px',marginLeft: '-100%'}}></div>
-              </div>
-            </a>
+            {emojis.map(item => {
+              return (
+                <a key={item.title}>
+                  <Image preview={false} className="d-inline-flex" width={32} src={item.url} />
+                </a>
+              )
+            })}
           </div>
         </div>
       </form>
@@ -105,12 +100,12 @@ const Replay = () => {
           overflow: auto;
         }
 
-        #conmmentform .anticon-smile{
-          float:left
+        #conmmentform .anticon-smile {
+          float: left;
         }
 
         #conmmentform #submit {
-          float:right;
+          float: right;
           width: 100px;
           height: 36px;
           overflow: visible;
@@ -118,15 +113,15 @@ const Replay = () => {
           box-shadow: 1px 1px #afc4ea, 2px 2px #afc4ea, 3px 3px #afc4ea;
         }
 
-        #conmmentform .well{
+        #conmmentform .well {
           min-height: 20px;
           padding: 19px;
           margin-bottom: 20px;
           background-color: #f5f5f5;
           border: 1px solid #e3e3e3;
           border-radius: 4px;
-          -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-          box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+          -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
         }
       `}</style>
     </div>
