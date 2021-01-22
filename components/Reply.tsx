@@ -1,11 +1,16 @@
 /** @format */
 
-import React from 'react'
+import React, {useState} from 'react'
 import {Image} from 'antd'
 import {SmileFilled} from '@ant-design/icons'
 import {emojis} from '../util/constans'
 
 const Replay = () => {
+  let [content, setcontent] = useState('')
+  let handleEmoji = (emoji) => {
+    setcontent(content += '[' + emoji.title + ']' )
+    console.log(content)
+  }
   return (
     <div className="comment-box">
       <div id="cancel-comment-reply">
@@ -40,7 +45,7 @@ const Replay = () => {
           <div>
             {emojis.map(item => {
               return (
-                <a key={item.title}>
+                <a key={item.title} onClick={ ()=> handleEmoji(item)}>
                   <Image preview={false} className="d-inline-flex" width={32} src={item.url} />
                 </a>
               )
