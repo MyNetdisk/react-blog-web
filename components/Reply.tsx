@@ -7,9 +7,13 @@ import {emojis} from '../util/constans'
 
 const Replay = () => {
   let [content, setcontent] = useState('')
-  let handleEmoji = (emoji) => {
-    setcontent(content += '[' + emoji.title + ']' )
+  let [active, setactive] = useState(false)
+  const handleEmoji = emoji => {
+    setcontent((content += '[' + emoji.title + ']'))
     console.log(content)
+  }
+  const toggleEmoji = () => {
+    setactive(!active)
   }
   return (
     <div className="comment-box">
@@ -31,9 +35,10 @@ const Replay = () => {
         </p>
         <p className="clearfix" style={{position: 'relative'}}>
           <SmileFilled
+            onClick={() => toggleEmoji()}
             style={{
               fontSize: '28px',
-              color: 'rgba(0,0,0,.54)',
+              color: active ? '#40a9ff' : 'rgba(0,0,0,.54)',
               position: 'absolute',
               top: '50%',
               transform: 'translateY(-50%)',
@@ -41,11 +46,11 @@ const Replay = () => {
           />
           <input name="submit" type="submit" id="submit" value="提交评论" />
         </p>
-        <div className="well">
+        <div className="well" style={{display : active ? "block" : "none"}}>
           <div>
             {emojis.map(item => {
               return (
-                <a key={item.title} onClick={ ()=> handleEmoji(item)}>
+                <a key={item.title} onClick={() => handleEmoji(item)}>
                   <Image preview={false} className="d-inline-flex" width={32} src={item.url} />
                 </a>
               )
