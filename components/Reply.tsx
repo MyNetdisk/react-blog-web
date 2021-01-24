@@ -15,6 +15,9 @@ const Replay = () => {
   const toggleEmoji = () => {
     setactive(!active)
   }
+  const handleTextareaChange = (e) => {
+    setcontent((e.target.value))
+  }
   return (
     <div className="comment-box">
       <div id="cancel-comment-reply">
@@ -31,7 +34,7 @@ const Replay = () => {
           {/* <input type="url" name="url" id="url" size={22} placeholder="网址(http://)" /> */}
         </p>
         <p>
-          <textarea name="comment" id="comment" rows={8} placeholder="填写邮箱可以收到回复哦！" />
+          <textarea name="comment" id="comment" rows={8} placeholder="填写邮箱可以收到回复哦！" value={content} onChange={(e)=>handleTextareaChange(e)} />
         </p>
         <p className="clearfix" style={{position: 'relative'}}>
           <SmileFilled
