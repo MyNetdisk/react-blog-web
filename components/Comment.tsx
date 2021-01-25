@@ -4,7 +4,7 @@ import React, {useState, useEffect} from 'react'
 import {LoadingOutlined} from '@ant-design/icons'
 import Replay from './Reply'
 import Util from '../util'
-import { emojis } from '../util/constans'
+// import { emojis } from '../util/constans'
 import axios from 'axios'
 import servicePath from '../config/apiUrl'
 
