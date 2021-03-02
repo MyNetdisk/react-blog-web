@@ -12,6 +12,7 @@ const servicePath = {
   getTypeInfo: `${ipUrl}getTypeInfo`, // 文章类别接口
   getListById: `${ipUrl}getListById/`, // 根据类型ID获得文章列表
   getCommentById: `${ipUrl}getCommentById/`, // 根据类型ID获得文章列表
+  addComment: `${ipUrl}addComment/`, // 添加评论
 }
 
 export default servicePath

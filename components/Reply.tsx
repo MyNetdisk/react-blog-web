@@ -18,6 +18,9 @@ const Replay = () => {
   const handleTextareaChange = (e) => {
     setcontent((e.target.value))
   }
+  const saveComment = () => {
+    
+  }
   return (
     <div className="comment-box">
       <div id="cancel-comment-reply">
