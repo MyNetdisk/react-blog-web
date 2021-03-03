@@ -19,7 +19,17 @@ const Replay = () => {
     setcontent((e.target.value))
   }
   const saveComment = () => {
-    
+    let dataProps = {
+       id: null,
+       comment: null,
+       article_id: null,
+       article_title: null,
+       comment_id: null,
+       from_id: null,
+       from_name: null,
+       from_avatar: null,
+       create_date: null,
+    }
   }
   return (
     <div className="comment-box">
