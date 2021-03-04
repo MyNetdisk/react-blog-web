@@ -18,6 +18,7 @@ const Comment = ({pageId}: Props) => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(servicePath.getCommentById + pageId).then(res => {
+        console.log(res.data.data)
         return res.data.data
       })
       setcommentData(result)
@@ -36,7 +37,7 @@ const Comment = ({pageId}: Props) => {
       <h3 id="comments" className="repond_title">
         发表评论
       </h3>
-      <Replay />
+      <Replay pageId={pageId} />
       <div className="comment-count">
         <span>88</span>条评论
       </div>

@@ -5,9 +5,14 @@ import {Image} from 'antd'
 import {SmileFilled} from '@ant-design/icons'
 import {emojis} from '../util/constans'
 
-const Replay = () => {
+type Props = {
+  pageId: String
+}
+
+const Replay = ({pageId}: Props) => {
   let [content, setcontent] = useState('')
   let [active, setactive] = useState(false)
+  console.log(pageId)
   const handleEmoji = emoji => {
     setcontent((content += '[' + emoji.title + ']'))
     console.log(content)
@@ -30,6 +35,10 @@ const Replay = () => {
        from_avatar: null,
        create_date: null,
     }
+    dataProps.id = null
+    dataProps.comment = content
+    dataProps.article_id = pageId
+    dataProps.article_title = pageId
   }
   return (
     <div className="comment-box">
