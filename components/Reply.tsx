@@ -38,7 +38,12 @@ const Replay = ({pageId}: Props) => {
     dataProps.id = null
     dataProps.comment = content
     dataProps.article_id = pageId
-    dataProps.article_title = pageId
+    dataProps.article_title = null
+    dataProps.comment_id = null
+    dataProps.from_id = null
+    dataProps.from_name = null
+    dataProps.from_avatar = null
+    dataProps.create_date = null
   }
   return (
     <div className="comment-box">
