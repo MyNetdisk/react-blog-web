@@ -82,7 +82,7 @@ export default function Detail(props: any) {
               {/* eslint-disable-next-line react/no-danger */}
               <div className="detail-content" dangerouslySetInnerHTML={{__html: html}} />
             </div>
-            <Comment pageId={data.id}/>
+            <Comment pageId={data.id} article_title={data.title}/>
           </Col>
           <Col className="comm-right" xs={0} sm={0} md={7} lg={6} xl={5}>
             <Author />

@@ -7,12 +7,13 @@ import {emojis} from '../util/constans'
 
 type Props = {
   pageId: String
+  article_title: String
 }
 
-const Replay = ({pageId}: Props) => {
+const Replay = ({pageId, article_title}: Props) => {
   let [content, setcontent] = useState('')
   let [active, setactive] = useState(false)
-  console.log(pageId)
+  console.log(article_title+"hello")
   const handleEmoji = emoji => {
     setcontent((content += '[' + emoji.title + ']'))
     console.log(content)

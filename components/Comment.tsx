@@ -10,15 +10,16 @@ import servicePath from '../config/apiUrl'
 
 type Props = {
   pageId: String
+  article_title: String
 }
 
-const Comment = ({pageId}: Props) => {
+const Comment = ({pageId, article_title}: Props) => {
   const [showPanel, setshowPanel] = useState(true)
   const [commentData, setcommentData] = useState([])
+  console.log(article_title)
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(servicePath.getCommentById + pageId).then(res => {
-        console.log(res.data.data)
         return res.data.data
       })
       setcommentData(result)
@@ -37,7 +38,7 @@ const Comment = ({pageId}: Props) => {
       <h3 id="comments" className="repond_title">
         发表评论
       </h3>
-      <Replay pageId={pageId} />
+      <Replay pageId={pageId} article_title={article_title} />
       <div className="comment-count">
         <span>88</span>条评论
       </div>
@@ -55,8 +56,8 @@ const Comment = ({pageId}: Props) => {
                   <a href="/#" className="nick">
                     {item.from_name}
                   </a>
-                  <span className="sys">Chrome 86.0.4240.111</span>
-                  <span className="sys">Windows 10.0</span>
+                  {/* <span className="sys">Chrome 86.0.4240.111</span>
+                  <span className="sys">Windows 10.0</span> */}
                 </div>
                 <div className="comment-date">
                   <span className="time">{item.comment_date}</span>
@@ -80,8 +81,8 @@ const Comment = ({pageId}: Props) => {
                             <a href="/#" className="nick">
                             {item.from_name}
                             </a>
-                            <span className="sys">Chrome 86.0.4240.111</span>
-                            <span className="sys">Windows 10.0</span>
+                            {/* <span className="sys">Chrome 86.0.4240.111</span>
+                            <span className="sys">Windows 10.0</span> */}
                           </div>
                           <div className="comment-date">
                             <span className="time">{item.comment_date}</span>
