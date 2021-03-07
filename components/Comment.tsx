@@ -16,7 +16,7 @@ type Props = {
 const Comment = ({pageId, article_title}: Props) => {
   const [showPanel, setshowPanel] = useState(true)
   const [commentData, setcommentData] = useState([])
-  console.log(article_title)
+  console.log(commentData)
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(servicePath.getCommentById + pageId).then(res => {

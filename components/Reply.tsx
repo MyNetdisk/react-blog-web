@@ -13,7 +13,6 @@ type Props = {
 const Replay = ({pageId, article_title}: Props) => {
   let [content, setcontent] = useState('')
   let [active, setactive] = useState(false)
-  console.log(article_title+"hello")
   const handleEmoji = emoji => {
     setcontent((content += '[' + emoji.title + ']'))
     console.log(content)
@@ -39,7 +38,7 @@ const Replay = ({pageId, article_title}: Props) => {
     dataProps.id = null
     dataProps.comment = content
     dataProps.article_id = pageId
-    dataProps.article_title = null
+    dataProps.article_title = article_title
     dataProps.comment_id = null
     dataProps.from_id = null
     dataProps.from_name = null
