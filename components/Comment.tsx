@@ -16,7 +16,7 @@ type Props = {
 const Comment = ({pageId, article_title}: Props) => {
   const [showPanel, setshowPanel] = useState(true)
   const [commentData, setcommentData] = useState([])
-  console.log(commentData)
+  // console.log(commentData)
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(servicePath.getCommentById + pageId).then(res => {
@@ -32,6 +32,10 @@ const Comment = ({pageId, article_title}: Props) => {
     } else {
       return ''
     }
+  }
+  function rTime(date) {
+    var json_date = new Date(date).toJSON();
+    return new Date(+new Date(json_date) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '')
   }
   return (
     <div id="repond">
@@ -60,7 +64,7 @@ const Comment = ({pageId, article_title}: Props) => {
                   <span className="sys">Windows 10.0</span> */}
                 </div>
                 <div className="comment-date">
-                  <span className="time">{item.comment_date}</span>
+                  <span className="time">{rTime(item.comment_date)}</span>
                   <span className="replay-btn">回复</span>
                 </div>
                 <div className="comment-content">
@@ -85,7 +89,7 @@ const Comment = ({pageId, article_title}: Props) => {
                             <span className="sys">Windows 10.0</span> */}
                           </div>
                           <div className="comment-date">
-                            <span className="time">{item.comment_date}</span>
+                            <span className="time">{rTime(item.comment_date)}</span>
                             <span className="replay-btn">回复</span>
                           </div>
                           <div className="comment-content">

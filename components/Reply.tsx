@@ -11,6 +11,8 @@ type Props = {
 }
 
 const Replay = ({pageId, article_title}: Props) => {
+  let [name, setname] = useState('')
+  let [email, setemail] = useState('')
   let [content, setcontent] = useState('')
   let [active, setactive] = useState(false)
   const handleEmoji = emoji => {
@@ -19,6 +21,13 @@ const Replay = ({pageId, article_title}: Props) => {
   }
   const toggleEmoji = () => {
     setactive(!active)
+  }
+  const handleInputNameChange = (e) => {
+    setname((e.target.value))
+  }
+  const handleInputEmailChange = (e) => {
+    setemail((e.target.value))
+    console.log(email)
   }
   const handleTextareaChange = (e) => {
     setcontent((e.target.value))
@@ -41,9 +50,9 @@ const Replay = ({pageId, article_title}: Props) => {
     dataProps.article_title = article_title
     dataProps.comment_id = null
     dataProps.from_id = null
-    dataProps.from_name = null
-    dataProps.from_avatar = null
-    dataProps.create_date = null
+    dataProps.from_name = name
+    dataProps.from_avatar = "https://images.mynetdisk.vercel.app/react-blogs/avator/1.jpg"
+    dataProps.create_date = new Date()
   }
   return (
     <div className="comment-box">
@@ -56,8 +65,8 @@ const Replay = ({pageId, article_title}: Props) => {
       </div>
       <form action="/#" method="post" id="conmmentform" className="mobile">
         <p className="commentator">
-          <input type="text" name="author" id="author" size={22} required placeholder="名称(必须)" />
-          <input type="email" name="email" id="email" size={22} required placeholder="邮箱(必须)" />
+          <input type="text" name="author" id="author" size={22} required placeholder="名称(必须)" value={name} onChange={(e)=>handleInputNameChange(e)} />
+          <input type="email" name="email" id="email" size={22} required placeholder="邮箱(必须)" value={email} onChange={(e)=>handleInputEmailChange(e)} />
           {/* <input type="url" name="url" id="url" size={22} placeholder="网址(http://)" /> */}
         </p>
         <p>
