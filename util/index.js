@@ -166,17 +166,20 @@ const formateComment = content => {
   const list = content.match(regex)
   if (list) {
     list.forEach((v, k) => {
-      const str = v.replace(/\[|]/g, '')
-      const src = emojis.find(e => e.title === str).url
+      // const str = v.replace(/\[|]/g, '')
+      // const src = emojis.find(e => e.title === str).url
       content = content.replace(
         regex,
-        `<img
-                          class="d-inline-flex"
-                          width="16"
-                          src="` +
-          src +
-          `"
-                        ></img>`,
+        function(word){
+          const str = word.replace(/\[|]/g, '')
+          const src = emojis.find(e => e.title === str).url
+          return `<img
+          class="d-inline-flex"
+          width="16"
+          src="` +
+          src + `"
+        ></img>`
+        },
       )
     })
   }

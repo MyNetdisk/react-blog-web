@@ -4,6 +4,8 @@ import React, {useState} from 'react'
 import {Image} from 'antd'
 import {SmileFilled} from '@ant-design/icons'
 import {emojis} from '../util/constans'
+import axios from 'axios'
+import servicePath from '../config/apiUrl'
 
 type Props = {
   pageId: String
@@ -32,27 +34,40 @@ const Replay = ({pageId, article_title}: Props) => {
   const handleTextareaChange = (e) => {
     setcontent((e.target.value))
   }
+  function rTime(date) {
+    var json_date = new Date(date).toJSON();
+    return new Date(+new Date(json_date) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '')
+  }
   const saveComment = () => {
     let dataProps = {
-       id: null,
-       comment: null,
+       content: null,
        article_id: null,
        article_title: null,
        comment_id: null,
        from_id: null,
        from_name: null,
        from_avatar: null,
+       like_num: null,
        create_date: null,
+       is_del: null
     }
-    dataProps.id = null
-    dataProps.comment = content
+    // dataProps.id = null
+    dataProps.content = content
     dataProps.article_id = pageId
     dataProps.article_title = article_title
     dataProps.comment_id = null
     dataProps.from_id = null
     dataProps.from_name = name
     dataProps.from_avatar = "https://images.mynetdisk.vercel.app/react-blogs/avator/1.jpg"
-    dataProps.create_date = new Date()
+    dataProps.create_date = rTime(new Date())
+    axios({
+      method: 'post',
+      url: servicePath.addComment,
+      data: dataProps,
+      withCredentials: true,
+    }).then(res => {
+      console.log(res)
+    })
   }
   return (
     <div className="comment-box">
@@ -63,7 +78,7 @@ const Replay = ({pageId, article_title}: Props) => {
           </a>
         </small>
       </div>
-      <form action="/#" method="post" id="conmmentform" className="mobile">
+      <form method="post" id="conmmentform" className="mobile">
         <p className="commentator">
           <input type="text" name="author" id="author" size={22} required placeholder="名称(必须)" value={name} onChange={(e)=>handleInputNameChange(e)} />
           <input type="email" name="email" id="email" size={22} required placeholder="邮箱(必须)" value={email} onChange={(e)=>handleInputEmailChange(e)} />
@@ -83,7 +98,7 @@ const Replay = ({pageId, article_title}: Props) => {
               transform: 'translateY(-50%)',
             }}
           />
-          <input name="submit" type="submit" id="submit" value="提交评论" />
+          <input name="submit" type="submit" id="submit" value="提交评论" onClick = {() => saveComment()} />
         </p>
         <div className="well" style={{display : active ? "block" : "none"}}>
           <div>
