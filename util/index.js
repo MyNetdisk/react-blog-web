@@ -31,9 +31,9 @@ import {emojis} from './constans'
 //   });
 // }
 
-// export function randomNumber (min, max) {
-//   return Math.floor(Math.random() * max) + min;
-// }
+export function randomNumber (min, max) {
+  return Math.floor(Math.random() * max) + min;
+}
 
 // export function randomString (length = 5) {
 //   let text = '';

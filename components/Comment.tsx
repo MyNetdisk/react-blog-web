@@ -16,13 +16,14 @@ type Props = {
 const Comment = ({pageId, article_title}: Props) => {
   const [showPanel, setshowPanel] = useState(true)
   const [commentData, setcommentData] = useState([])
-  // console.log(commentData)
+  const [commentTotal, setcommentTotal] = useState()
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(servicePath.getCommentById + pageId).then(res => {
-        return res.data.data
+        return res.data
       })
-      setcommentData(result)
+      setcommentData(result.data)
+      setcommentTotal(result.comtotal)
     }
     fetchData()
   })
@@ -44,7 +45,7 @@ const Comment = ({pageId, article_title}: Props) => {
       </h3>
       <Replay pageId={pageId} article_title={article_title} />
       <div className="comment-count">
-        <span>88</span>条评论
+        <span>{commentTotal}</span>条评论
       </div>
       <div className="comment-loading" style={{display: 'none'}}>
         <LoadingOutlined style={{fontSize: '30px'}} />

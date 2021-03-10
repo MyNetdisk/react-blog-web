@@ -4,6 +4,7 @@ import React, {useState} from 'react'
 import {Image} from 'antd'
 import {SmileFilled} from '@ant-design/icons'
 import {emojis} from '../util/constans'
+import Util from '../util'
 import axios from 'axios'
 import servicePath from '../config/apiUrl'
 
@@ -38,6 +39,9 @@ const Replay = ({pageId, article_title}: Props) => {
     var json_date = new Date(date).toJSON();
     return new Date(+new Date(json_date) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '')
   }
+  function randomAvator(){
+    return `https://images.mynetdisk.vercel.app/react-blogs/avator/${Util.randomNum(1,16)}.jpg`
+  }
   const saveComment = () => {
     let dataProps = {
        content: null,
@@ -58,7 +62,7 @@ const Replay = ({pageId, article_title}: Props) => {
     dataProps.comment_id = null
     dataProps.from_id = null
     dataProps.from_name = name
-    dataProps.from_avatar = "https://images.mynetdisk.vercel.app/react-blogs/avator/1.jpg"
+    dataProps.from_avatar = randomAvator()
     dataProps.create_date = rTime(new Date())
     axios({
       method: 'post',
