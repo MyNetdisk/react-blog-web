@@ -86,7 +86,6 @@ const Replay = ({pageId, article_title}: Props) => {
         <p className="commentator">
           <input type="text" name="author" id="author" size={22} required placeholder="名称(必须)" value={name} onChange={(e)=>handleInputNameChange(e)} />
           <input type="email" name="email" id="email" size={22} required placeholder="邮箱(必须)" value={email} onChange={(e)=>handleInputEmailChange(e)} />
-          {/* <input type="url" name="url" id="url" size={22} placeholder="网址(http://)" /> */}
         </p>
         <p>
           <textarea name="comment" id="comment" rows={8} placeholder="填写邮箱可以收到回复哦！" value={content} onChange={(e)=>handleTextareaChange(e)} />
