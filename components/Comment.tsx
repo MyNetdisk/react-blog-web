@@ -6,7 +6,6 @@ import {LoadingOutlined, SmileFilled} from '@ant-design/icons'
 import {emojis} from '../util/constans'
 import Replay from './Reply'
 import Util from '../util'
-// import { emojis } from '../util/constans'
 import axios from 'axios'
 import servicePath from '../config/apiUrl'
 
@@ -35,7 +34,6 @@ const Comment = ({pageId, article_title}: Props) => {
   })
   const handleEmoji = emoji => {
     setcontent((content += '[' + emoji.title + ']'))
-    console.log(content)
   }
   const toggleEmoji = () => {
     setactive(!active)
@@ -49,8 +47,42 @@ const Comment = ({pageId, article_title}: Props) => {
   }
   const handleTextareaChange = e => {
     setcontent(e.target.value)
+    console.log(content)
   }
-  const saveComment = () => {}
+  function randomAvator(){
+    return `https://images.mynetdisk.vercel.app/react-blogs/avator/${Util.randomNum(1,16)}.jpg`
+  }
+  const saveComment = () => {
+    let dataProps = {
+      content: null,
+      article_id: null,
+      article_title: null,
+      comment_id: null,
+      from_id: null,
+      from_name: null,
+      from_avatar: null,
+      like_num: null,
+      create_date: null,
+      is_del: null
+   }
+   // dataProps.id = null
+   dataProps.content = content
+   dataProps.article_id = pageId
+   dataProps.article_title = article_title
+   dataProps.comment_id = null
+   dataProps.from_id = null
+   dataProps.from_name = name
+   dataProps.from_avatar = randomAvator()
+   dataProps.create_date = rTime(new Date())
+   axios({
+     method: 'post',
+     url: servicePath.addComment,
+     data: dataProps,
+     withCredentials: true,
+   }).then(res => {
+     console.log(res)
+   })
+  }
   function formateComment(content) {
     if (content != null && content !== '') {
       return Util.formateComment(content)
