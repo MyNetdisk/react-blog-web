@@ -82,14 +82,14 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
       Router.push(`/categories?id=${e.key}`)
     } else if (e.key === 'tags') {
       Router.push('/tags')
-    } else if (e.keyPath[1] === 'hobbies') {
-      Router.push('/hobbies')
     } else if (e.key === 'messages') {
       Router.push('/messages')
     } else if (e.key === 'timeline') {
       Router.push('/timeline')
     } else if (e.key === 'about') {
       Router.push('/about')
+    }else if (e.key === 'login') {
+      Router.push('/login')
     }
   }
 
@@ -164,11 +164,10 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
                 <TagFilled />
                 标签
               </Menu.Item>
-              <SubMenu
+              {/* <SubMenu
                 key="hobbies"
                 popupClassName="hobbies-popup-item popup-item"
                 popupOffset={[0, 0]}
-                // icon={<IconFont type="aihao" />}
                 title={
                   <>
                     <IconFont type="aihao" />
@@ -185,7 +184,7 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
                 <Menu.Item key="book" icon={<IconFont type="book" />}>
                   书单
                 </Menu.Item>
-              </SubMenu>
+              </SubMenu> */}
               {/* <SubMenu
                 key="links"
                 popupClassName="links-popup-item popup-item"
@@ -216,6 +215,10 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
               <Menu.Item key="about">
                 <IconFont type="about" />
                 关于我
+              </Menu.Item>
+              <Menu.Item key="login">
+                {/* <IconFont type="login" /> */}
+                登录
               </Menu.Item>
             </Menu>
             <div className="nav-button santiao" onClick={() => getChildValue(true)}>
