@@ -13,6 +13,8 @@ const servicePath = {
   getListById: `${ipUrl}getListById/`, // 根据类型ID获得文章列表
   getCommentById: `${ipUrl}getCommentById/`, // 根据类型ID获得文章列表
   addComment: `${ipUrl}addComment/`, // 添加评论
+  isRegister: `${ipUrl}isRegister/`, // 是否注册
+  register: `${ipUrl}register/`, // 注册
 }
 
 export default servicePath

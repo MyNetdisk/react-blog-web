@@ -2,6 +2,8 @@
 
 import React, {useState} from 'react'
 import {Form, Input, Checkbox, Button} from 'antd'
+import axios from 'axios'
+import servicePath from '../config/apiUrl'
 
 const tailFormItemLayout = {
   wrapperCol: {
@@ -17,26 +19,23 @@ const tailFormItemLayout = {
 }
 
 const Register = () => {
+  // let [isRegister, setisRegister] = useState(true)
   const [form] = Form.useForm()
 
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values)
   }
 
-  const onValuesChange = (values: any) => {
-    if(values.nickname){
-      console.log(values.nickname)
-    }
-    if(values.email){
-      console.log(values.email)
-    }
-    console.log('hello', values)  
-  }
+  // const onValuesChange = (values: any) => {
+  //   if(values.nickname){
+  //     console.log(values.nickname)
+  //   }
+  //   console.log('hello', values)
+  // }
 
   // const onFieldsChange = (values: any) => {
   //   console.log('hello', values)
   // }
-
 
   return (
     <div className="register">
@@ -47,17 +46,58 @@ const Register = () => {
           form={form}
           name="register"
           onFinish={onFinish}
-          onValuesChange={onValuesChange}
+          // onValuesChange={onValuesChange}
           // onFieldsChange={onFieldsChange}
           scrollToFirstError>
           <Form.Item
             name="nickname"
             label="用户名"
             tooltip="What do you want others to call you?"
-            rules={[{required: true, message: 'Please input your nickname!', whitespace: true}]}>
+            rules={[
+              () => ({
+                validator(_, value, callback) {
+                  const dataProps = {
+                    username: value,
+                  }
+                  axios({
+                    method: 'post',
+                    url: servicePath.isRegister,
+                    data: dataProps,
+                    withCredentials: true,
+                  }).then(res => {
+                    console.log(res)
+                    console.log(value.replace(/(^\s*)|(\s*$)/g, '')=='')
+                    if (value && value.replace(/(^s*)|(s*$)/g, '')!=='' && !res.data) {
+                      console.log('hello')
+                      return Promise.resolve()
+                    } else if (value &&  value.replace(/(^\s*)|(\s*$)/g, '')!=='' && res.data) {
+                      console.log('哈哈')
+                      try {
+                        throw new Error('该用户名已注册')
+                      } catch (err) {
+                        callback(err)
+                      }
+                    } else if (!value) {
+                      try {
+                        throw new Error('请输入用户名')
+                      } catch (err) {
+                        callback(err)
+                      }
+                    } else if (value &&  value.replace(/(^\s*)|(\s*$)/g, '')!=='') {
+                      try {
+                        throw new Error('用户名不能为空')
+                      } catch (err) {
+                        callback(err)
+                      }
+                    }
+                    // return Promise.reject(new Error('该用户名已注册'));
+                  })
+                },
+              }),
+            ]}>
             <Input />
           </Form.Item>
-          
+
           <Form.Item
             name="email"
             label="邮箱"
