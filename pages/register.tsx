@@ -59,39 +59,33 @@ const Register = () => {
                   const dataProps = {
                     username: value,
                   }
-                  axios({
-                    method: 'post',
-                    url: servicePath.isRegister,
-                    data: dataProps,
-                    withCredentials: true,
-                  }).then(res => {
-                    console.log(res)
-                    console.log(value.replace(/(^\s*)|(\s*$)/g, '')=='')
-                    if (value && value.replace(/(^s*)|(s*$)/g, '')!=='' && !res.data) {
-                      console.log('hello')
-                      return Promise.resolve()
-                    } else if (value &&  value.replace(/(^\s*)|(\s*$)/g, '')!=='' && res.data) {
-                      console.log('哈哈')
-                      try {
-                        throw new Error('该用户名已注册')
-                      } catch (err) {
-                        callback(err)
-                      }
-                    } else if (!value) {
-                      try {
-                        throw new Error('请输入用户名')
-                      } catch (err) {
-                        callback(err)
-                      }
-                    } else if (value &&  value.replace(/(^\s*)|(\s*$)/g, '')!=='') {
-                      try {
-                        throw new Error('用户名不能为空')
-                      } catch (err) {
-                        callback(err)
-                      }
-                    }
-                    // return Promise.reject(new Error('该用户名已注册'));
-                  })
+                  console.log(value.replace(/(^\s*)|(\s*$)/g, '')=='')
+                  if(!value){
+                    return Promise.reject(new Error('请输入用户名!'))
+                  }else if(!value && value.replace(/(^\s*)|(\s*$)/g, '')==''){
+                    return Promise.reject(new Error('用户名不能为空!'))
+                  }else{
+                    axios({
+                      method: 'post',
+                      url: servicePath.isRegister,
+                      data: dataProps,
+                      withCredentials: true,
+                    }).then(res => {
+                      console.log(res)
+                      if (!res.data) {
+                        console.log('hello')
+                        return Promise.resolve()
+                      } else if (res.data) {
+                        console.log('哈哈')
+                        try {
+                          throw new Error('该用户名已注册')
+                        } catch (err) {
+                          callback(err)
+                        }
+                      } 
+                      // return Promise.reject(new Error('该用户名已注册'));
+                    })
+                  }
                 },
               }),
             ]}>
@@ -104,11 +98,11 @@ const Register = () => {
             rules={[
               {
                 type: 'email',
-                message: 'The input is not valid E-mail!',
+                message: '请输入格式正确的邮箱',
               },
               {
                 required: true,
-                message: 'Please input your E-mail!',
+                message: '请输入邮箱',
               },
             ]}>
             <Input />
@@ -120,7 +114,7 @@ const Register = () => {
             rules={[
               {
                 required: true,
-                message: 'Please input your password!',
+                message: '请输入邮箱',
               },
             ]}
             hasFeedback>
@@ -135,7 +129,7 @@ const Register = () => {
             rules={[
               {
                 required: true,
-                message: 'Please confirm your password!',
+                message: '请确认密码',
               },
               ({getFieldValue}) => ({
                 validator(_, value) {
