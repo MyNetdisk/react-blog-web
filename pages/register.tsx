@@ -114,7 +114,7 @@ const Register = () => {
             rules={[
               {
                 required: true,
-                message: '请输入邮箱',
+                message: '请输入密码',
               },
             ]}
             hasFeedback>
@@ -129,14 +129,14 @@ const Register = () => {
             rules={[
               {
                 required: true,
-                message: '请确认密码',
+                message: '请再次输入密码',
               },
               ({getFieldValue}) => ({
                 validator(_, value) {
                   if (!value || getFieldValue('password') === value) {
                     return Promise.resolve()
                   }
-                  return Promise.reject(new Error('The two passwords that you entered do not match!'))
+                  return Promise.reject(new Error('两次输入密码不一致'))
                 },
               }),
             ]}>
