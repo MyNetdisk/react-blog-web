@@ -26,17 +26,6 @@ const Register = () => {
     console.log('Received values of form: ', values)
   }
 
-  // const onValuesChange = (values: any) => {
-  //   if(values.nickname){
-  //     console.log(values.nickname)
-  //   }
-  //   console.log('hello', values)
-  // }
-
-  // const onFieldsChange = (values: any) => {
-  //   console.log('hello', values)
-  // }
-
   return (
     <div className="register">
       <div className="register-bg"></div>
@@ -46,8 +35,6 @@ const Register = () => {
           form={form}
           name="register"
           onFinish={onFinish}
-          // onValuesChange={onValuesChange}
-          // onFieldsChange={onFieldsChange}
           scrollToFirstError>
           <Form.Item
             name="nickname"
@@ -59,31 +46,22 @@ const Register = () => {
                   const dataProps = {
                     username: value,
                   }
-                  console.log(value.replace(/(^\s*)|(\s*$)/g, '')=='')
                   if(!value){
                     return Promise.reject(new Error('请输入用户名!'))
-                  }else if(!value && value.replace(/(^\s*)|(\s*$)/g, '')==''){
+                  }else if(value && value.replace(/(^\s*)|(\s*$)/g, '')==''){
                     return Promise.reject(new Error('用户名不能为空!'))
                   }else{
-                    axios({
-                      method: 'post',
-                      url: servicePath.isRegister,
-                      data: dataProps,
-                      withCredentials: true,
-                    }).then(res => {
+                    axios(servicePath.isRegister + value).then(res => {
                       console.log(res)
                       if (!res.data) {
-                        console.log('hello')
                         return Promise.resolve()
                       } else if (res.data) {
-                        console.log('哈哈')
                         try {
                           throw new Error('该用户名已注册')
                         } catch (err) {
                           callback(err)
                         }
                       } 
-                      // return Promise.reject(new Error('该用户名已注册'));
                     })
                   }
                 },
