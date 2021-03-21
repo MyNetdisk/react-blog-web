@@ -52,7 +52,6 @@ const Register = () => {
                     return Promise.reject(new Error('用户名不能为空!'))
                   }else{
                     axios(servicePath.isRegister + value).then(res => {
-                      console.log(res)
                       if (!res.data) {
                         return Promise.resolve()
                       } else if (res.data) {
