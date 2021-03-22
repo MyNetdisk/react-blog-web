@@ -42,24 +42,18 @@ const Register = () => {
             tooltip="What do you want others to call you?"
             rules={[
               () => ({
-                validator(_, value, callback) {
-                  const dataProps = {
-                    username: value,
-                  }
+                validator(_, value) {
                   if(!value){
                     return Promise.reject(new Error('请输入用户名!'))
                   }else if(value && value.replace(/(^\s*)|(\s*$)/g, '')==''){
                     return Promise.reject(new Error('用户名不能为空!'))
                   }else{
+                    return Promise.resolve();
                     axios(servicePath.isRegister + value).then(res => {
                       if (!res.data) {
                         return Promise.resolve()
                       } else if (res.data) {
-                        try {
-                          throw new Error('该用户名已注册')
-                        } catch (err) {
-                          callback(err)
-                        }
+                        return Promise.reject(new Error('该用户名已注册!'))
                       } 
                     })
                   }
@@ -126,7 +120,7 @@ const Register = () => {
             rules={[
               {
                 validator: (_, value) =>
-                  value ? Promise.resolve() : Promise.reject(new Error('Should accept agreement')),
+                  value ? Promise.resolve() : Promise.reject(new Error('请阅读并勾选协议')),
               },
             ]}>
             <Checkbox>
