@@ -82,7 +82,7 @@ const Register = () => {
                   }else if(value && value.replace(/(^\s*)|(\s*$)/g, '')==''){
                     return Promise.reject(new Error('用户名不能为空!'))
                   }else{
-                    return Promise.resolve();
+                    // return Promise.resolve();
                     axios(servicePath.isRegister + value).then(res => {
                       if (!res.data) {
                         return Promise.resolve()
