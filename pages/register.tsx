@@ -5,6 +5,7 @@ import {Form, Input, Checkbox, Button} from 'antd'
 import axios from 'axios'
 import servicePath from '../config/apiUrl'
 import Util from '../util'
+import {ConsoleSqlOutlined} from '_@ant-design_icons@4.3.0@@ant-design/icons'
 
 const tailFormItemLayout = {
   wrapperCol: {
@@ -20,11 +21,10 @@ const tailFormItemLayout = {
 }
 
 const Register = () => {
-  // let [isRegister, setisRegister] = useState(true)
   const [form] = Form.useForm()
 
-  function randomAvator(){
-    return `https://images.mynetdisk.vercel.app/react-blogs/avator/${Util.randomNum(1,16)}.jpg`
+  function randomAvator() {
+    return `https://images.mynetdisk.vercel.app/react-blogs/avator/${Util.randomNum(1, 16)}.jpg`
   }
 
   function rTime(date) {
@@ -35,6 +35,24 @@ const Register = () => {
       .replace(/\.[\d]{3}Z/, '')
   }
 
+  const checkName = (_, value) => {
+    if (!value) {
+      return Promise.reject(new Error('请输入用户名!'))
+    } else if (value && value.replace(/(^\s*)|(\s*$)/g, '') == '') {
+      return Promise.reject(new Error('用户名不能为空!'))
+    } else {
+      return new Promise((resolve, reject) => {
+        axios(servicePath.isRegister + value).then(res => {
+          if (!res.data) {
+            return resolve(res)
+          } else if (res.data) {
+            return reject(new Error('用户名已被注册'))
+          }
+        })
+      })
+    }
+  }
+
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values)
     let dataProps = {
@@ -43,56 +61,36 @@ const Register = () => {
       email: null,
       avatar: null,
       register_date: null,
-      last_password_reset_date: null
-   }
-   dataProps.username = values.nickname
-   dataProps.email = values.email
-   dataProps.password = values.password
-   dataProps.avatar = randomAvator()
-   dataProps.register_date = rTime(new Date())
-   axios({
-    method: 'post',
-    url: servicePath.register,
-    data: dataProps,
-    withCredentials: true,
-   }).then(res=>{
-     console.log(res)
-   })
+      last_password_reset_date: null,
+    }
+    dataProps.username = values.nickname
+    dataProps.email = values.email
+    dataProps.password = values.password
+    dataProps.avatar = randomAvator()
+    dataProps.register_date = rTime(new Date())
+    axios({
+      method: 'post',
+      url: servicePath.register,
+      data: dataProps,
+      withCredentials: true,
+    }).then(res => {
+      console.log(res)
+    })
   }
 
   return (
     <div className="register">
       <div className="register-bg"></div>
       <div className="register-form">
-        <Form
-          layout="vertical"
-          form={form}
-          name="register"
-          onFinish={onFinish}
-          scrollToFirstError>
+        <Form layout="vertical" form={form} name="register" onFinish={onFinish} scrollToFirstError>
           <Form.Item
             name="nickname"
             label="用户名"
             tooltip="What do you want others to call you?"
             rules={[
-              () => ({
-                validator(_, value) {
-                  if(!value){
-                    return Promise.reject(new Error('请输入用户名!'))
-                  }else if(value && value.replace(/(^\s*)|(\s*$)/g, '')==''){
-                    return Promise.reject(new Error('用户名不能为空!'))
-                  }else{
-                    // return Promise.resolve();
-                    axios(servicePath.isRegister + value).then(res => {
-                      if (!res.data) {
-                        return Promise.resolve()
-                      } else if (res.data) {
-                        return Promise.reject(new Error('该用户名已注册!'))
-                      } 
-                    })
-                  }
-                },
-              }),
+              {
+                validator: checkName,
+              },
             ]}>
             <Input />
           </Form.Item>
@@ -153,8 +151,7 @@ const Register = () => {
             valuePropName="checked"
             rules={[
               {
-                validator: (_, value) =>
-                  value ? Promise.resolve() : Promise.reject(new Error('请阅读并勾选协议')),
+                validator: (_, value) => (value ? Promise.resolve() : Promise.reject(new Error('请阅读并勾选协议'))),
               },
             ]}>
             <Checkbox>
