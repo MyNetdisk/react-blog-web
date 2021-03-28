@@ -15,6 +15,7 @@ const servicePath = {
   addComment: `${ipUrl}addComment/`, // 添加评论
   isRegister: `${ipUrl}isRegister/`, // 是否注册
   register: `${ipUrl}register/`, // 注册
+  login: `${ipUrl}login/`, // 注册
 }
 
 export default servicePath

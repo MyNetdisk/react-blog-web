@@ -1,17 +1,40 @@
 /** @format */
 
 import React from 'react'
-import {Form, Input, Button, Checkbox} from 'antd'
+import {Form, Input, Button, Checkbox, message} from 'antd'
 import {UserOutlined, LockOutlined} from '@ant-design/icons'
+import axios from 'axios'
+import servicePath from '../config/apiUrl'
 
 const Login = () => {
+  const key = 'updatable'
+
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values)
+    let dataProps = {
+      username: null,
+      password: null,
+    }
+    dataProps.username = values.username
+    dataProps.password = values.password
+    message.loading({ content: '登录中...', key })
+    axios({
+      method: 'post',
+      url: servicePath.login,
+      data: dataProps,
+      withCredentials: true,
+    }).then(res => {
+      if(res.data.isSuccess){
+        message.success({ content: '登录成功!', key})
+      }else {
+        message.error({ content: '用户名或密码错误', key})
+      }
+    })
   }
   
-  const onValuesChange = (values: any) => {
-    console.log('hello', values)
-  }
+  // const onValuesChange = (values: any) => {
+  //   console.log('hello', values)
+  // }
 
   return (
     <div className="login">
@@ -23,18 +46,18 @@ const Login = () => {
           className="login-form"
           initialValues={{remember: true}}
           onFinish={onFinish}
-          onValuesChange={onValuesChange}
+          // onValuesChange={onValuesChange}
           >
           <Form.Item
-            label="用户名或者电子邮箱"
+            label="用户名"
             name="username"
-            rules={[{required: true, message: 'Please input your Username!'}]}>
+            rules={[{required: true, message: '请输入您的用户名!'}]}>
             <Input prefix={<UserOutlined className="site-form-item-icon" />} />
           </Form.Item>
           <Form.Item
             label="登录密码"
             name="password"
-            rules={[{required: true, message: 'Please input your Password!'}]}>
+            rules={[{required: true, message: '请输入您的密码!'}]}>
             <Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" />
           </Form.Item>
           <Form.Item>
