@@ -1,7 +1,7 @@
 /** @format */
 
 import React, {useState} from 'react'
-import {Form, Input, Checkbox, Button} from 'antd'
+import {Form, Input, Checkbox, Button, message} from 'antd'
 import axios from 'axios'
 import servicePath from '../config/apiUrl'
 import Util from '../util'
@@ -19,8 +19,11 @@ const tailFormItemLayout = {
   },
 }
 
+
 const Register = () => {
   const [form] = Form.useForm()
+
+  const key = 'updatable'
 
   function randomAvator() {
     return `https://images.mynetdisk.vercel.app/react-blogs/avator/${Util.randomNum(1, 16)}.jpg`
@@ -56,7 +59,6 @@ const Register = () => {
   }
 
   const onFinish = (values: any) => {
-    console.log('Received values of form: ', values)
     let dataProps = {
       username: null,
       password: null,
@@ -70,13 +72,18 @@ const Register = () => {
     dataProps.password = values.password
     dataProps.avatar = randomAvator()
     dataProps.register_date = rTime(new Date())
+    message.loading({ content: '注册中...', key })
     axios({
       method: 'post',
       url: servicePath.register,
       data: dataProps,
       withCredentials: true,
     }).then(res => {
-      console.log(res)
+      if(res.data.isSuccess){
+        message.success({ content: '注册成功!', key})
+      }else {
+        message.error({ content: '注册失败!', key})
+      }
     })
   }
 
