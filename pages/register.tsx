@@ -5,7 +5,6 @@ import {Form, Input, Checkbox, Button} from 'antd'
 import axios from 'axios'
 import servicePath from '../config/apiUrl'
 import Util from '../util'
-import {ConsoleSqlOutlined} from '_@ant-design_icons@4.3.0@@ant-design/icons'
 
 const tailFormItemLayout = {
   wrapperCol: {
@@ -36,11 +35,12 @@ const Register = () => {
   }
 
   const checkName = (_, value) => {
+    var reg=/^[\u4E00-\u9FA5\uF900-\uFA2D|\w]{2,20}$/ig
     if (!value) {
       return Promise.reject(new Error('请输入用户名!'))
     } else if (value && value.replace(/(^\s*)|(\s*$)/g, '') == '') {
       return Promise.reject(new Error('用户名不能为空!'))
-    } else {
+    } else if(value && reg.test(value)){
       return new Promise((resolve, reject) => {
         axios(servicePath.isRegister + value).then(res => {
           if (!res.data) {
@@ -50,6 +50,8 @@ const Register = () => {
           }
         })
       })
+    } else {
+      return Promise.reject(new Error('中文，英文字母，数字及下划线组成，长度2-20位!'))
     }
   }
 
@@ -87,6 +89,7 @@ const Register = () => {
             name="nickname"
             label="用户名"
             tooltip="What do you want others to call you?"
+            // validateTrigger='onBlur'
             rules={[
               {
                 validator: checkName,
