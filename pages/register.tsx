@@ -26,7 +26,7 @@ const Register = () => {
   const key = 'updatable'
 
   function randomAvator() {
-    return `https://images.mynetdisk.vercel.app/react-blogs/avator/${Util.randomNum(1, 16)}.jpg`
+    return `https://images.mynetdisk.vercel.app/react-blogs/avatar/${Util.randomNum(1, 16)}.jpg`
   }
 
   function rTime(date) {

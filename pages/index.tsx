@@ -30,6 +30,7 @@ import servicePath from '../config/apiUrl'
 
 export default function Home(list) {
   const [mylist] = useState<Array<any>>(list.data)
+  console.log(mylist)
   const renderer = new marked.Renderer()
   marked.setOptions({
     renderer,
@@ -72,7 +73,7 @@ export default function Home(list) {
                             className="list-item-pic"
                             style={{
                               backgroundImage:
-                                'url(https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png)',
+                                `url(${item.cover_image})`,
                             }}
                           />
                         </Col>
@@ -89,7 +90,7 @@ export default function Home(list) {
                             </span>
                             <span>
                               <FieldTimeOutlined />
-                              修改时间
+                              {item.update_date}
                             </span>
                             <span>
                               <FolderOpenOutlined />
@@ -97,7 +98,7 @@ export default function Home(list) {
                             </span>
                             <span>
                               <TagOutlined />
-                              标签
+                              {item.label}
                             </span>
                             <span>
                               <EyeOutlined />

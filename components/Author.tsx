@@ -12,7 +12,7 @@ const Author = () => {
   return (
     <div className="author-div comm-box box-shadow">
       <div>
-        <Avatar size={100} src="/static/img/avatar.jpg" />
+        <Avatar size={100} src="https://images.mynetdisk.vercel.app/react-blogs/avatar/avatar.jpg" />
       </div>
       <div className="author-introduction">
         <h3 className="author-name">MyNetdisk</h3>

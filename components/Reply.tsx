@@ -40,7 +40,7 @@ const Replay = ({pageId, article_title}: Props) => {
     return new Date(+new Date(json_date) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '')
   }
   function randomAvator(){
-    return `https://images.mynetdisk.vercel.app/react-blogs/avator/${Util.randomNum(1,16)}.jpg`
+    return `https://images.mynetdisk.vercel.app/react-blogs/avatar/${Util.randomNum(1,16)}.jpg`
   }
   const saveComment = () => {
     let dataProps = {

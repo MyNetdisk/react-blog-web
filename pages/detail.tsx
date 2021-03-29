@@ -5,7 +5,7 @@ import Head from 'next/head'
 import React, {useState} from 'react'
 import {PageHeader, Row, Col, Breadcrumb, Affix, BackTop} from 'antd'
 import axios from 'axios'
-import {CalendarOutlined, FolderOpenOutlined, FireOutlined, BookOutlined, TagsFilled} from '@ant-design/icons'
+import {CalendarOutlined, FolderOpenOutlined, EyeOutlined, BookOutlined, TagsFilled, FieldTimeOutlined, TagOutlined} from '@ant-design/icons'
 import marked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
@@ -26,6 +26,7 @@ import servicePath from '../config/apiUrl'
 
 export default function Detail(props: any) {
   const [data] = useState(props)
+  console.log(data)
   const tocify = new Tocify()
   const renderer = new marked.Renderer()
   renderer.heading = (text, level) => {
@@ -59,8 +60,8 @@ export default function Detail(props: any) {
                 <Breadcrumb.Item>
                   <a href="/">首页</a>
                 </Breadcrumb.Item>
-                <Breadcrumb.Item>视频教程</Breadcrumb.Item>
-                <Breadcrumb.Item>文章名</Breadcrumb.Item>
+                <Breadcrumb.Item>{data.typeName}</Breadcrumb.Item>
+                <Breadcrumb.Item>{data.title}</Breadcrumb.Item>
               </Breadcrumb>
             </div>
             <div>
@@ -71,11 +72,19 @@ export default function Detail(props: any) {
                   {data.addTime}
                 </span>
                 <span>
+                  <FieldTimeOutlined />
+                  {data.update_date}
+                </span>
+                <span>
                   <FolderOpenOutlined />
                   {data.typeName}
                 </span>
                 <span>
-                  <FireOutlined />
+                  <TagOutlined />
+                  {data.label}
+                </span>
+                <span>
+                  <EyeOutlined />
                   {data.view_count}
                 </span>
               </div>
