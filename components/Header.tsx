@@ -44,16 +44,33 @@ type Props = {
 const Header = ({indexBG, router, getChildValue}: Props) => {
   const [current, setcurrent] = useState('index')
   const [navArray, setnavArray] = useState([])
+  const [phrase, setphrase] = useState([])
   const [beforeScrollTop, setbeforeScrollTop] = useState(0)
   const [downward, setdownward] = useState(false)
   const [upward, setupward] = useState(false)
   const searchRef = useRef(null)
+  function getTypeInfo() {
+    return axios(servicePath.getTypeInfo).then(res => {
+      return res.data.data
+    })
+  }
+  function getPhrase() {
+    return axios(servicePath.getPhrase).then(res => {
+      return res.data.data
+    })
+  }
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(servicePath.getTypeInfo).then(res => {
-        return res.data.data
-      })
-      setnavArray(result)
+      const result = await axios.all([getTypeInfo(), getPhrase()]).then(
+        axios.spread(function (TypeInfo, Phrase) {
+          // 两个请求现在都执行完成
+          setnavArray(TypeInfo)
+          const phraseArr = Phrase.map((item)=>{
+            return item.hitokoto
+          })
+          setphrase(phraseArr)
+        }),
+      )
       if (router.pathname === '/' || router.pathname === '/index') {
         setcurrent('index')
       } else if (router.pathname === '/categories') {
@@ -88,7 +105,7 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
       Router.push('/timeline')
     } else if (e.key === 'about') {
       Router.push('/about')
-    }else if (e.key === 'login') {
+    } else if (e.key === 'login') {
       Router.push('/login')
     }
   }
@@ -235,14 +252,7 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
         <div id="site-subtitle" className="site-subtitle">
           <Typed
             className="subtitle"
-            strings={[
-              '欢迎来到MyNetdisk说你想说',
-              'Welcome to MyNetdisk',
-              '从来没有真正的绝境',
-              '只有心灵的迷途',
-              'Never really desperate',
-              'only the lost of the soul',
-            ]}
+            strings={phrase}
             typeSpeed={60}
             backSpeed={60}
             loop
