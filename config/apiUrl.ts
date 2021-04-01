@@ -10,9 +10,12 @@ const servicePath = {
   getArticleList: `${ipUrl}getArticleList`, // 首页接口
   getArticleById: `${ipUrl}getArticleById/`, // 详情页接口
   getTypeInfo: `${ipUrl}getTypeInfo`, // 文章类别接口
+  getCategory: `${ipUrl}getCategory`, // 获取文章类型列表
   getPhrase: `${ipUrl}getPhrase`, // 格言接口
   getListById: `${ipUrl}getListById/`, // 根据类型ID获得文章列表
   getTimeline: `${ipUrl}getTimeline`, // 根据类型ID获得文章列表
+  getSiteinfo: `${ipUrl}getSiteinfo`, // 获取网站信息
+  getTags: `${ipUrl}getTags`, // 获取标签
   getCommentById: `${ipUrl}getCommentById/`, // 根据类型ID获得文章列表
   addComment: `${ipUrl}addComment/`, // 添加评论
   isRegister: `${ipUrl}isRegister/`, // 是否注册

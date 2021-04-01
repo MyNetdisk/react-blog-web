@@ -30,7 +30,6 @@ import servicePath from '../config/apiUrl'
 
 export default function Home(list) {
   const [mylist] = useState<Array<any>>(list.data)
-  console.log(mylist)
   const renderer = new marked.Renderer()
   marked.setOptions({
     renderer,

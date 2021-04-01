@@ -1,7 +1,9 @@
 /** @format */
 
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {createFromIconfontCN, GithubFilled} from '@ant-design/icons'
+import axios from 'axios'
+import servicePath from '../config/apiUrl'
 import Contact from './Contact'
 
 const IconFont = createFromIconfontCN({
@@ -9,21 +11,31 @@ const IconFont = createFromIconfontCN({
 })
 
 const Footer = () => {
+  const [siteinfo, setsiteinfo] = useState(Object)
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(servicePath.getSiteinfo).then(res => {
+        return res.data.data
+      })
+      setsiteinfo(result[0])
+    }
+    fetchData()
+  }, [])
   return (
     <footer className="footer-div">
       <Contact />
       <hr className="footer-divider" />
       <div>
-        Powered by <a href="https://www.nextjs.cn/">Nextjs</a>
+        Powered by <a href={siteinfo.powerby_link}>{siteinfo.powerby}</a>
       </div>
-      Copyright 2018-present&nbsp;
-      <a href="https://github.com/MyNetdisk" target="_blank" rel="noopener noreferrer">
-        MyNetdisk
+      Copyright {siteinfo.create_date}&nbsp;
+      <a href={siteinfo.link} target="_blank" rel="noopener noreferrer">
+      {siteinfo.name}
       </a>
-      &nbsp;| <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC 4.0 BY-SA</a>
+      &nbsp;| <a href={siteinfo.copyright_link}>{siteinfo.copyright}</a>
       <br />
-      <a href="https://beian.miit.gov.cn/" rel="noopener noreferrer" target="_blank">
-        湘ICP备2020019391号
+      <a href={siteinfo.icp_link} rel="noopener noreferrer" target="_blank">
+      {siteinfo.icp}
       </a>
       <style jsx>{`
         .footer-div {

@@ -10,7 +10,6 @@ const Login = () => {
   const key = 'updatable'
 
   const onFinish = (values: any) => {
-    console.log('Received values of form: ', values)
     let dataProps = {
       username: null,
       password: null,
@@ -31,10 +30,6 @@ const Login = () => {
       }
     })
   }
-  
-  // const onValuesChange = (values: any) => {
-  //   console.log('hello', values)
-  // }
 
   return (
     <div className="login">

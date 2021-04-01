@@ -75,7 +75,9 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
         setcurrent('index')
       } else if (router.pathname === '/categories') {
         setcurrent(router.query.id)
-      } else if (router.pathname === '/hobbies') {
+      } else if (router.pathname === '/tags') {
+        setcurrent('tags')
+      }else if (router.pathname === '/hobbies') {
         setcurrent('music')
       } else if (router.pathname === '/links') {
         setcurrent('links')
@@ -221,10 +223,10 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
                   老版技博
                 </Menu.Item>
               </SubMenu> */}
-              <Menu.Item key="messages">
+              {/* <Menu.Item key="messages">
                 <IconFont type="liuyan" />
                 留言板
-              </Menu.Item>
+              </Menu.Item> */}
               <Menu.Item key="timeline">
                 <IconFont type="timeline" />
                 时间轴

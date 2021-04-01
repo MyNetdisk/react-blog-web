@@ -3,12 +3,15 @@
 import React, {useState, useEffect} from 'react'
 import {Menu, PageHeader} from 'antd'
 import {AppstoreOutlined, MailOutlined, FolderOpenFilled} from '@ant-design/icons'
+import axios from 'axios'
+import servicePath from '../config/apiUrl'
 
 const {SubMenu} = Menu
 
 const rootSubmenuKeys = ['sub1', 'sub2']
 
 const Category = () => {
+  const [category, setcategory] = useState([])
   const [openKeys, setOpenKeys] = useState(['sub1'])
   const onOpenChange = keys => {
     const latestOpenKey = keys.find(key => openKeys.indexOf(key) === -1)
@@ -18,6 +21,15 @@ const Category = () => {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : [])
     }
   }
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(servicePath.getCategory).then(res => {
+        return res.data.data
+      })
+      setcategory(result)
+    }
+    fetchData()
+  }, [])
   return (
     <div className="category comm-box box-shadow">
       <PageHeader
@@ -28,16 +40,20 @@ const Category = () => {
         subTitle=""
       />
       <Menu mode="inline" openKeys={openKeys} onOpenChange={onOpenChange} style={{width: 256}}>
-        <SubMenu key="sub1" icon={<MailOutlined />} title="技术总结">
-          <Menu.Item key="1">Option 1</Menu.Item>
-          <Menu.Item key="2">Option 2</Menu.Item>
-          <Menu.Item key="3">Option 3</Menu.Item>
-          <Menu.Item key="4">Option 4</Menu.Item>
-        </SubMenu>
-        <SubMenu key="sub2" icon={<AppstoreOutlined />} title="生活与创作">
+        {category.map(item => {
+          return (
+            <SubMenu key={item.types_id} title={item.typeName}>
+              {/* <div>{item}</div> */}
+              {item.subCate.map(item => {
+                return <Menu.Item key={item.post_id}>{item.title}</Menu.Item>
+              })}
+            </SubMenu>
+          )
+        })}
+        {/* <SubMenu key="sub2" icon={<AppstoreOutlined />} title="生活与创作">
           <Menu.Item key="5">Option 5</Menu.Item>
           <Menu.Item key="6">Option 6</Menu.Item>
-        </SubMenu>
+        </SubMenu> */}
       </Menu>
       <style jsx global>{`
         .category {

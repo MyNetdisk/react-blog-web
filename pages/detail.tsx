@@ -26,7 +26,6 @@ import servicePath from '../config/apiUrl'
 
 export default function Detail(props: any) {
   const [data] = useState(props)
-  console.log(data)
   const tocify = new Tocify()
   const renderer = new marked.Renderer()
   renderer.heading = (text, level) => {
@@ -217,7 +216,6 @@ export default function Detail(props: any) {
 }
 Detail.getInitialProps = async context => {
   const {id} = context.query
-  // console.log(id)
   const promise = new Promise(resolve => {
     axios(servicePath.getArticleById + id).then(res => {
       resolve(res.data.data[0])

@@ -20,7 +20,6 @@ const Replay = ({pageId, article_title}: Props) => {
   let [active, setactive] = useState(false)
   const handleEmoji = emoji => {
     setcontent((content += '[' + emoji.title + ']'))
-    console.log(content)
   }
   const toggleEmoji = () => {
     setactive(!active)
@@ -30,7 +29,6 @@ const Replay = ({pageId, article_title}: Props) => {
   }
   const handleInputEmailChange = (e) => {
     setemail((e.target.value))
-    console.log(email)
   }
   const handleTextareaChange = (e) => {
     setcontent((e.target.value))

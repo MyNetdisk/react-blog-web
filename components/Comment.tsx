@@ -43,11 +43,9 @@ const Comment = ({pageId, article_title}: Props) => {
   }
   const handleInputEmailChange = e => {
     setemail(e.target.value)
-    console.log(email)
   }
   const handleTextareaChange = e => {
     setcontent(e.target.value)
-    console.log(content)
   }
   function randomAvator(){
     return `https://images.mynetdisk.vercel.app/react-blogs/avatar/${Util.randomNum(1,16)}.jpg`
@@ -197,7 +195,7 @@ const Comment = ({pageId, article_title}: Props) => {
                   <p dangerouslySetInnerHTML={{__html: formateComment(item.content)}}></p>
                 </div>
                 <div className="replay-wrapper">
-                  <Replay pageId={pageId} article_title={article_title} />
+                  {/* <Replay pageId={pageId} article_title={article_title} /> */}
                 </div>
                 <div className="quote">
                   {item.subCom.map(item => {
@@ -224,7 +222,7 @@ const Comment = ({pageId, article_title}: Props) => {
                             </p>
                           </div>
                           <div className="replay-wrapper">
-                            <Replay pageId={pageId} article_title={article_title} />
+                            {/* <Replay pageId={pageId} article_title={article_title} /> */}
                           </div>
                         </div>
                       </div>
