@@ -44,7 +44,6 @@ const Author = () => {
           // 两个请求现在都执行完成
           setarticlesRedux(ArticleList.length)
           setauthorInfo(AdminInfo[0])
-          console.log(AdminInfo[0])
         }),
       )
     }

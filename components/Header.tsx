@@ -271,7 +271,34 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
         <div id="site-subtitle" className="site-subtitle">
           <Typed
             className="subtitle"
-            strings={phrase}
+            strings={
+              [
+                "世上只有一种英雄主义，就是在认清生活真相之后，依然热爱生活。",
+                "There is only one heroism in the world, to see the world as it is, and to love it.",
+                "如果你有梦想，就要捍卫它，人们和你说不可能，只是因为他们自己办不到。所以，如果你有理想，就去努力实现，就这样。",
+                "You got a dream...you gotta protect it. People can’t do something themselves they want to tell you, you can‘t do it. If you want something, go get it. Period.",
+                "学习的真谛在于，你对一向明白的事物突然获得了全新的领悟。",
+                "That is what learning is. You suddenly understand something you've understood all your life, but in a new way.",
+                "世上本无所谓好坏，思想使然。",
+                "There is nothing either good or badbut thinking makes it so.",
+                "不要悲哀地回忆过去，它已一去不复返。明智地把握现在，它是属于你的。",
+                "Look not mournfully into the past. It comes not back again. Wisely improve the present: it is thine. ",
+                "从来没有真正的绝境，只有心灵的迷途。",
+                "Never really desperate,only the lost of the soul.",
+                "别以短期的收成来评判你的每一天，而要看到你为未来播下的种子。",
+                "Don't judge each day by the harvest you reap but by the seeds that you plant.",
+                "如果你把所有错误拒之门外，真理将会被拒之门外。",
+                "If you shut the door to all errors, truth will be shut out.",
+                "生活就像骑自行车，你必须继续前行才能保持平衡。",
+                "Life is like riding a bicycle. To keep your balance, you must keep moving.",
+                "只要我们坚持得足够久，就能做成任何我们想做的事。",
+                "We can do anything we want to if we stick to it long enough.",
+                "教育是一个逐步发现自己无知的过程。",
+                "Education is a progressive discovery of our own ignorance.",
+                "无论你犯了多少错，或者你进步有多慢，你都走在了那些不曾尝试的人的前面。",
+                "No matter how many mistakes you make or how slow you progress, you are still way ahead of everyone who isn't trying."
+              ]
+            }
             typeSpeed={60}
             backSpeed={60}
             loop
