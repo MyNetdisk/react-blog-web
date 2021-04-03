@@ -1,9 +1,14 @@
 /** @format */
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Avatar, Divider} from 'antd'
 import {createFromIconfontCN, GithubFilled} from '@ant-design/icons'
 import Contact from './Contact'
+import axios from 'axios'
+import servicePath from '../config/apiUrl'
 import store from '../store'
+import {
+  setarticlesAction
+} from '../store/actionCreators.js';
 
 const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_2174183_dn83jy6h7ah.js',
@@ -13,6 +18,38 @@ const Author = () => {
   const [articles, setarticles] = useState(0)
   const [categories, setcategories] = useState(0)
   const [tags, settags] = useState(0)
+  const [authorInfo, setauthorInfo] = useState(Object)
+
+  function getAdminInfo() {
+    return axios(servicePath.getAdminInfo).then(res => {
+      return res.data.data
+    })
+  }
+
+  function getArticleList() {
+    return axios(servicePath.getArticleList).then(res => {
+      return res.data.data
+    })
+  }
+
+  function setarticlesRedux(articles){
+    const action = setarticlesAction(articles)
+    store.dispatch(action)
+  }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios.all([getAdminInfo(), getArticleList()]).then(
+        axios.spread(function (AdminInfo, ArticleList) {
+          // 两个请求现在都执行完成
+          setarticlesRedux(ArticleList.length)
+          setauthorInfo(AdminInfo[0])
+          console.log(AdminInfo[0])
+        }),
+      )
+    }
+    fetchData()
+  }, [])
   store.subscribe(()=>{
     setarticles(store.getState().articles)
     setcategories(store.getState().categories)
@@ -21,11 +58,11 @@ const Author = () => {
   return (
     <div className="author-div comm-box box-shadow">
       <div>
-        <Avatar size={100} src="https://images.mynetdisk.vercel.app/react-blogs/avatar/avatar.jpg" />
+        <Avatar size={100} src={authorInfo.avatar} />
       </div>
       <div className="author-introduction">
-        <h3 className="author-name">MyNetdisk</h3>
-        <p className="author-detail">分享知识，记录生活。</p>
+        <h3 className="author-name">{authorInfo.username}</h3>
+        <p className="author-detail">{authorInfo.introduction}</p>
         <div className="author-info-data">
           <div className="author-info-item">
             <a>

@@ -16,6 +16,7 @@ const servicePath = {
   getTimeline: `${ipUrl}getTimeline`, // 根据类型ID获得文章列表
   getSiteinfo: `${ipUrl}getSiteinfo`, // 获取网站信息
   getTags: `${ipUrl}getTags`, // 获取标签
+  getAdminInfo: `${ipUrl}getAdminInfo`, // 获取网站管理员信息
   getCommentById: `${ipUrl}getCommentById/`, // 根据类型ID获得文章列表
   addComment: `${ipUrl}addComment/`, // 添加评论
   isRegister: `${ipUrl}isRegister/`, // 是否注册

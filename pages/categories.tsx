@@ -47,7 +47,7 @@ export default function MyList(list) {
         </Head>
         <Row className="comm-main" justify="center">
           <Col className="comm-left" xs={24} sm={24} md={17} lg={18} xl={16}>
-            <div className="categories-div box-shadow">
+            {/* <div className="categories-div box-shadow">
               <Space size="middle">
                 <Button type="primary">
                   技术总结 <Badge count={25} />
@@ -56,7 +56,7 @@ export default function MyList(list) {
                   生活创作 <Badge count={25} />
                 </Button>
               </Space>
-            </div>
+            </div> */}
             <List
               itemLayout="vertical"
               pagination={{
