@@ -5,6 +5,10 @@ import {createFromIconfontCN, GithubFilled} from '@ant-design/icons'
 import axios from 'axios'
 import servicePath from '../config/apiUrl'
 import Contact from './Contact'
+import store from '../store'
+import {
+  setnameAction
+} from '../store/actionCreators.js';
 
 const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_2174183_dn83jy6h7ah.js',
@@ -12,9 +16,14 @@ const IconFont = createFromIconfontCN({
 
 const Footer = () => {
   const [siteinfo, setsiteinfo] = useState(Object)
+  function sitenameRedux(name){
+    const action = setnameAction(name)
+    store.dispatch(action)
+  }
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(servicePath.getSiteinfo).then(res => {
+        sitenameRedux(res.data.data[0].name)
         return res.data.data
       })
       setsiteinfo(result[0])

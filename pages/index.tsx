@@ -1,6 +1,6 @@
 /** @format */
 import Link from 'next/link'
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Head from 'next/head'
 import {PageHeader, Row, Col, List, BackTop} from 'antd'
 import axios from 'axios'
@@ -27,9 +27,20 @@ import servicePath from '../config/apiUrl'
 // const DynamicComponentWithNoSSR = dynamic(import('../components/Weather'), {
 //   ssr: false,
 // })
+import store from '../store'
+import {
+  setarticlesAction
+} from '../store/actionCreators.js';
 
 export default function Home(list) {
   const [mylist] = useState<Array<any>>(list.data)
+  function setarticlesRedux(articles){
+    const action = setarticlesAction(articles)
+    store.dispatch(action)
+  }
+  useEffect(() => {
+    setarticlesRedux(mylist.length)
+  }, [])
   const renderer = new marked.Renderer()
   marked.setOptions({
     renderer,

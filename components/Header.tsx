@@ -27,6 +27,10 @@ import Typed from 'react-typed'
 import servicePath from '../config/apiUrl'
 import Contact from './Contact'
 import Search from './Search'
+import store from '../store'
+import {
+  setcategoriesAction
+} from '../store/actionCreators.js';
 
 const {SubMenu} = Menu
 const {Link} = Anchor
@@ -48,7 +52,14 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
   const [beforeScrollTop, setbeforeScrollTop] = useState(0)
   const [downward, setdownward] = useState(false)
   const [upward, setupward] = useState(false)
+  const [sitename, setsitename] = useState('MyNetdisk')
   const searchRef = useRef(null)
+
+  function setcategoriesRedux(categories){
+    const action = setcategoriesAction(categories)
+    store.dispatch(action)
+  }
+
   function getTypeInfo() {
     return axios(servicePath.getTypeInfo).then(res => {
       return res.data.data
@@ -59,10 +70,16 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
       return res.data.data
     })
   }
+
+  store.subscribe(()=>{
+    setsitename(store.getState().sitename)
+  })
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.all([getTypeInfo(), getPhrase()]).then(
         axios.spread(function (TypeInfo, Phrase) {
+          setcategoriesRedux(TypeInfo.length)
           // 两个请求现在都执行完成
           setnavArray(TypeInfo)
           const phraseArr = Phrase.map((item)=>{
@@ -141,7 +158,7 @@ const Header = ({indexBG, router, getChildValue}: Props) => {
         style={{opacity: '1', animation: '1s ease 0s 1 normal none running headerNoOpacity'}}>
         <div className="nav-inner clearfix">
           <div className="nav-logo">
-            <span>MyNetdisk</span>
+            <span>{sitename}</span>
           </div>
           <div className="nav-menu">
             <div

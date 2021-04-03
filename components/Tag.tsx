@@ -5,6 +5,10 @@ import {Tag} from 'antd'
 import {createFromIconfontCN, TagsFilled} from '@ant-design/icons'
 import axios from 'axios'
 import servicePath from '../config/apiUrl'
+import store from '../store'
+import {
+  settagsAction
+} from '../store/actionCreators.js';
 
 const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_2174183_dn83jy6h7ah.js',
@@ -12,9 +16,14 @@ const IconFont = createFromIconfontCN({
 
 const Tags = () => {
   const [tags, settags] = useState([])
+  function settagsRedux(categories){
+    const action = settagsAction(categories)
+    store.dispatch(action)
+  }
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(servicePath.getTags).then(res => {
+        settagsRedux(res.data.data.length)
         return res.data.data
       })
       settags(result)

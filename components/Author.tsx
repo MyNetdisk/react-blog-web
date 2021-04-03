@@ -1,14 +1,23 @@
 /** @format */
-import React from 'react'
+import React, {useState} from 'react'
 import {Avatar, Divider} from 'antd'
 import {createFromIconfontCN, GithubFilled} from '@ant-design/icons'
 import Contact from './Contact'
+import store from '../store'
 
 const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_2174183_dn83jy6h7ah.js',
 })
 
 const Author = () => {
+  const [articles, setarticles] = useState(0)
+  const [categories, setcategories] = useState(0)
+  const [tags, settags] = useState(0)
+  store.subscribe(()=>{
+    setarticles(store.getState().articles)
+    setcategories(store.getState().categories)
+    settags(store.getState().tags)
+  })
   return (
     <div className="author-div comm-box box-shadow">
       <div>
@@ -21,19 +30,19 @@ const Author = () => {
           <div className="author-info-item">
             <a>
               <div className="headline">文章</div>
-              <div className="length-num">7</div>
+              <div className="length-num">{articles}</div>
             </a>
           </div>
           <div className="author-info-item">
             <a>
               <div className="headline">分类</div>
-              <div className="length-num">2</div>
+              <div className="length-num">{categories}</div>
             </a>
           </div>
           <div className="author-info-item">
             <a>
               <div className="headline">标签</div>
-              <div className="length-num">0</div>
+              <div className="length-num">{tags}</div>
             </a>
           </div>
         </div>
